@@ -31,7 +31,7 @@
             <%= link_to "修改", edit_post_path(post), class: 'btn btn-blue'%>
           </li>
           <li>
-            <%= link_to "删除", destroy_post_path(post), method: 'delete', class: 'btn btn-blue'%>
+            <%= link_to "删除", post_path(post.id), method: :delete, class: 'btn btn-blue'%>
           </li>
         </ul>
         

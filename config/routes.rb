@@ -10,7 +10,9 @@ Rails.application.routes.draw do
    get '/admin' => 'admin#index'
    scope :admin do
     resources :posts
+    resources :categories 
    end
+   resources :news, only: [:index, :show]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
