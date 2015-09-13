@@ -1,0 +1,214 @@
+#qilian{
+  font-size: 16px;
+  font-family: '微软雅黑','Helvetica Neue',sans-serif,SimHei;
+  -webkit-font-smoothing: antialiased; 
+  color: #333;
+}
+
+#qilian a:hover{
+  color: #01B08E;
+}
+
+#qilian .btn {
+  display: inline-block;
+  font-size: 16px;
+  padding: 0 1.5em;
+  text-transform: none;
+  line-height: 30px;
+  height: 30px;
+  color: #FFF;
+  background-image: none;
+  -webkit-border-radius: .3em;
+  -moz-border-radius: .3em;
+  -ms-border-radius: .3em;
+  -o-border-radius: .3em;
+  border-radius: .3em;
+  outline: 0;
+  cursor: pointer;
+}
+
+/* comment by dongqiang 2015/05/02 18:00
+#qilian a:hover{
+  margin: 0px;
+}*/
+
+#qilian .btn-green{
+  background: #32be77;
+}
+
+#qilian .btn-blue{
+  background: #5191bd;
+}
+
+#qilian .btn-red{
+  background: #CF000F;
+}
+
+#qilian .btn-green:hover{
+  background: #2eb06f;
+  color: #fff;
+}
+
+#qilian .btn-blue:hover{
+  background: #4b86ad;
+  color: #fff;
+}
+
+#qilian p {
+  margin-bottom: 20px;
+}
+
+
+/* qilian navibar */
+.navbar-default .navigation>li>a{
+  color: #000;
+  font-weight: 700;
+  font-size:16px;
+}
+
+/* qilian box */
+#qilian .box{
+  border: 1px solid #e7e7e7;
+  border-radius: 6px;
+  background: #f8f8f8;
+  padding: 2em;
+  /*margin-top: 2em;*/
+}
+/* qilian inner-box */
+#qilian .inner-box{
+  border: 1px solid #e7e7e7;
+  border-radius: 6px;
+  background: #f8f8f8;
+  padding: 2em;
+  margin-top: 2em;
+}
+
+#qilian .outer-box {
+  margin-top: 10px;
+  border: 1px solid #e7e7e7; 
+  border-radius: 6px;
+  background: #f8f8f8;
+}
+
+#qilian .box-footer{
+  margin-top: 2em;
+}
+
+/* course list */
+#qilian img.left-block{
+  width:100%; 
+  margin-left: -15px;
+}
+
+#course-list .btn {
+  margin-top: 55px;
+  margin-left: 10px;
+}
+
+/* teacher list */
+
+#teacher-list .box-body{
+  height: 250px;
+  overflow: hidden;
+}
+
+#teacher-list img{
+  width: 150px;
+  height: 150px;
+}
+
+/* course-list */
+#course-list .box-body {
+  height: 250px;
+  overflow:hidden;
+}
+
+/* qilian slide */
+@media (min-width:768px){
+  #container{
+    margin-top: 60px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow:hidden;
+  }
+}
+
+@media (max-width:767px){
+  #container{
+    margin-top: 60px;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow:hidden;
+  }
+}
+
+/* Add by DongQiang 2015/05/25 */
+#container a {
+  display:inline-block;
+  margin:0 auto;
+  /*width:85%;*/
+  height:100%;
+}
+
+/* course-detail */
+/*#course-detail {
+  margin-top: 60px;
+}*/
+
+#course-detail .outer-box {
+  background: #2c3e50;
+}
+
+
+#course-detail .course-header .col-md-2{
+  padding: 30px 10px;   
+  margin: 50px 0;
+  text-align: center;
+  border-right: 1px solid #95a5a6;
+}  
+
+#course-detail .course-header .col-md-2.second-last {
+  border-right: 0px;
+}
+
+#course-detail .course-header .col-md-2.last{
+  border-right: 0px;
+  background: #1abc9c;
+  padding:80px 10px;
+  margin:0;
+}
+
+#course-detail .course-header span{
+  color: #909b9e;
+}
+
+#course-detail .course-header em{
+  font-size: 30px;
+  color:#e74c3c;
+}
+
+#course-detail .course-header a {
+  font-size: 30px;
+  color:#fff;
+}
+.scrollspy-qilian {
+  position: relative;
+  height: 500px;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+/**
+ *  qilian-admin
+ */
+#qilian span.admin-user{
+  padding-top:15px;
+  position:relative;
+  display:block;
+}
+
+.lable a {
+    color: #FFF !important;
+}

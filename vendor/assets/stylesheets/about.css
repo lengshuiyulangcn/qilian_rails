@@ -1,0 +1,114 @@
+/*
+  注意： 图片大小：120x120px png
+  需要更新:
+  1. 最上方的图片是否需要
+  2. 团员的图片的更新
+  3. 团员每个人的一句话介绍
+  4. SNS的super链接，如果无链接，需要显示灰色
+*/
+
+.col-md-3-style{
+      background-color:white;
+      padding: 10px;
+      margin: 5px;
+      box-shadow: 1px 1px 1px #bdc3c7; /*阴影*/
+      border-radius: 10px; /*弧度*/
+      height:260px;
+      width: auto;
+      position: relative;
+      }
+.caption-Name > h3{
+  /* 名个人的英文名字 */
+  font-size: 18px;
+}
+.caption-Name > h3 > small{
+  /* 名个人的职位 */
+  color:#3498db;
+}
+.quote-style{
+  /* 引用字体的大小 */
+  font-size: 15px;
+  border-left-color: #4aa3df;
+  background-color:#ecf0f1;
+  opacity: 0.6;
+}
+
+.list-inline-style {
+  /* 保持SNS ICON居中显示 */
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+
+.list-inline-style > li {
+  /* SNS ICON位置 */
+  display: inline-block;
+  padding-right: 7px;
+  padding-left: 7px;
+}
+
+.fa-facebook-square, .fa-weixin, .fa-weibo{
+  /* fa-awsome icon 颜色*/
+  /*color: #34495e;*/
+}
+
+.expand-style{
+  /*手机端显示有问题*/
+  /*触发详细页面*/
+  /*目前只有老师团队需要添加这个标志*/
+  position: absolute;
+  color:#7f8c8d;
+  left: 90%; /*距离左边距占整个panel的90%*/
+  z-index: 20;
+}
+
+.img-style{
+  /*每一个老师团队的头像都需要增加这个css，和expand图片行程两个互不干扰的layer*/
+  position: relative;
+  z-index: 10;
+}
+
+.modal-content-style{
+  /*modal view 从round角 -> square*/
+  border-radius:0px;
+}
+.modal-header-style{
+  /*modal Heder的背景颜色*/
+  background:#f1f4f9;
+}
+.modal-title-style{
+  font-family: Impact;
+  opacity:0.4;
+}
+.modal-body-name-style{
+  /*定义Modal view里面老师的名字*/
+  font-weight:bolder;
+  margin-top:-5px;
+  opacity:0.8;
+}
+.modal-body-name-tag-style{
+  /*与下端介绍的间距，与上端名字的间距*/
+  margin-top: -5px;
+  margin-bottom:10px;
+}
+.modal-body-passage-style{
+  /*老师介绍文字的行间距*/
+  line-height: 150%;
+  opacity:0.6;
+}
+
+.modal-footer-btn-style-left{
+  /*返回按钮*/
+  border-radius: 25px;
+  background-color: #3498db;
+  color: white;
+  opacity: 0.6;
+
+  }
+  .modal-footer-btn-style-right{
+    /*未来和预约系统链接*/
+    border-radius: 25px;
+    background-color: #e74c3c;
+    color: white;
+    opacity: 0.8;
+  }

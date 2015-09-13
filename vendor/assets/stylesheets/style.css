@@ -1,0 +1,274 @@
+body {
+  font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #f1f4f9;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  user-select: none; 
+}
+
+.page-header, .h1, h1 {
+  font-weight: 600;
+}
+.media-heading {
+  font-weight: bold;
+}
+
+.navbar-fixed-top {
+  top: 0;
+  border-top: 3px solid #01AC91;
+}
+
+.flash_success {
+    background-color: lightYellow;
+    border: 1px solid #E6DB55;
+    padding: 5px 10px;
+  	margin-bottom: 5px;
+}
+
+.flash_error {
+    color: #CD0A0A;
+    border: 1px solid #CD0A0A;
+    background-color: #FEF1EC;
+    padding: 5px 10px;
+  	margin-bottom: 5px;
+}
+
+.error-message, label.error {
+  width: 100% !important;
+  font-weight: normal !important; 
+  border-radius: 4px;
+  padding: 5px;
+  margin-top: 5px;
+  background-color: #F2DEDE;
+  color: #B60A0A;
+}
+
+/* Image fit div */
+img.inbox-blog-list {
+  width: 105px;
+  height: 105px;
+}
+
+img.inbox-blog-list-mypage {
+  width: 64px;
+  height: 64px;
+}
+
+img.inbox {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.scrollspy-qilian {
+  position: relative;
+  height: 400px;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+@media (min-width: 768px) {
+  .bs-example {
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #FFF;
+    border-color: #DDD;
+    border-width: 1px;
+    border-radius: 4px 4px 0 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+.bs_qilian {
+  position: relative;
+  padding: 45px 15px 15px;
+  margin: 0 -15px 15px;
+  border-color: #E5E5E5 #EEE #EEE;
+  border-style: solid;
+  border-width: 1px 0;
+  -webkit-box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.label a{
+  color: #FFF;
+  text-decoration: underline;
+}
+
+.label a:hover {
+  color: #FFF !important ;
+  text-decoration: none;
+}
+
+/* common */
+.mt5 {
+  margin-top: 5px !important;
+}
+.mt10 {
+  margin-top: 10px !important;
+}
+.mt20 {
+  margin-top: 20px !important;
+}
+.gray {
+  color: #979CA0;
+}
+/* Duoshuo Plugin */
+.comments {
+  margin-top: 20px;
+}
+.crop {
+  width: 105px;
+  height: 105px;
+}
+/* 课程页面选择日程 UX */
+table label {
+  cursor: pointer;
+}
+
+/******************************
+   资讯一览页面DesignByDavid
+   -20150706
+*******************************/
+.fa {
+ padding-right: 2px; /* distance between icon and text*/
+}
+.page-header-layout-style{
+ /* header部分的排版*/
+ color: #34495e;
+}
+
+h1 .page-header{
+ /*主标题*/
+ font-size: 50px;
+ font-weight: bold;
+}
+
+h1 .page-header-small-style{
+ color: #A0A7AD; /*副标题*/
+ font-size: 16px;
+ margin: 5px;
+}
+
+
+h4 a{
+  color: #444444;
+  font-weight: bold;
+}
+.blog-list {
+  background-color:white;
+  padding: 20px;
+  padding-top: 10px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-left-style: outset;
+  border-left-color: #3498db;
+  height: 230px;
+  box-shadow: 1px 1px 2px grey;
+}
+
+.blog-list-1 {
+  border-left-color: #3498db;
+}
+
+.blog-list-3 {
+  border-left-color: #e74c3c;
+}
+
+.blog-list-shi-xi {
+  border-left-color: #2ecc71;
+}
+
+/*  .col-md-11 > h6{
+  color: #bdc3c7; // 文章中显示发布时间的color 
+}*/
+
+/* Definition of Image */
+.img-thumbView{
+  float: left;
+  margin-right: 5px;
+}
+
+.markdown{
+  float:right;
+  border-radius: 25px;
+}/* define the position of remark icon*/
+
+.icon-tools{
+  /*position:absolute;*/
+  /*margin-top: 5px;
+  top:200px;
+  height: 15px;
+  width: auto;
+  list-style-type: none;
+  padding-left: 0px;*/
+}
+
+.group{
+  /*display: inline;
+  margin-right: 12px;
+  color: #bdc3c7;*/
+}
+
+.group-tag{
+  /*float: right;*/
+ /* margin-right: 5px;*/ /* same with the col-md-5 style*/
+  /*margin-bottom: 2px;*/
+}
+
+/* Category CSS*/
+
+a:hover{
+  color:#1abc9c;
+  text-decoration:none;
+}
+
+a:visited{
+  text-decoration: none;
+}
+
+a:active {
+  color: #FFFFFF;
+  background-color: #1abc9c;
+  }
+a::after{
+  color:#1abc9c;
+}
+
+.category-tags-style{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.ul-tags-style{
+  list-style-type: none;
+  padding: 0px;
+}
+.li-tags-style{
+  color: #34495e;
+  margin-top: 5px;
+}
+.tag-numbers-style{
+  font-style: normal;
+  font-weight: bolder;
+  color: #95a5a6;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-position: right;
+  float: right;
+}
+.tag-font-style{
+  color: #95a5a6;
+}
+
+.unbookmark {
+  color: rgba(0, 0, 0, 0.15);
+}
+.bookmarked {
+  color: #57AD68;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>后台管理|七联就职</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="/assets/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="/assets/style.css" media="screen">
+    <link rel="stylesheet" href="/assets/qilian.css" media="screen">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="/assets/jquery-1.10.2.min.js"></script>
+    <script src="/assets/bootstrap.min.js"></script>
+    <%= yield :extra_head %>
+    <link rel="icon" href="/favicon.ico" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+      <script src="/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <%= render partial: 'admin/header'%>
+    <div class="container page-header">
+      <div class="row clearfix page-header" id="main">
+        <div class="col-lg-9" id="main-left">
+         <%= yield %>
+        </div><!-- /main-->
+        <div class="col-lg-3" id="main-right">
+          <%= render partial: 'admin/sider'%>
+        </div>
+      </div>
+    <footer>
+        <div class="row">
+          <div class="col-lg-12">
+              <p>© 七联 2014 - 2015</p>
+          </div>
+        </div>
+    </footer>
+</body>
+</html>
