@@ -9,7 +9,11 @@ class CategoriesController < ApplicationController
   def create
     category = Category.new(category_params)
    if  category.save
-     redirect_to categories_path
+     if request.xhr?
+      render 'new.js.erb'
+     else
+      redirect_to categories_path
+     end
    else
      redirect_to :back
    end

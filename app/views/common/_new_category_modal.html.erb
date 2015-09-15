@@ -1,0 +1,43 @@
+<div class="modal-dialog" role="document">
+        <div class="well">
+           <%= form_for Category.new, html: {class: 'form-horizontal'}, remote: true do |f|%>
+            <fieldset>
+              <legend>资讯分类添加</legend>
+              
+              <div class="form-group">
+                <label for="CourseName" class="col-lg-2 control-label">名称</label>
+                <div class="col-lg-10">
+                  <%=f.text_field :name, class: 'form-control' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="CategorySlug" class="col-lg-2 control-label">英语简略</label>
+                <div class="col-lg-10">
+                  <%=f.text_field :slug, class: 'form-control' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="CategoryBoderLeftColor" class="col-lg-2 control-label">颜色设置</label>
+                <div class="col-lg-10">
+                  <%=f.text_field :border_left_color, class: 'form-control' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="CourseAddress" class="col-lg-2 control-label">描述</label>
+                <div class="col-lg-10">
+                <%=f.text_area :description, class: 'form-control', rows: 4 %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <button type="submit" class="btn btn-primary">确认添加</button>
+                </div>
+              </div>
+            </fieldset>
+             <% end %>
+        </div>
+    </div>

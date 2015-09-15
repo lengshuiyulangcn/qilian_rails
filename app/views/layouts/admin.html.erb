@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="/assets/style.css" media="screen">
     <link rel="stylesheet" href="/assets/qilian.css" media="screen">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <script src="/assets/jquery-1.10.2.min.js"></script>
-    <script src="/assets/bootstrap.min.js"></script>
     <%= yield :extra_head %>
     <link rel="icon" href="/favicon.ico" />
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/assets/bootstrap.min.js"></script>
     <%= csrf_meta_tags %>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

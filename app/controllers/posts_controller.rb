@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
   def new
     @post = Post.new
+    @categories = Category.all
   end
   def show
     @post = Post.find(params.permit(:id)[:id])
