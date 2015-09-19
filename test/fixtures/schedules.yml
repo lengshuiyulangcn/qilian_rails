@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  datetime_from: 2015-09-18 23:36:07
+  datetime_to: 2015-09-18 23:36:07
+  address: MyString
+  limit: 1
+  status: MyString
+
+two:
+  name: MyString
+  datetime_from: 2015-09-18 23:36:07
+  datetime_to: 2015-09-18 23:36:07
+  address: MyString
+  limit: 1
+  status: MyString

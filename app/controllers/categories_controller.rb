@@ -7,8 +7,9 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
   def create
-    category = Category.new(category_params)
-   if  category.save
+    @post = Post.new
+    @category = Category.new(category_params)
+   if  @category.save
      if request.xhr?
       render 'new.js.erb'
      else

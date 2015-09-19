@@ -11,8 +11,12 @@ Rails.application.routes.draw do
    scope :admin do
     resources :posts
     resources :categories 
+    resources :courses
    end
    resources :news, only: [:index, :show]
+   scope :api do
+     resources :schedules
+   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

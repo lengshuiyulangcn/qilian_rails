@@ -15,19 +15,22 @@ class PostsController < ApplicationController
   end
   def edit
     @post = Post.find(params.permit(:id)[:id])
+    @categories = Category.all
   end
   def create
     @post = Post.new
-    @post.attributes = post_params
+    @post.attributes = post_params.permit(:title, :description, :content, :image)
+    @post.categories = Category.where(name: post_params[:categories])
     redirect_to :back unless @post.save 
     redirect_to post_path(@post)
   end
 
   def update
-    post = Post.find(post_params[:id])
-    post.attributes = post_params
-    redirect_to :back unless post.save 
-    redirect_to post_path(post)
+    @post = Post.find(post_params[:id])
+    @post.attributes = post_params.permit(:title, :description, :content, :image)
+    @post.categories = Category.where(name: post_params[:categories])
+    redirect_to :back unless @post.save 
+    redirect_to post_path(@post)
   end
   def destroy
     post = Post.destroy_all(id: params.permit(:id)[:id])
@@ -36,6 +39,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:id, :title, :description, :content)
+    params.require(:post).permit(:id, :title, :description, :content, :image, :categories=>[])
   end
 end

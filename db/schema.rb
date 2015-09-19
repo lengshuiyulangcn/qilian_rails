@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913090142) do
+ActiveRecord::Schema.define(version: 20150918145849) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -30,12 +30,39 @@ ActiveRecord::Schema.define(version: 20150913090142) do
   add_index "categories_posts", ["category_id"], name: "index_categories_posts_on_category_id"
   add_index "categories_posts", ["post_id"], name: "index_categories_posts_on_post_id"
 
+  create_table "courses", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image"
+    t.string   "address"
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.text     "description"
+    t.string   "price"
+    t.string   "price_detail"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.text     "content"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title",       null: false
     t.string   "description", null: false
     t.text     "content",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "image"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "datetime_from"
+    t.datetime "datetime_to"
+    t.string   "address"
+    t.integer  "limit"
+    t.string   "status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "course_id"
   end
 
   create_table "users", force: :cascade do |t|

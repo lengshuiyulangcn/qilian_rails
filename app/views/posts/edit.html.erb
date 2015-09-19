@@ -41,8 +41,8 @@
 
       <div class="form-group">
           <label for="PostImage">课程图片</label>
-            <input type="file" name="file" id="eyecatch_upload"><br />
-            <img id="eyecatch_url" src="" style="width: 140px; height: 140px;"/>
+            <%= f.file_field :image, id: "eyecatch_upload", onchange: "previewFile()" %><br />
+            <%= image_tag @post.image, id: "eyecatch_url",style: "width: 140px; height: 140px;" %>
       </div>
 
       <div class="form-group">
@@ -51,11 +51,24 @@
       </div>
 
       <div class="form-group">
-        <label class="control-label">大分类</label>  
-        categories
+        <label class="control-label">大分类</label>
+        <div id="category_select">
+          <% @categories.each do |category| %>
+          <div class="checkbox-inline">
+            <%= f.check_box(:categories, {multiple: true, checked: @post.categories.include?(category) }, category.name, nil) %>
+            <%= f.label category.name %>
+          </div>
+          <% end %>
+        </div>
+        <button type="button" class="btn btn-mini" data-toggle="modal" data-target="#new_category_modal">
+          添加
+        </button>
       </div>
       <button type="submit" class="btn btn-primary">保存</button>
     <% end %>
+        <div class="modal fade" id="new_category_modal" tabindex="-1" role="dialog">
+          <%= render partial: 'common/new_category_modal'%>
+        </div>
   </div>
   </div>
   
@@ -73,3 +86,21 @@
                 editor1.run();
             })();
 </script>
+<script>
+function previewFile() {
+  var preview = document.getElementById('eyecatch_url');
+  var file    = document.getElementById('eyecatch_upload').files[0];
+  var reader  = new FileReader();
+
+  reader.onloadend = function () {
+    preview.src = reader.result;
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+  }
+}
+</script>
+

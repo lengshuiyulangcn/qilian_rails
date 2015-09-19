@@ -1,0 +1,88 @@
+<legend>课程日程添加</legend>
+<form class='form-horizontal'>
+<div class="schedule_templete">
+        <div class="schedule">
+          <div class="form-group">
+          <label class="col-lg-2 control-label">课程名称</label>
+          <div class="col-lg-10">
+            <input name="data[Schedule][0][name]" placeholder="例:XX课程第一期" class="form-control" type="text"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-2 control-label">地点</label>
+          <div class="col-lg-10">
+            <input name="data[Schedule][0][address]" value="〒101-0024 東京都千代田区神田和泉1-11-17 プラントビル2階" class="form-control" type="text"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">上限人数</label>
+          <div class="col-lg-10">
+            <input name="data[Schedule][0][limit]" class="form-control" type="text"/>
+          </div>
+        </div>
+
+        <div class="form-group form-inline">
+          <label for="CourseStarttime" class="col-lg-2 control-label">课程时间</label>
+          <div class="col-lg-10">
+            <input name="data[Schedule][0][datetime_from]" class="form-control datetimepicker" readonly="readonly" type="text"/>
+            〜
+            <input name="data[Schedule][0][datetime_to]" class="form-control datetimepicker" readonly="readonly" type="text"/>
+          </div>
+        </div>
+        </div>
+</div><!-- /schedule_templete -->
+
+      <div id="schedule">
+      </div>
+      <a id="addRow" class="btn btn-warning pull-right"><i class="fa fa-calendar"></i> 继续添加新日程</a>
+      <!-- /日程表 -->
+
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button type="submit" class="btn btn-primary">提交表单</button>
+        </div>
+      </div>
+    </fieldset>
+
+<!-- Templete for Schedule -->
+<div class="schedule-templete hidden">
+  <hr>
+  <div class="row">
+  <div class="col-lg-2 pull-right">
+    <a href="#" class="remove_field" id="remove_field"><i class="fa fa-trash"></i>削除该日程信息</a>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <label for="CourseAddress" class="col-lg-2 control-label">课程名称</label>
+    <div class="col-lg-10">
+      <input name="name" class="form-control" type="text" placeholder="例:XXX课程第X期"/>    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="CourseAddress" class="col-lg-2 control-label">地点</label>
+    <div class="col-lg-10">
+      <input name="address" class="form-control" type="text" value="〒101-0024 東京都千代田区神田和泉1-11-17 プラントビル2階"/>    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="CourseTotaAttendee" class="col-lg-2 control-label">上限人数</label>
+    <div class="col-lg-10">
+      <input name="limit" class="form-control" type="text"/>    </div>
+  </div>
+
+  <div class="form-group form-inline">
+    <label for="CourseStarttime" class="col-lg-2 control-label">课程时间</label>
+    <div class="col-lg-10">
+      <input name="starttime" class="form-control datetimepicker" readonly="readonly" type="text"/>      〜
+      <input name="endtime" class="form-control datetimepicker" readonly="readonly" type="text"/>    </div>
+  </div>
+</div>
+</form>
+<!-- include timepicker css/js-->
+<link rel="stylesheet" href="/assets/jquery.datetimepicker.css" />
+<script type="text/javascript" src="/assets/jquery.datetimepicker.js"></script>
+<script>
+</script>
+

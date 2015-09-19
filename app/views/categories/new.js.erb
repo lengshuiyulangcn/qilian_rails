@@ -1,2 +1,3 @@
 $('#new_category_modal').modal('hide');
-$('#category_select').html('<%=j render partial: "common/category_select" %>');
+$('#new_category')[0].reset();
+$('#category_select').append('<%=j render partial: "common/category_select" %>');

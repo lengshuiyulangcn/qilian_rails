@@ -1,7 +1,4 @@
-<% Category.all.each do |category| %>
   <div class="checkbox-inline">
-    <%= check_box_tag 'post[categories][]',category.name %>
-    <%= label_tag category.name %>
+    <%= check_box_tag 'post[categories][]',@category.name %>
+    <%= label_tag @category.name %>
   </div>
-<% end %>
-
