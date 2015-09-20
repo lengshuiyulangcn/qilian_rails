@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :categories 
     resources :courses
    end
+   get '/course/:id' => 'courses#detail', as: :course_detail
    resources :news, only: [:index, :show]
    scope :api do
      resources :schedules

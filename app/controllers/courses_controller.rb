@@ -30,7 +30,10 @@ class CoursesController < ApplicationController
       redirect_to :back
     end
   end
-
+  def detail
+    @course = Course.find(params.permit(:id)[:id])
+    render layout: 'application'
+  end
   private
   def course_params
     params.require(:course).permit(:id, :name, :image, :price, :price_detail, :description, :content)
