@@ -6,14 +6,14 @@
       <div class="form-group">
         <label for="CourseName" class="col-lg-2 control-label">标题</label>
         <div class="col-lg-10">
-        <%=f.text_field :name, class: 'form-control' %>
+        <%=f.text_field :name, class: 'form-control', required: true %>
         </div>
       </div>
 
       <div class="form-group">
         <label for="CourseName" class="col-lg-2 control-label">每课时价钱</label>
         <div class="col-lg-10">
-        <%=f.text_field :price, class: 'form-control' %>
+        <%=f.text_field :price, class: 'form-control', required: true%>
         </div>
       </div>
 
@@ -21,21 +21,21 @@
       <div class="form-group">
         <label for="CourseDescription" class="col-lg-2 control-label">费用介绍</label>
         <div class="col-lg-10">
-        <%=f.text_area :price_detail, class: 'form-control', rows: 8 %>
+        <%=f.text_area :price_detail, class: 'form-control', rows: 4, required: true %>
         </div>
       </div>
 
       <div class="form-group">
         <label for="CourseDescription" class="col-lg-2 control-label">简介</label>
         <div class="col-lg-10">
-        <%=f.text_area :description, class: 'form-control', rows: 8 %>
+        <%=f.text_area :description, class: 'form-control', rows: 4, required: true %>
         </div>
       </div>
 
       <div class="form-group">
         <label for="CourseDescription" class="col-lg-2 control-label">课程大纲</label>
         <div class="col-lg-10">
-        <%=f.text_area :content, class: 'form-control', rows: 8 %>
+        <%=f.text_area :content, class: 'form-control', rows: 8, required: true %>
         </div>
       </div>
 

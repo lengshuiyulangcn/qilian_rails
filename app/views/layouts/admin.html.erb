@@ -27,6 +27,9 @@
     <div class="container page-header">
       <div class="row clearfix page-header" id="main">
         <div class="col-lg-9" id="main-left">
+        <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
          <%= yield %>
         </div><!-- /main-->
         <div class="col-lg-3" id="main-right">

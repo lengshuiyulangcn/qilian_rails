@@ -17,19 +17,19 @@
       <%= form_for @post do |f| %>
       <div class="form-group">
         <label>标题</label>
-        <%=f.text_field :title, class: 'form-control' %>
+        <%=f.text_field :title, class: 'form-control', required: true %>
       </div>
 
       <div class="form-group">
         <label>简介</label>
-        <%=f.text_area :description, class: 'form-control', rows: 4 %>
+        <%=f.text_area :description, class: 'form-control', rows: 4,required: true  %>
       </div>
 
       <div class="form-group" id='editor'>
         <label>文章内容</label>
         <div class="wmd-panel">
           <div id="wmd-button-bar"></div>
-          <%=f.text_area :content, class: 'wmd-input', id: 'wmd-input', rows: 20, 'v-model'=> 'input'%>
+          <%=f.text_area :content, class: 'wmd-input', id: 'wmd-input', rows: 20, 'v-model'=> 'input',required: true %>
         </div>
         <label>预览</label>
         <div class="wmd-panel">
@@ -41,11 +41,6 @@
           <label for="PostImage">添加图片</label>
             <%= f.file_field :image, id: "eyecatch_upload", onchange: "previewFile()" %><br />
             <img id="eyecatch_url" src="" style="width: 140px; height: 140px;"/>
-      </div>
-
-      <div class="form-group">
-        <label>发布时间</label>
-        <%= @post.new_record?  ? Time.now : @post.created_at %>
       </div>
 
       <div class="form-group">

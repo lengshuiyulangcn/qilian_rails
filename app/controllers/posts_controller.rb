@@ -21,16 +21,26 @@ class PostsController < ApplicationController
     @post = Post.new
     @post.attributes = post_params.permit(:title, :description, :content, :image)
     @post.categories = Category.where(name: post_params[:categories])
-    redirect_to :back unless @post.save 
-    redirect_to post_path(@post)
+    if @post.save 
+      flash[:success]='创建文章成功'
+      redirect_to post_path(@post)
+    else
+      flash[:error]='创建文章失败'
+      redirect_to :back
+    end
   end
 
   def update
     @post = Post.find(post_params[:id])
     @post.attributes = post_params.permit(:title, :description, :content, :image)
     @post.categories = Category.where(name: post_params[:categories])
-    redirect_to :back unless @post.save 
-    redirect_to post_path(@post)
+    if @post.save 
+      flash[:success]='修改文章成功'
+      redirect_to post_path(@post)
+    else
+      flash[:error]='修改文章失败'
+      redirect_to :back
+    end
   end
   def destroy
     post = Post.destroy_all(id: params.permit(:id)[:id])

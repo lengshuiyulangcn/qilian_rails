@@ -1,7 +1,17 @@
 <div class="well">
+   <ul class="nav nav-tabs" role="tablist">
+          <li class="active">
+            <a href="#course_tab" role="tab" data-toggle="tab">课程信息</a>
+          </li>
+          <li>
+            <a href="#schedule_tab" role="tab" data-toggle="tab">课时管理</a>
+          </li>
+    </ul> 
+    <div class="tab-content mt10">
+     <div  class="tab-pane fade active in" id="course_tab">
       <form class='form-horizontal'>
     <fieldset>
-      <legend>课程信息(添加课时)</legend>
+      <legend>课程信息</legend>
       
       <div class="form-group">
         <label for="CourseName" class="col-lg-2 control-label">标题</label>
@@ -54,5 +64,11 @@
       </div>
     </fieldset>
     </form>
-<%= render partial: 'courses/schedule'%>
+  </div>
+  <div  class="tab-pane fade in" id="schedule_tab">
+    <%= react_component('ScheduleForm', {schedules: @course.schedules.to_json, course_id: @course.id}) %>
+  </div>
 </div>
+</div>
+<link rel="stylesheet" href="/assets/jquery.datetimepicker.css" />
+<script type="text/javascript" src="/assets/jquery.datetimepicker.js"></script>

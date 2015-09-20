@@ -1,15 +1,16 @@
 class SchedulesController < ApplicationController
-  def create
+skip_before_action :verify_authenticity_token  
+ def create
    @schedule = Schedule.new
    @schedule.attributes = schedule_params
    if @schedule.save
-    render @shedule.to_json 
+    render json: Schedule.where(course_id: schedule_params[:course_id]).all.to_json 
    else
-    render {'error': 'failure'}.to_json
+    render nothing: true, status: 500 
    end
   end
   private
   def schedule_params
-    params.require(:shedule).permit(:id,:name,:course_id, :datetime_from, :datetime_to, :address, :status)
+    params.permit(:id, :name,:limit, :course_id, :datetime_from, :datetime_to, :address, :status)
   end
 end
