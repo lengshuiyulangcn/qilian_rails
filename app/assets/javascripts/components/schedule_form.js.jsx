@@ -65,27 +65,27 @@ componentDidMount: function() {
         <div className="form-group">
           <label className="col-lg-2 control-label">课程名称</label>
           <div className="col-lg-10">
-            <input ref="name" placeholder="例:XX课程第一期" className="form-control" type="text"/>
+            <input ref="name" placeholder="例:XX课程第一期" className="form-control" required type="text"/>
           </div>
         </div>
         <div className="form-group">
           <label className="col-lg-2 control-label">地点</label>
           <div className="col-lg-10">
-            <input ref="address" className="form-control" type="text"/>
+            <input ref="address" className="form-control" required type="text"/>
           </div>
         </div>
         <div className="form-group">
           <label className="col-lg-2 control-label">上限人数</label>
           <div className="col-lg-10">
-            <input ref="limit" className="form-control" type="text"/>
+            <input ref="limit" className="form-control" required type="text"/>
           </div>
         </div>
       <div className="form-group form-inline">
         <label for="CourseStarttime" className="col-lg-2 control-label">课程时间</label>
         <div className="col-lg-10">
-          <input ref="datetime_from" className="form-control datetimepicker" readonly="readonly" type="text"/>
+          <input ref="datetime_from" className="form-control datetimepicker" required readonly="readonly" type="text"/>
           〜
-          <input ref="datetime_to" className="form-control datetimepicker" readonly="readonly" type="text"/>
+          <input ref="datetime_to" className="form-control datetimepicker" required readonly="readonly" type="text"/>
         </div>
       </div>
       <div className="form-group">
@@ -100,37 +100,28 @@ componentDidMount: function() {
 });
 var ScheduleData = React.createClass({
    render: function() {
+    var divstyle={
+        width: "100%",
+      };
     return(
-      <form className='form-horizontal'>
+      <div className="container" style={divstyle} >
       <legend>第{this.props.index+1}次</legend>
-        <div className="form-group">
-          <label className="col-lg-2 control-label">课程名称</label>
-          <div className="col-lg-10">
-            <input ref="name" placeholder="例:XX课程第一期" className="form-control" type="text" disabled value={this.props.schedule.name}/>
-          </div>
-        </div>
-        <div className="form-group">
-          <label className="col-lg-2 control-label">地点</label>
-          <div className="col-lg-10">
-            <input ref="address" className="form-control" type="text" disabled value={this.props.schedule.address}/>
-          </div>
-        </div>
-        <div className="form-group">
-          <label className="col-lg-2 control-label">上限人数</label>
-          <div className="col-lg-10">
-            <input ref="limit" className="form-control" type="text" disabled value={this.props.schedule.limit}/>
-          </div>
-        </div>
-      <div className="form-group form-inline">
-        <label for="CourseStarttime" className="col-lg-2 control-label">课程时间</label>
-        <div className="col-lg-10">
-          <input ref="datetime_from" className="form-control datetimepicker" readonly="readonly" type="text" disabled value={this.props.schedule.datetime_from}/>
-          〜
-          <input ref="datetime_to" className="form-control datetimepicker" readonly="readonly" type="text" disabled value={this.props.schedule.datetime_to}/>
-        </div>
+       <table className="table table-bordered">
+          <tr>
+            <th>课时名称</th>
+            <td>{this.props.schedule.name}</td>
+            <th>授课地点</th>
+            <td>{this.props.schedule.address}</td>
+          </tr>
+          <tr>
+            <th>人数限制</th>
+            <td>{this.props.schedule.limit}</td>
+            <th>授课时间</th>
+            <td>{this.props.schedule.datetime_from} ~ {this.props.schedule.datetime_to}</td>
+          </tr>
+      </table>
       </div>
-    </form>
-    );
+  );
   }
 });
 

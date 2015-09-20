@@ -18,6 +18,8 @@ gem 'redcarpet'
 gem 'carrierwave'
 gem 'rmagick'
 
+# Rich text editor
+gem 'rails_kindeditor'
 # User roles
 gem 'cancancan', '~> 1.10'
 # See https://github.com/rails/execjs#readme for more supported runtimes
