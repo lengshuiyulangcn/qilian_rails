@@ -11,6 +11,6 @@ skip_before_action :verify_authenticity_token
   end
   private
   def schedule_params
-    params.permit(:id, :name,:limit, :course_id, :datetime_from, :datetime_to, :address, :status)
+    params.permit(:id, :name,:limit, :content, :course_id, :datetime_from, :datetime_to, :address, :status)
   end
 end

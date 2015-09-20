@@ -6,10 +6,13 @@ var ScheduleForm = React.createClass({
     var limit = React.findDOMNode(this.refs.limit).value.trim();
     var datetime_from = React.findDOMNode(this.refs.datetime_from).value.trim();
     var datetime_to = React.findDOMNode(this.refs.datetime_to).value.trim();
+    var content = window.schedule_content.innerHTML;
+    console.log(content)
     var params = {
         'course_id': this.props.course_id,
         'name': name,
         'address': address,
+        'content': content,
         'limit': limit,
         'datetime_from': datetime_from,
         'datetime_to': datetime_to
@@ -34,10 +37,22 @@ var ScheduleForm = React.createClass({
     React.findDOMNode(this.refs.limit).value = '';
     React.findDOMNode(this.refs.datetime_from).value = '';
     React.findDOMNode(this.refs.datetime_to).value = '';
+    window.schedule_content.innerHTML='';
 
 },
 componentDidMount: function() {
         $('.datetimepicker').datetimepicker();
+        KindEditor.create('#schedule_content', 
+          {
+             "width":"100%", "height":300,"class": "form-control",
+             "allowFileManager":true,
+             "uploadJson":"/kindeditor/upload",
+             "fileManagerJson":"/kindeditor/filemanager",
+             "editor_id": "schedule_content",
+             "afterBlur" : function(){
+                  this.sync();   
+              } 
+          });
     },
  handleSubmitFailure: function(){
     console.log('failed')
@@ -88,6 +103,14 @@ componentDidMount: function() {
           <input ref="datetime_to" className="form-control datetimepicker" required readonly="readonly" type="text"/>
         </div>
       </div>
+      <div className="form-group">
+          <label className="col-lg-2 control-label">授课内容</label>
+          <div className="col-lg-10">
+            <div ref="content" id="schedule_content">
+            </div>
+          </div>
+      </div>
+
       <div className="form-group">
         <div className="col-lg-10 col-lg-offset-2">
         <button type="submit" className="btn btn-primary">添加课程</button>
