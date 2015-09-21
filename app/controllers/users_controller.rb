@@ -13,10 +13,10 @@ class UsersController < ApplicationController
     end
   end 
   def update
-    raise
     @user = User.find(params.permit(:id)[:id]) 
     @user.attributes = user_params 
-    @user.birthday = 
+    birthday =params.require(:user).permit("birthday(1i)","birthday(2i)","birthday(3i)").map{|k,v| v}.join("-").to_date 
+    @user.birthday =birthday 
     if @user.save
       flash[:success]= "更新用户表单成功"
       redirect_to mypage_path
