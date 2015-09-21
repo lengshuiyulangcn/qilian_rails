@@ -40,27 +40,11 @@
         before_next 
       </div>
       <!-- Duoshuo Comments -->
-      <div class="comments" id="comments">
-        <div class="ds-share" data-thread-key="<?php echo $post['Post']['id']?>" data-title="<?php echo $post['Post']['title'];?>"  data-content="来自七联资讯" data-url="http://qilian.jp/news/detail/<?php echo $post['Post']['id']?>">
-          <div class="ds-share-inline">
-            <ul  class="ds-share-icons-16">
-              <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-              <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-              <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-              <li><a class="ds-facebook" href="javascript:void(0);" data-service="facebook">Facebook</a></li>
-            </ul>
-            <div class="ds-share-icons-more">
-            </div>
-          </div>
-        </div> 
-        <div class="ds-thread" data-thread-key="<?php echo $post['Post']['id']?>"
-             data-title="<?php echo $post['Post']['title'];?>" data-url="http://qilian.jp/news/detail/<?php echo $post['Post']['id']?>">
-        </div>
-      </div>
+      <%= render partial: "common/comment_widget", locals: {post: @post } %>
     </div>
 
     <!-- main-right sidebar -->
-    <%= render partial: 'common/side_posts'%>
+    <%= render partial: 'common/side_posts', locals: {categories: @post.categories }%>
     <!-- /main-right sidebar -->
 
   </div>
