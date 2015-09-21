@@ -15,9 +15,9 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="/appointment/course" id="themes">课程管理 <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="/appointment/course">查看课程</a></li>
+                <li><%=link_to "课程管理", courses_path  %></li>
                 <li class="divider"></li>
-                <li><a href="/appointment/course/add">添加课程</a></li>
+                <li><%=link_to "添加课程", new_course_path  %></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -34,14 +34,13 @@
                 <li><a href="/admin/posts">资讯一览</a></li>
                 <li><a href="/admin/posts/new">添加资讯</a></li>
                 <li class="divider"></li>
-                <li><a href="/admin/category">资讯分类标签</a></li>
+                <li><%=link_to "咨询分类标签", categories_path %></li>
               </ul>
             </li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="/appointment/post/lists" id="themes">团队成员 <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="/appointment/member">成员一览</a></li>
-                <li><a href="/appointment/member/add">添加资讯</a></li>
+                <li><%=link_to "成员一览", users_path %></li>
               </ul>
             </li>
 
