@@ -7,7 +7,10 @@ Rails.application.routes.draw do
    root 'home#index'
 
    get '/mypage' => 'mypage#index'
+   resources :users
    get '/admin' => 'admin#index'
+ # Show userinfo under admin
+   get '/admin/userinfo/:id' => 'admin#userinfo', as: :admin_userinfo
    scope :admin do
     resources :posts
     resources :categories 

@@ -14,4 +14,6 @@ def admin_only
   redirect_to '/' if current_user.role!= "admin"
 end
 
+def check_userinfo
+end
 end

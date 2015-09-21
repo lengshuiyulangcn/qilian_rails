@@ -1,0 +1,32 @@
+class UsersController < ApplicationController
+  before_action :admin_only, only: :index
+  layout 'admin', only: :index
+  def index
+      @users = User.all
+  end
+  def edit
+    if current_user.id.to_s != params.permit(:id)[:id]
+      flash[:error]="你没有权限修改别人的信息"
+      redirect_to '/'
+    else
+      @user = User.find(params.permit(:id)[:id]) 
+    end
+  end 
+  def update
+    raise
+    @user = User.find(params.permit(:id)[:id]) 
+    @user.attributes = user_params 
+    @user.birthday = 
+    if @user.save
+      flash[:success]= "更新用户表单成功"
+      redirect_to mypage_path
+    else
+      flash[:error]= "更新失败"
+      redirect_to :back
+    end
+  end 
+  private
+  def user_params
+    params.require(:user).permit(:family_name,:gender,:role,:given_name,:phone,:school,:major,:job,:wechat,:line)
+  end
+end
