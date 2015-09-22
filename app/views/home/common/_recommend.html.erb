@@ -5,12 +5,18 @@
       <h2 class="page-header">七联公共课</h2>
     </div>
   </div>
+  <% courses.each do |course| %>
   <div class="row">
     <div class="col-md-4">
-      course image
+      <%=link_to image_tag(course.image, style: "max-height: 300px;"), course_detail_path(course.id) %>
     </div>
     <div class="col-md-8">
-      course content
+      <h3><%=link_to course.name, course_detail_path(course.id) %></h3>
+      <p><%= truncate(course.description, length: 200) %></p>
+      <%=link_to "了解更多", course_detail_path(course.id), class: 'btn btn-primary'%>
     </div>
+  </div>
+  <hr>
+<% end %>
  </div>
 

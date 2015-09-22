@@ -2,14 +2,21 @@
 <div class="col-md-4 widget-col-md-4">
   <div class="col-md-12 sidebar-layouts">
     <h4 class="sidebar-section-title"><i class="fa fa-tags"></i> 分类浏览</h4>
-    <% categories.each do |category| %>
-      <%= link_to category.name, category_path, class: "btn btn-default sidebar-tags"%>
+    <% Category.all.each do |category| %>
+      <%= link_to category.name, news_category_path(category.id), class: "btn btn-default sidebar-tags"%>
     <% end %>
   </div>
   
   <div class="col-md-12 sidebar-layouts"><!-- 5 Top Picks Articles -->
     <h4 class="sidebar-section-title"><i class="fa fa-thumb-tack"></i>人气推荐</h4>
-       favor_news
+    <% hot_posts.each do |post|%>
+      <div class="sidebar-topPick-block">
+        <h4><i class="fa fa-star"></i><%= link_to  post.title, news_path(post.id) %></h4>
+        <p class="side-bar-topPick-description">
+        <%= post.description %>
+        </p>
+      </div>
+    <% end %>
   </div>
 
   <!-- Side Widget Well -->
