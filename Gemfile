@@ -27,6 +27,8 @@ gem 'cancancan', '~> 1.10'
 
 # User Auth
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # PV track
 gem 'impressionist'
