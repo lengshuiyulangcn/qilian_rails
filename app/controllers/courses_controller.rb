@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new
     @course.attributes = course_params
+    @course.users = User.where(name: params.require(:course).permit(:users=>[])[:users])
     if @course.save
       redirect_to course_path(@course)
     else
@@ -24,6 +25,7 @@ class CoursesController < ApplicationController
   def update
     @course = Course.find(course_params[:id])
     @course.attributes = course_params
+    @course.users = User.where(name: params.require(:course).permit(:users=>[])[:users])
     if @course.save
       redirect_to course_path(@course)
     else

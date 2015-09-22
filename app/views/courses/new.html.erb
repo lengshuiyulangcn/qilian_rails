@@ -44,7 +44,7 @@
         <div class="col-lg-10">
         <%User.teachers.each do |teacher|%>
           <div class="checkbox-inline">
-            <%= f.check_box(:teachers, {multiple: true}, teacher.name, nil) %>
+            <%= f.check_box(:users, {multiple: true}, teacher.name, nil) %>
             <%= f.label teacher.name %>
           </div>
          <% end %>
