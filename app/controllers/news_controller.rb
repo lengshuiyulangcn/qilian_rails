@@ -1,7 +1,7 @@
 class NewsController < ApplicationController
   impressionist :actions=>[:show]
   def index
-    @posts = Post.all
+    @posts = Post.page(params.permit(:page)[:page]).order('created_at DESC')
     @hot_posts = get_hot_passages
   end
   def show
@@ -14,7 +14,7 @@ class NewsController < ApplicationController
   end
   def category
     @category = Category.find(params.permit(:id)[:id])
-    @posts = @category.posts
+    @posts = @category.posts.page(params.permit(:page)[:page]).order('created_at DESC')
     @hot_posts = get_hot_passages
   end
   private
