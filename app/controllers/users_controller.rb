@@ -19,7 +19,8 @@ class UsersController < ApplicationController
     @user.birthday =birthday 
     if @user.save
       flash[:success]= "更新用户表单成功"
-      redirect_to mypage_path
+      redirect_to mypage_path if current_user.role != 'admin'
+      redirect_to users_path
     else
       flash[:error]= "更新失败"
       redirect_to :back
@@ -27,6 +28,6 @@ class UsersController < ApplicationController
   end 
   private
   def user_params
-    params.require(:user).permit(:family_name,:gender,:role,:given_name,:phone,:school,:major,:job,:wechat,:line)
+    params.require(:user).permit(:email,:family_name,:gender,:role,:given_name,:phone,:school,:major,:job,:wechat,:line)
   end
 end

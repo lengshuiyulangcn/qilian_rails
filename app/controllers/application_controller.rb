@@ -15,5 +15,7 @@ def admin_only
 end
 
 def check_userinfo
+  flash[:error]= "请先完善用户信息"
+  redirect_to edit_user_path(current_user.id) if current_user.phone.nil?
 end
 end
