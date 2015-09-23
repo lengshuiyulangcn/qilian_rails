@@ -1,8 +1,8 @@
 <!-- Page Content -->
 <div class="container">
   <!-- Page Heading/Breadcrumbs -->
-  <%= render partial: 'common/mypage_header'%>
-  
+  <%= render partial: 'common/mypage_header'%> 
+
   <div class="row">
     <!-- Menu -->
     <div class="col-lg-2">
@@ -11,14 +11,23 @@
 
     <!-- Main -->
     <div class="col-lg-7">
-      <%= render partial: 'common/userinfo', locals: { user: @user }%>
-    </div><!-- /Main -->
+
+      <%= render partial: '/mypage/common/ads'%> 
+      <!-- courses info -->
+      <div class="col-md-12 mt20">
+        <% @courses.each do |course| %>
+          <%= course.name %>
+        <% end %>
+      </div>
+      <!-- /courses info -->
+
+
+  </div><!-- /Main -->
 
     <!-- Right recommend -->
     <div class="col-lg-3">
     	
     </div><!-- /Right recommend -->
 
-  </div>
+</div>
   <!-- /.Row -->
-  

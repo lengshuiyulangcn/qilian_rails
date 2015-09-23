@@ -8,14 +8,15 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   validates_length_of :name, minimum: 2, maximum: 12
   has_many :entries
+  mount_uploader :image, ImageUploader
   def self.find_for_facebook_oauth(auth)
       user = User.where(provider: auth.provider, uid: auth.uid).first
-
       unless user
         user  = User.new
         user.attributes = { name:     auth.extra.raw_info.name,
                             provider: auth.provider,
                             uid:      auth.uid,
+                            image:    auth.info.image,
                             email:    auth.info.email.nil? ? "" : auth.info.email,
                             token:    auth.credentials.token,
                             password: Devise.friendly_token[0,20] }

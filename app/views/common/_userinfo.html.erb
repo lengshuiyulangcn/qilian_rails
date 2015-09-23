@@ -22,6 +22,12 @@
             <%=f.date_select :birthday, use_month_numbers: :true, start_year: 1980, end_year: 2000 %>
         </div>
         <div class="form-group">
+          <label for="PostImage">添加头像</label>
+            <%= f.file_field :image, id: "eyecatch_upload", onchange: "previewFile()" %><br />
+            <%= image_tag  user.image, id: "heyecatch_url", style: "width: 140px; height: 140px;"%>
+        </div>
+
+        <div class="form-group">
           <label>联系电话</label>
           <%=f.text_field :phone, value: user.phone, class: 'form-control',required: true  %>
         </div>
@@ -66,3 +72,21 @@
     </div>
   </div>
 </div>
+<script>
+function previewFile() {
+  var preview = document.getElementById('eyecatch_url');
+  var file    = document.getElementById('eyecatch_upload').files[0];
+  var reader  = new FileReader();
+
+  reader.onloadend = function () {
+    preview.src = reader.result;
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+  }
+}
+</script>
+

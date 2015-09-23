@@ -7,6 +7,7 @@ Rails.application.routes.draw do
    root 'home#index'
 
    get '/mypage' => 'mypage#index'
+   get '/mypage/courses' => 'mypage#my_courses', as: :my_courses
    resources :users
    get '/admin' => 'admin#index'
  # Show userinfo under admin
