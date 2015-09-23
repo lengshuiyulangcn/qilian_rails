@@ -18,7 +18,8 @@
           <th>课程名称</th>
           <td><%= @course.name %></td>
           <th>讲师</th>
-          <td><%= 'gyorou' %></td>
+          <td><%=@course.users.map{|user| user.name}.join(' ') %>
+          </td>
         </tr>
         <tr>
           <th>课程费用</th>
