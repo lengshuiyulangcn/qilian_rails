@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :courses, join_table: "users_courses"
   validates_presence_of :name
   validates_length_of :name, minimum: 2, maximum: 12
+  has_many :entries
   def self.find_for_facebook_oauth(auth)
       user = User.where(provider: auth.provider, uid: auth.uid).first
 

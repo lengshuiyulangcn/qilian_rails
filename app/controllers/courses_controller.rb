@@ -34,6 +34,7 @@ class CoursesController < ApplicationController
   end
   def detail
     @course = Course.find(params.permit(:id)[:id])
+    @current_students = Entry.where(course_id: @course.id).map{|entry| entry.user_id }
     render layout: 'application'
   end
   private

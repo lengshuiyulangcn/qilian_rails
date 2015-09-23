@@ -14,7 +14,7 @@ def admin_only
   redirect_to '/' if current_user.role!= "admin"
 end
 
-def check_userinfo
+def finish_userinfo
   flash[:error]= "请先完善用户信息"
   redirect_to edit_user_path(current_user.id) if current_user.phone.nil?
 end

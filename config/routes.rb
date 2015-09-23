@@ -11,6 +11,7 @@ Rails.application.routes.draw do
    get '/admin' => 'admin#index'
  # Show userinfo under admin
    get '/admin/userinfo/:id' => 'admin#userinfo', as: :admin_userinfo
+   resources :entries, only: [:create,:destroy]
    scope :admin do
     resources :posts
     resources :categories 
