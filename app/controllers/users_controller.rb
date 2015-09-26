@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       redirect_to mypage_path if current_user.role != 'admin'
       redirect_to users_path
     else
-      flash[:error]= "更新失败"
+      flash[:error]= @user.errors.first 
       redirect_to :back
     end
   end 
