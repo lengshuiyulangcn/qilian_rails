@@ -10,12 +10,12 @@ class User < ActiveRecord::Base
   
   has_and_belongs_to_many :courses, join_table: "users_courses"
   validates_presence_of :name,message: '昵称不能为空'
-  validates_presence_of :family_name, message: '姓氏不能为空'
-  validates_presence_of :given_name,message: '名字不能为空'
-  validates_length_of :name, minimum: 2, maximum: 12, message: '昵称应该在2-20个字符以内'
-  validates_format_of :phone, with: VALIDATE_PHONE_NUMBER, message: "请输入正确的手机号码"
-  validates_presence_of :school, message: '学校不能为空'
-  validates_presence_of :major, message: '专业不能为空'
+  validates_presence_of :family_name, message: '姓氏不能为空', on: [:update]
+  validates_presence_of :given_name,message: '名字不能为空', on: [:update]
+  validates_length_of :name, minimum: 2, maximum: 12, message: '昵称应该在2-20个字符以内', on: [:update]
+  validates_format_of :phone, with: VALIDATE_PHONE_NUMBER, message: "请输入正确的手机号码", on: [:update]
+  validates_presence_of :school, message: '学校不能为空', on: [:update]
+  validates_presence_of :major, message: '专业不能为空', on: [:update]
  
   has_many :entries
 
