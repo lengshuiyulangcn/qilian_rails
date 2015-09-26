@@ -43,6 +43,7 @@ class PostsController < ApplicationController
     end
   end
   def destroy
+    flash[:success]='删除文章成功'
     post = Post.destroy_all(id: params.permit(:id)[:id])
     redirect_to posts_path
   end

@@ -1,0 +1,46 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#naver-qilian">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" rel="home" href="/" title="Brand" style="padding-top: 0px; padding-bottom: 0px">
+            <img style="height: 50px;" alt="七联" src="/assets/logo.png">
+          </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="naver-qilian">
+          <ul class="nav navbar-nav">
+            <li><a href="/news">资讯</a></li>
+            <li><a href="/application">客户端</a></li>
+            <li><a href="/blog">博客</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% unless current_user %>
+              <li><%= link_to '登录', new_user_session_path, class: "btn btn-blue"%></li>
+              <li><%= link_to '注册', new_user_registration_path, class: "btn btn-blue"%></li>
+            <% else %>
+              <li><%= link_to image_tag(current_user.image.thumb), mypage_path %></li>
+              <li><%= link_to '个人主页', mypage_path, class: "btn btn-blue"%></li>
+              <li><%= link_to '登出', destroy_user_session_path, :method=>:delete,  class: "btn btn-blue" %></li>
+            <% end %>
+          </ul>
+          <form class="navbar-form navbar-right" role="search" action="/news/search" method="get">
+            <div class="input-group">
+              <input name="q" class="form-control" type="text" placeholder="Search...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit" style="font-size: 20px"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+        </div>
+          <!-- /.navbar-collapse -->
+      </div>
+          <!-- /.container -->
+      </nav>
+

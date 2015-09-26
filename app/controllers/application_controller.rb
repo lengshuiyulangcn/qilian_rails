@@ -11,6 +11,7 @@ def configure_devise_permitted_parameters
 end
 
 def admin_only
+  flash[:error]= "你没有管理员权限"
   redirect_to '/' if current_user.role!= "admin"
 end
 
