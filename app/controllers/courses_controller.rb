@@ -3,6 +3,12 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.all
   end
+  
+  def all
+    @courses = Course.all
+    render layout: 'application'
+  end
+
   def new
     @course =Course.new
   end

@@ -41,30 +41,30 @@ CREATE TABLE IF NOT EXISTS `categories` (
 -- テーブルのデータのダンプ `categories`
 --
 
-INSERT INTO `categories` (`id`, `slug`, `name`, `description`, `border_left_color`, `parent_id`, `count`) VALUES
-(1, 'ye-jie-yan-jiu', '業界研究', '', '#f1c40f', 0, 6),
-(2, 'es', 'ES', '', '#f1c40f', 0, 10),
-(3, 'jiu-zhi-jin-li', '就职经历', '', '#e67e22', 0, 16),
-(5, 'rou-bao-zhuan-lan', '肉包专栏', '', '#2ecc71', 0, 59),
-(7, '', '合同说明会', '', '#f1c40f', 0, 7),
-(8, '', '自己分析', '', '#f1c40f', 0, 5),
-(9, 'qi-ye-yan-jiu', '企業研究', '', '#f1c40f', 0, 14),
-(10, '', 'Webest', '', '#f1c40f', 0, 1),
-(11, '', 'GD', '', '#2ecc71', 0, 5),
-(12, '', '集団面接', '', '#2ecc71', 0, 1),
-(13, '', '面接対策', '', '#2ecc71', 0, 30),
-(14, '', '外资', '', '#1abc9c', 0, 5),
-(15, 'shi-xi-dui-ce', '实习对策', '', '#1abc9c', 0, 7),
-(17, 'obog-fang-wen', 'OBOG访问', '', '', 0, 3),
-(18, 'zhi-wang-dong-ji', '志望動機', '', '', 0, 5),
-(19, 'zi-ge-ren-zheng', '资格认证', '', '#45a0de', 0, 1),
-(20, 'jiu-zhi-fu-dao', '就职辅导', '', '#45a0de', 0, 1),
-(21, 'xian-xia-ke-cheng', '线下课程', '', '#2980b9', 0, 2),
-(22, 'xian-tan-zhuan-lan', '娴谈专栏', '', '', 0, 9),
-(23, 'qi-lian-sheng-huo', '七联生活', '', '#1abc9c', 0, 1),
-(24, 'ren-wu-fang-tan', '人物访谈', '', '', 0, 9),
-(25, 'jiu-zhi-qing-bao', '就职情报', '新闻', '', 0, 12),
-(26, 'huo-dong-tui-guang', '活动推广', '', '', 0, 1);
+INSERT INTO `categories` (`id`, `slug`, `name`, `description`, `border_left_color`) VALUES
+(1, 'ye-jie-yan-jiu', '業界研究', '', '#f1c40f'),
+(2, 'es', 'ES', '', '#f1c40f'),
+(3, 'jiu-zhi-jin-li', '就职经历', '', '#e67e22'),
+(5, 'rou-bao-zhuan-lan', '肉包专栏', '', '#2ecc71'),
+(7, '', '合同说明会', '', '#f1c40f'),
+(8, '', '自己分析', '', '#f1c40f'),
+(9, 'qi-ye-yan-jiu', '企業研究', '', '#f1c40f'),
+(10, '', 'Webest', '', '#f1c40f'),
+(11, '', 'GD', '', '#2ecc71'),
+(12, '', '集団面接', '', '#2ecc71'),
+(13, '', '面接対策', '', '#2ecc71'),
+(14, '', '外资', '', '#1abc9c'),
+(15, 'shi-xi-dui-ce', '实习对策', '', '#1abc9c'),
+(17, 'obog-fang-wen', 'OBOG访问', '', ''),
+(18, 'zhi-wang-dong-ji', '志望動機', '', ''),
+(19, 'zi-ge-ren-zheng', '资格认证', '', '#45a0de'),
+(20, 'jiu-zhi-fu-dao', '就职辅导', '', '#45a0de'),
+(21, 'xian-xia-ke-cheng', '线下课程', '', '#2980b9'),
+(22, 'xian-tan-zhuan-lan', '娴谈专栏', '', ''),
+(23, 'qi-lian-sheng-huo', '七联生活', '', '#1abc9c'),
+(24, 'ren-wu-fang-tan', '人物访谈', '', ''),
+(25, 'jiu-zhi-qing-bao', '就职情报', '新闻', ''),
+(26, 'huo-dong-tui-guang', '活动推广', '', '');
 
 -- --------------------------------------------------------
 

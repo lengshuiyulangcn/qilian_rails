@@ -27,7 +27,7 @@
               <!-- 阅读数 -->
               <i class="fa fa-eye"></i><%= @count %> views
               <!-- 发布日期 -->
-              <i class="fa fa-clock-o"></i> <%= @post.created_at %>
+              <i class="fa fa-clock-o"></i> <%=time_ago_in_words @post.created_at %>
           </p>
         </div>
         <div class="col-lg-7 mt5">

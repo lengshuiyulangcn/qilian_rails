@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20150923131525) do
     t.string   "slug"
     t.text     "description"
     t.string   "border_left_color"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "categories_posts", id: false, force: :cascade do |t|

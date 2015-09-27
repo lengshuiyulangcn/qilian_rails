@@ -6,7 +6,7 @@ class CreateCategories < ActiveRecord::Migration
       t.text :description
       t.string :border_left_color
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end

@@ -19,8 +19,11 @@ class UsersController < ApplicationController
     @user.birthday =birthday 
     if @user.save
       flash[:success]= "更新用户表单成功"
-      redirect_to mypage_path if current_user.role != 'admin'
-      redirect_to users_path
+      if current_user.role != 'admin'
+        redirect_to mypage_path 
+      else
+        redirect_to users_path
+      end
     else
       flash[:error]= @user.errors.first 
       redirect_to :back
