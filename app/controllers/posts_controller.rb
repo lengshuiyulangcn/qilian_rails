@@ -3,6 +3,10 @@ class PostsController < ApplicationController
   layout  'admin'
   def index
     @posts = Post.all
+    respond_to do |format|
+      format.html
+      format.json {render json: @posts}
+    end
   end
   def new
     @post = Post.new

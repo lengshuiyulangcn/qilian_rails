@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
+    <link rel="stylesheet" href="/assets/mobile_topic.css" />
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+    <%= csrf_meta_tags %>
+</head>
+<body ng-app="qilianCore">
+
+  <!-- Sidebars -->
+  <div class="sidebar sidebar-left"><!-- ... --></div>
+  <div class="sidebar sidebar-right"><!-- ... --></div>
+
+  <div class="app">
+<div class="navbar navbar-app navbar-absolute-top">
+        <div class="navbar-brand navbar-brand-center" yield-to="title">
+          <span>Porn Pictures</span>
+        </div>
+        <div class="btn-group pull-left" yield-to="navbarAction">
+            <div class="btn btn-navbar">
+                <a href="/#/" class="home">Home</a> 
+            </div>
+        </div>
+ 
+    </div>
+ 
+        <!-- App body -->
+
+    <div class='app-body'>
+      <div class='app-content'>
+        <ng-view></ng-view>
+      </div>
+    </div>
+  </div><!-- ~ .app -->
+
+  <!-- Modals and Overlays -->
+  <div ui-yield-to="modals"></div>
+  <script src='/app/services.js'></script>
+  <script src='/app/qilian_core.js'></script>
+</body>
+</html>

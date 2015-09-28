@@ -37,6 +37,12 @@ gem 'jquery-rails'
 
 # Paginate
 gem 'will_paginate', '~> 3.0.6'
+
+
+# Detect browser type
+
+gem 'browser'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
