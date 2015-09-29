@@ -11,7 +11,7 @@ app.factory("Post", function($resource) {
     }
   );
 });
-app.config(function($routeProvider) {
+app.config(function($routeProvider,$locationProvider) {
   $routeProvider
 
     .when('/', {
@@ -28,19 +28,28 @@ app.config(function($routeProvider) {
       templateUrl: 'template/mypage.html',
       controller: 'mypageCtrl'      
     })
-    .when('/news/:id', {
-      templateUrl: 'template/detail.html',
-      controller: 'postCtrl'      
-    })
-
+    
     .when('/news', {
       templateUrl: 'template/info.html',
       controller: 'newsCtrl'      
+    })
+    .when('/news/:id', {
+      templateUrl: 'template/detail.html',
+      controller: 'postCtrl'      
     });
- }); app.controller('homeCtrl', function($scope, $route, $routeParams) {  
+    $locationProvider.html5Mode({enabled: true});
+ });
+
+app.controller('homeCtrl', function($scope, $route, $routeParams) {  
 });
-app.controller('postCtrl', function($scope, $route, $routeParams) {  
-});
+app.controller('postCtrl', ['Post','$scope','$route','$routeParams',function(Post,$scope, $route, $routeParams) {  
+  $scope.loading = true
+  $scope.post = Post.show({id: $routeParams.id});
+  $scope.post.$promise.then(function (result) {
+    $scope.content = result.content;
+  });
+  $scope.loading = false
+}]);
 
 app.controller('courseCtrl', function($scope, $route, $routeParams) {
 });
@@ -50,6 +59,14 @@ app.controller('mypageCtrl', function($scope, $route, $routeParams) {
 
 app.controller('newsCtrl', ['Post','$scope','$route','$routeParams',function(Post,$scope, $route, $routeParams) {
   $scope.posts = Post.index();
-  console.log($scope.posts)
+  $scope.show_post = function(index){
+  window.location = "/news/"+index
+  }
+
+}]);
+app.filter('rawHtml', ['$sce', function($sce){
+  return function(val) {
+    return $sce.trustAsHtml(val);
+  };
 }]);
 

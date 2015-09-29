@@ -7,7 +7,9 @@
     <script src="/bower_components/angular-route/angular-route.min.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
     <script src="/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+    <script src="/bower_components/angular-spinners/dist/angular-spinners.min.js"></script>
     <%= csrf_meta_tags %>
+    <base href="/">
 </head>
 <body ng-app="qilianCore">
 
@@ -17,21 +19,28 @@
 
   <div class="app">
 <div class="navbar navbar-app navbar-absolute-top">
-        <div class="navbar-brand navbar-brand-center" yield-to="title">
-          <span>Porn Pictures</span>
-        </div>
-        <div class="btn-group pull-left" yield-to="navbarAction">
-            <div class="btn btn-navbar">
-                <a href="/#/" class="home">Home</a> 
-            </div>
-        </div>
- 
-    </div>
+  <div class="navbar-brand navbar-brand-center" yield-to="title">
+    <span>Qilian</span>
+  </div>
+  <div class="btn-group pull-right" yield-to="navbarAction">
+      <div class="btn btn-navbar">
+    <a href="/mypage" class="btn btn-navbar"><i class="fa fa-home fa-navbar"></i> 我的主页</a>
+      </div>
+  </div>
+</div>
+<div class="navbar navbar-app navbar-absolute-bottom">
+  <div class="btn-group justified">
+    <a href="/news" class="btn btn-navbar"><i class="fa fa-info fa-navbar"></i> 咨询</a>
+    <a href="/courses" class="btn btn-navbar"><i class="fa fa-github fa-navbar"></i> 课程</a>
+    <a href="/jobs" class="btn btn-navbar"><i class="fa fa-exclamation-circle fa-navbar"></i> 求人</a>
+  </div>
+</div>
+
  
         <!-- App body -->
 
     <div class='app-body'>
-      <div class='app-content'>
+      <div class='app-content' style="background-color: white">
         <ng-view></ng-view>
       </div>
     </div>

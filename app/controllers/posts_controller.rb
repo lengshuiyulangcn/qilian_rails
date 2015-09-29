@@ -16,6 +16,10 @@ class PostsController < ApplicationController
     @post = Post.find(params.permit(:id)[:id])
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
     @post.content = markdown.render(@post.content)
+    respond_to do |format|
+      format.html
+      format.json {render json: @post}
+    end
   end
   def edit
     @post = Post.find(params.permit(:id)[:id])
