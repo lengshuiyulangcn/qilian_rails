@@ -1,4 +1,4 @@
-var app = angular.module('qilianCore', ['ngResource','ngRoute','mobile-angular-ui']);
+var app = angular.module('qilianCore', ['ngResource','ngRoute','mobile-angular-ui','Devise']);
 
 app.factory("Post", function($resource) {
   return $resource("/admin/posts/:id.json", { id: "@id" },
@@ -59,11 +59,33 @@ app.controller('postCtrl', ['Post','$scope','$route','$routeParams',function(Pos
 app.controller('courseCtrl', function($scope, $route, $routeParams) {
 });
 
-app.controller('mypageCtrl', function($scope, $route, $routeParams) {
-});
 
-app.controller('sessionCtrl', function($scope, $route, $routeParams) {
-});
+app.controller('mypageCtrl', ['Auth','$scope','$location',function(Auth,$scope, $location) {
+  Auth.currentUser().then(function(user) {   
+    $scope.name = user.name;
+    console.log(user)
+  }, 
+  function(error) {
+      $location.path("/users/sign_in");
+    }); 
+}]);
+app.controller('sessionCtrl', ['Auth','$scope','$location',function(Auth,$scope, $location) {
+ $scope.credentials = { login: '', password: '' };
+ $scope.facebook_auth= function() {
+  window.location = "/users/auth/facebook"
+  // $location.path("/users/auth/facebook");
+ }
+ $scope.signIn = function() {
+        Auth.login($scope.credentials).then(function(user) {
+          $location.path("/");
+          console.log(user)
+          alert('Successfully signed in user!')
+        }, function(error) {
+          console.info('Error in authenticating user!');
+          alert('Error in signing in user!');
+        });
+   }
+}]);
 
 app.controller('newsCtrl', ['Post','$scope','$route','$routeParams',function(Post,$scope, $route, $routeParams) {
   $scope.posts = Post.index();

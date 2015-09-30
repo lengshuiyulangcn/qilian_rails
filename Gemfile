@@ -25,10 +25,15 @@ gem 'cancancan', '~> 1.10'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+
+# bower
+gem "bower-rails", "~> 0.10.0"
+
 # User Auth
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'angular_rails_csrf'
 
 # PV track
 gem 'impressionist'
