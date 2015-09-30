@@ -18,17 +18,22 @@ app.config(function($routeProvider,$locationProvider) {
       templateUrl: 'template/home.html',
       controller: 'homeCtrl'      
     })
-
     .when('/courses/all', {
       templateUrl: 'template/courses.html',
       controller: 'courseCtrl'      
     })
-
     .when('/mypage', {
       templateUrl: 'template/mypage.html',
       controller: 'mypageCtrl'      
     })
-    
+    .when('/users/sign_in', {
+      templateUrl: 'template/signin.html',
+      controller: 'sessionCtrl'      
+    })
+    .when('/users/sign_up', {
+      templateUrl: 'template/signup.html',
+      controller: 'sessionCtrl'      
+    })
     .when('/news', {
       templateUrl: 'template/info.html',
       controller: 'newsCtrl'      
@@ -55,6 +60,9 @@ app.controller('courseCtrl', function($scope, $route, $routeParams) {
 });
 
 app.controller('mypageCtrl', function($scope, $route, $routeParams) {
+});
+
+app.controller('sessionCtrl', function($scope, $route, $routeParams) {
 });
 
 app.controller('newsCtrl', ['Post','$scope','$route','$routeParams',function(Post,$scope, $route, $routeParams) {
