@@ -11,6 +11,20 @@ app.factory("Post", function($resource) {
     }
   );
 });
+app.factory("Meta", function() {   
+  var metaInfo ={
+    title: ''
+  }
+  return {
+    getTitle: function (){
+      return metaInfo.title;
+    },
+    setTitle: function (title){
+      return metaInfo.title = title;
+    }
+  }
+});
+
 app.config(function($routeProvider,$locationProvider) {
   $routeProvider
 
@@ -42,13 +56,14 @@ app.config(function($routeProvider,$locationProvider) {
       templateUrl: 'template/detail.html',
       controller: 'postCtrl'      
     });
-    $locationProvider.html5Mode({enabled: true});
+    $locationProvider.html5Mode({enabled: true}).hashPrefix('!');
  });
 
 app.controller('homeCtrl', function($scope, $route, $routeParams) {  
 });
 app.controller('postCtrl', ['Post','$scope','$route','$routeParams',function(Post,$scope, $route, $routeParams) {  
-  $scope.loading = true
+  $scope.loading = true;
+  $scope.title = '阅读咨询';
   $scope.post = Post.show({id: $routeParams.id});
   $scope.post.$promise.then(function (result) {
     $scope.content = result.content;
@@ -62,6 +77,7 @@ app.controller('courseCtrl', function($scope, $route, $routeParams) {
 
 app.controller('mypageCtrl', ['Auth','$scope','$location',function(Auth,$scope, $location) {
   Auth.currentUser().then(function(user) {   
+    $scope.title = '我的主页';
     $scope.name = user.name;
     console.log(user)
   }, 
@@ -71,6 +87,7 @@ app.controller('mypageCtrl', ['Auth','$scope','$location',function(Auth,$scope, 
 }]);
 app.controller('sessionCtrl', ['Auth','$scope','$location',function(Auth,$scope, $location) {
  $scope.credentials = { login: '', password: '' };
+ $scope.title = '用户注册/登陆';
  $scope.facebook_auth= function() {
   window.location = "/users/auth/facebook"
   // $location.path("/users/auth/facebook");
@@ -87,13 +104,30 @@ app.controller('sessionCtrl', ['Auth','$scope','$location',function(Auth,$scope,
    }
 }]);
 
-app.controller('newsCtrl', ['Post','$scope','$route','$routeParams',function(Post,$scope, $route, $routeParams) {
+app.controller('newsCtrl', ['Post','$scope','$location',function(Post,$scope,$location) {
   $scope.posts = Post.index();
+  $scope.title = '咨询一览';
   $scope.show_post = function(index){
-  window.location = "/news/"+index
+  $location.path("/news/"+index);
   }
-
 }]);
+
+app.directive('qilianHeader',['Meta','$route','Auth',function(Meta,$route,Auth) {
+  return {
+    templateUrl: 'template/header.html',
+    link: function(scope,element,attrs){
+      Auth.currentUser().then(function(user) {   
+        scope.user = user;
+      });
+    }
+  };
+}]);
+app.directive('qilianFooter', function() {
+  return {
+    templateUrl: 'template/footer.html',
+  };
+});
+
 app.filter('rawHtml', ['$sce', function($sce){
   return function(val) {
     return $sce.trustAsHtml(val);
