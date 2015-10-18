@@ -13,10 +13,15 @@ class UsersController < ApplicationController
     end
   end 
   def update
+    puts  user_params
     @user = User.find(params.permit(:id)[:id]) 
     @user.attributes = user_params 
-    birthday =params.require(:user).permit("birthday(1i)","birthday(2i)","birthday(3i)").map{|k,v| v}.join("-").to_date 
-    @user.birthday =birthday 
+    unless user_params.has_key? :birthday
+      birthday =params.require(:user).permit("birthday(1i)","birthday(2i)","birthday(3i)").map{|k,v| v}.join("-").to_date 
+      @user.birthday =birthday 
+    else
+      @user.birthday = Date.parse user_params[:birthday]
+    end
     if @user.save
       flash[:success]= "更新用户表单成功"
       if current_user.role != 'admin'
@@ -31,6 +36,6 @@ class UsersController < ApplicationController
   end 
   private
   def user_params
-    params.require(:user).permit(:image,:email,:family_name,:gender,:role,:given_name,:phone,:school,:major,:job,:wechat,:line)
+    params.require(:user).permit(:birthday,:image,:email,:family_name,:gender,:role,:given_name,:phone,:school,:major,:job,:wechat,:line)
   end
 end

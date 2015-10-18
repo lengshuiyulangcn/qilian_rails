@@ -1,4 +1,4 @@
-var app = angular.module('qilianCore', ['ngResource','ngRoute','mobile-angular-ui','Devise']);
+var app = angular.module('qilianCore', ['ngResource','ngRoute','mobile-angular-ui','Devise','rorymadden.date-dropdowns']);
 
 app.factory("Post", function($resource) {
   return $resource("/admin/posts/:id.json", { id: "@id" },
@@ -11,6 +11,15 @@ app.factory("Post", function($resource) {
     }
   );
 });
+
+app.factory("User", function($resource) {
+  return $resource("/users/:id.json", { id: "@id" },
+    {
+      'update':  { method: 'PUT' },
+    }
+  );
+});
+
 app.factory("Category", function($resource) {
   return $resource("/admin/categories/:id.json", { id: "@id" },
     {
@@ -72,7 +81,12 @@ app.config(function($routeProvider,$locationProvider) {
     .when('/news/:id', {
       templateUrl: 'template/detail.html',
       controller: 'postCtrl'      
+    })
+    .when('/users/:id/edit', {
+      templateUrl: 'template/userinfo.html',
+      controller: 'userinfoCtrl'      
     });
+
     $locationProvider.html5Mode({enabled: true}).hashPrefix('!');
  });
 
@@ -162,15 +176,22 @@ app.controller('newsCtrl', ['Post','News','Category','$scope','$location',functi
   };
 }]);
 
+app.controller('userinfoCtrl', ['Auth','User','$scope','$location',function(Auth,User,$scope, $location) {
+
+   Auth.currentUser().then(function(user) {
+      $scope.user = user;   
+      $scope.title  = user.name;   
+   $scope.updateUserInfo = function() {
+     User.update({id:$scope.user.id, user: $scope.user})
+   }
+   })}
+
+]);
+
 app.directive('qilianHeader',['$route','Auth',function($route,Auth) {
   return {
     templateUrl: 'template/header.html',
-    link: function(scope,element,attrs){
-      Auth.currentUser().then(function(user) {   
-        scope.user = user;
-      });
     }
-  };
 }]);
 app.directive('qilianFooter', function() {
   return {
