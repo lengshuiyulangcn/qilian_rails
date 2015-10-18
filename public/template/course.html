@@ -1,0 +1,38 @@
+<qilian-header></qilian-header>
+<qilian-footer></qilian-footer>
+<div class='app-body'>
+  <div class='app-content' style="background-color: #16A086">
+    <div class="scrollable">
+      <br>
+      <div class="list-group">
+          <div class="list-group-item" style="border-top-width: 0px;">
+            <center>课程概要</center>
+          </div>
+        <div class="list-group-item">
+          <img ng-src="{{course.image.url}}" style="width: 30%;display: inline-block;vertical-align: middle">
+          <div style="display: inline-block;width:50%; vertical-align: middle">
+            授课老师:<a ng-repeat="teacher in course.users">{{ teacher.name }}</a><br>
+            费用: {{course.price}}
+            报名人数: {{course.entries.length}}<br>
+            开课时间: {{course.schedules[0].datetime_from}}
+          </div>
+        </div>
+        <div class="list-group-item" ng-init= "showOutline = false" >
+        <a ng-click="showOutline = !showOutline">课程大纲<i class="pull-right" ng-class="{'fa fa-angle-right': showOutline, 'fa fa-angle-down': !showOutline}"></i></a><br>
+          <div class="scrollable-content" ng-if= "showOutline" ng-bind-html="course.content | rawHtml"></div>
+        </div>
+        <br>
+        <div class="list-group" ng-init= "showSchedule = false" >
+          <div class="list-group-item" style="border-top-width: 0px;">
+            <center>课时信息</center>
+          </div>
+          <div class="list-group-item" ng-repeat="schedule in course.schedules">
+            {{schedule.name}}
+          </div>
+        </div>
+
+      </div>
+        <a style="width: 100%" class="btn btn-primary">立即报名</a>
+    </div>
+  </div>
+</div>

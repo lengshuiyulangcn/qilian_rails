@@ -1,7 +1,24 @@
 <qilian-header></qilian-header>
 <qilian-footer></qilian-footer>
 <div class='app-body'>
-  <div class='app-content' style="background-color: white">
+  <div class='app-content' style="background-color: #16A086">
+    <br>
+    <div class='list-group-item' ng-init="hideCategory = true">
+      <div style='width: 100%; margin-right: 5%'>
+        <a ng-click="hideCategory = !hideCategory">查看方式<i class="pull-right" ng-class="{'fa fa-angle-up': hideCategory, 'fa fa-angle-down': !hideCategory}"></i></a><br>
+        </div>
+        <div ng-class="{hidden: hideCategory}" class="topics">
+          标签:<br>
+          <a ng-repeat="category in categories" ng-click="postsInCategory(category.id,category.name)">
+            {{category.name}}
+          </a>
+          <br> 人气:<br>
+          <a>本周最火</a>
+          <a>本月最火</a>
+        </div>
+        </div>
+<br>
+
     <div class="topic_box">
       <div class="topics" ng-repeat="post in posts">
         <div class="topic topic_line" ng-click="show_post($index+1)">
@@ -21,5 +38,5 @@
        </div>
      </div>
    </div>
- </div>
-
+  </div>
+</div>

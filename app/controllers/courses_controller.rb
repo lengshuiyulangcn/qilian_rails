@@ -2,6 +2,13 @@ class CoursesController < ApplicationController
   layout 'admin'
   def index
     @courses = Course.all
+    respond_to do |format|
+      format.html
+      format.json do 
+        courses = @courses.map {|course| {course: course, teachers: course.users, entries: course.entries}}
+        render json: courses
+      end
+    end
   end
   
   def all
@@ -24,6 +31,13 @@ class CoursesController < ApplicationController
   end
   def show
     @course = Course.find(params.permit(:id)[:id])
+    respond_to do |format|
+      format.html
+      format.json do 
+        render json: @course.to_json(:include=>[:schedules,:users,:entries])
+
+      end
+    end
   end
   def edit
     @course = Course.find(params.permit(:id)[:id])

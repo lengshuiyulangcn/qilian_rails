@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150923131525) do
+ActiveRecord::Schema.define(version: 20151013144524) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150923131525) do
     t.string   "border_left_color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "father_id"
   end
 
   create_table "categories_posts", id: false, force: :cascade do |t|

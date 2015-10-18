@@ -11,18 +11,31 @@ app.factory("Post", function($resource) {
     }
   );
 });
-app.factory("Meta", function() {   
-  var metaInfo ={
-    title: ''
-  }
-  return {
-    getTitle: function (){
-      return metaInfo.title;
-    },
-    setTitle: function (title){
-      return metaInfo.title = title;
+app.factory("Category", function($resource) {
+  return $resource("/admin/categories/:id.json", { id: "@id" },
+    {
+      'index':   { method: 'GET', isArray: true },
     }
-  }
+  );
+});
+app.factory("Course", function($resource) {
+  return $resource("/admin/courses/:id.json", { id: "@id" },
+    {
+      'index':   { method: 'GET', isArray: true },
+      'show':    { method: 'GET', isArray: false },
+    }
+  );
+});
+
+app.factory('News', function($http) {
+  var getCategory = function(id) {
+    return $http.get('/news/category/'+id+'.json').then(function(response) {
+      return response.data;
+    });
+  };
+  return {
+    getCategory: getCategory
+  };
 });
 
 app.config(function($routeProvider,$locationProvider) {
@@ -34,6 +47,10 @@ app.config(function($routeProvider,$locationProvider) {
     })
     .when('/courses/all', {
       templateUrl: 'template/courses.html',
+      controller: 'coursesCtrl'      
+    })
+    .when('/course/:id', {
+      templateUrl: 'template/course.html',
       controller: 'courseCtrl'      
     })
     .when('/mypage', {
@@ -61,25 +78,52 @@ app.config(function($routeProvider,$locationProvider) {
 
 app.controller('homeCtrl', function($scope, $route, $routeParams) {  
 });
-app.controller('postCtrl', ['Post','$scope','$route','$routeParams',function(Post,$scope, $route, $routeParams) {  
+app.controller('postCtrl', ['Post','$scope','$route','$routeParams','$window',function(Post,$scope, $route, $routeParams,$window) {  
   $scope.loading = true;
-  $scope.title = '阅读咨询';
+  $scope.history = "咨询";
+  $scope.enableBack = true; 
+  $scope.goBack = function(){
+    $window.history.back();
+  }
   $scope.post = Post.show({id: $routeParams.id});
   $scope.post.$promise.then(function (result) {
+    $scope.title = $scope.post.title;
     $scope.content = result.content;
   });
   $scope.loading = false
 }]);
 
-app.controller('courseCtrl', function($scope, $route, $routeParams) {
-});
+app.controller('coursesCtrl', ['Course','$scope','$location',function(Course,$scope,$location) {
+  var courses = Course.index();
+  courses.$promise.then(function (result) {
+  $scope.title = '七联课程';
+  $scope.courses = result;
+  console.log($scope.courses)
+  });
+  $scope.show_course = function(index){
+  $location.path("/course/"+index);
+  }
+}]);
 
+app.controller('courseCtrl', ['Course','$scope','$routeParams','$window',function(Course,$scope,$routeParams,$window) {  
+  $scope.history = "课程";
+  $scope.enableBack = true; 
+  $scope.goBack = function(){
+    $window.history.back();
+  }
+  $scope.course = Course.show({id: $routeParams.id});
+  $scope.course.$promise.then(function (result) {
+    $scope.course = result;
+  $scope.title = result.name; 
+    console.log($scope.couse)
+  });
+}]);
 
 app.controller('mypageCtrl', ['Auth','$scope','$location',function(Auth,$scope, $location) {
   Auth.currentUser().then(function(user) {   
     $scope.title = '我的主页';
-    $scope.name = user.name;
-    console.log(user)
+    $scope.user = user;
+    console.log(user);
   }, 
   function(error) {
       $location.path("/users/sign_in");
@@ -95,7 +139,6 @@ app.controller('sessionCtrl', ['Auth','$scope','$location',function(Auth,$scope,
  $scope.signIn = function() {
         Auth.login($scope.credentials).then(function(user) {
           $location.path("/");
-          console.log(user)
           alert('Successfully signed in user!')
         }, function(error) {
           console.info('Error in authenticating user!');
@@ -104,15 +147,22 @@ app.controller('sessionCtrl', ['Auth','$scope','$location',function(Auth,$scope,
    }
 }]);
 
-app.controller('newsCtrl', ['Post','$scope','$location',function(Post,$scope,$location) {
+app.controller('newsCtrl', ['Post','News','Category','$scope','$location',function(Post,News,Category,$scope,$location) {
   $scope.posts = Post.index();
+  $scope.categories = Category.index();
   $scope.title = '咨询一览';
   $scope.show_post = function(index){
   $location.path("/news/"+index);
   }
+  $scope.postsInCategory = function(id,category) {
+    News.getCategory(id).then(function(data) {
+      $scope.posts = data;
+      $scope.title = category;
+    });
+  };
 }]);
 
-app.directive('qilianHeader',['Meta','$route','Auth',function(Meta,$route,Auth) {
+app.directive('qilianHeader',['$route','Auth',function($route,Auth) {
   return {
     templateUrl: 'template/header.html',
     link: function(scope,element,attrs){
@@ -133,4 +183,9 @@ app.filter('rawHtml', ['$sce', function($sce){
     return $sce.trustAsHtml(val);
   };
 }]);
+app.run(function($rootScope, $templateCache) {
+   $rootScope.$on('$viewContentLoaded', function() {
+      $templateCache.removeAll();
+   });
+});
 

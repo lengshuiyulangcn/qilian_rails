@@ -16,6 +16,10 @@ class NewsController < ApplicationController
     @category = Category.find(params.permit(:id)[:id])
     @posts = @category.posts.page(params.permit(:page)[:page]).order('created_at DESC')
     @hot_posts = get_hot_passages
+    respond_to do |format|
+      format.html
+      format.json {render json: @posts}
+    end
   end
   private
    def get_hot_passages
