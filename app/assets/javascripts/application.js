@@ -16,4 +16,6 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require ng-flow
+//= require ng-file-upload 
 //= require_tree .

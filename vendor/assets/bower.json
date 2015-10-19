@@ -1,6 +1,8 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
-    "angular-devise": "latest"
+    "angular-devise": "latest",
+    "ng-flow": "latest",
+    "ng-file-upload": "latest"
   }
 }

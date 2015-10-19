@@ -3,3 +3,6 @@
 
 # asset 'bootstrap'
 asset 'angular-devise'
+asset 'ng-flow'
+asset 'ng-file-upload'
+

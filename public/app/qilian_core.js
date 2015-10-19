@@ -1,5 +1,22 @@
-var app = angular.module('qilianCore', ['ngResource','ngRoute','mobile-angular-ui','Devise','rorymadden.date-dropdowns']);
-
+var app = angular.module('qilianCore', ['ngResource','ngRoute','mobile-angular-ui','Devise','rorymadden.date-dropdowns','ngFileUpload']);
+app.directive("fileread", [function () {
+    return {
+        scope: {
+            fileread: "="
+        },
+        link: function (scope, element, attributes) {
+            element.bind("change", function (changeEvent) {
+                var reader = new FileReader();
+                reader.onload = function (loadEvent) {
+                    scope.$apply(function () {
+                        scope.fileread = loadEvent.target.result;
+                    });
+                }
+                reader.readAsDataURL(changeEvent.target.files[0]);
+            });
+        }
+    }
+}]);
 app.factory("Post", function($resource) {
   return $resource("/admin/posts/:id.json", { id: "@id" },
     {
@@ -177,11 +194,26 @@ app.controller('newsCtrl', ['Post','News','Category','$scope','$location',functi
 }]);
 
 app.controller('userinfoCtrl', ['Auth','User','$scope','$location',function(Auth,User,$scope, $location) {
+  Auth.currentUser().then(function(user) {
+  $scope.image_source = user.image.profile.url
+  $scope.setFile = function(element) {
+  console.log(element)
+  $scope.currentFile = element.files[0];
+   var reader = new FileReader();
 
-   Auth.currentUser().then(function(user) {
+  reader.onload = function(event) {
+    $scope.image_source = event.target.result
+    $scope.$apply()
+
+  }
+  // when the file is read it triggers the onload event above.
+  reader.readAsDataURL(element.files[0]);
+}
       $scope.user = user;   
-      $scope.title  = user.name;   
+      $scope.title  = user.name;
    $scope.updateUserInfo = function() {
+     $scope.user.image = $scope.uploader 
+     console.log($scope.user)
      User.update({id:$scope.user.id, user: $scope.user})
    }
    })}
