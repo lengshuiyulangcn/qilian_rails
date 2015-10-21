@@ -39,3 +39,9 @@
 div.hidden{
    display: none;
 }
+
+div.image-upload > input {
+  display: none; 
+}
+
+

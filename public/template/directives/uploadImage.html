@@ -1,0 +1,6 @@
+<div class="image-upload">
+    <label for="file-upload">
+      <img ng-src="{{image_source}}">
+    </label>
+      <input type="file" id="file-upload" onchange="angular.element(this).scope().setFile(this)" accept="image/*" ng-model="image_source">
+</div>
