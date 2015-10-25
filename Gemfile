@@ -14,6 +14,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # Markdown
 gem 'redcarpet'
 
+# prevent invaid utf8
+gem 'utf8-cleaner'
+
 # Upload image
 gem 'carrierwave'
 gem 'rmagick'
@@ -47,6 +50,7 @@ gem 'jquery-rails'
 
 # Paginate
 gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 
 
 # Detect browser type

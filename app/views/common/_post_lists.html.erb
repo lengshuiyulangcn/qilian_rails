@@ -5,12 +5,12 @@
           <h4>
              <%= link_to post.title, news_path(post.id) %>
           </h4><!-- /title -->
-             <%= link_to image_tag(post.image, class: "img-responsive img-hover img-thumbView inbox-blog-list"), news_path(post.id)%>
+             <%= link_to image_tag( post.image ? post.fakeimage : post.image, class: "img-responsive img-hover img-thumbView inbox-blog-list"), news_path(post.id)%>
            
           <h6>
             <ul class="icon-tools">
               <li class="main-list-group"><i class="fa fa-clock-o"></i> <%= time_ago_in_words post.created_at %></li>
-              <li class="main-list-group"><i class="fa fa-eye"></i><%= post.view_count %> views</li>
+              <li class="main-list-group"><i class="fa fa-eye"></i><%= post.view_count||0 %> views</li>
               <% post.categories.each do |category|%>
               <li class="main-list-group">
                 <span class="label label-info">
@@ -41,7 +41,7 @@
         
         <!-- PageNav -->
         <div class="digg_pagination">
-        <%= will_paginate posts %>
+          <%= will_paginate posts,:renderer => BootstrapPagination::Rails %>
         </div>
 </div>
 

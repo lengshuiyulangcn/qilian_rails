@@ -2,7 +2,7 @@ require 'redcarpet'
 class PostsController < ApplicationController
   layout  'admin'
   def index
-    @posts = Post.all
+    @posts = Post.page(params.permit(:page)[:page]).order('created_at DESC')
     respond_to do |format|
       format.html
       format.json {render json: @posts}

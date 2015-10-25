@@ -2,9 +2,9 @@
   <%= link_to "添加", new_post_path, class: 'btn btn-blue'%>
 </div>
 
-<nav>
-  paginate
-</nav>
+<div class="dig_pagination">
+  <%= will_paginate @posts,:renderer => BootstrapPagination::Rails %>
+</div>
 
 <table class="table table-striped table-hover ">
   <thead>
