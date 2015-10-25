@@ -1,3 +1,6 @@
+var IntlMixin     = ReactIntl.IntlMixin;
+var FormattedDate = ReactIntl.FormattedDate;
+
 var ScheduleForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
@@ -122,6 +125,7 @@ componentDidMount: function() {
   }
 });
 var ScheduleData = React.createClass({
+   mixins: [IntlMixin],
    render: function() {
     var divstyle={
         width: "100%",
@@ -140,7 +144,11 @@ var ScheduleData = React.createClass({
             <th>人数限制</th>
             <td>{this.props.schedule.limit}</td>
             <th>授课时间</th>
-            <td>{this.props.schedule.datetime_from} ~ {this.props.schedule.datetime_to}</td>
+            <td><FormattedDate value={this.props.schedule.datetime_from} day="numeric" month="long" year="numeric" hour= "numeric"
+             minute= "numeric" />
+              ~  
+             <FormattedDate value={this.props.schedule.datetime_to} day="numeric" month="long" year="numeric" hour= "numeric"
+             minute=  "numeric"/></td>
           </tr>
       </table>
       </div>

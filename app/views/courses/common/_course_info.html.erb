@@ -1,0 +1,42 @@
+<div  class="tab-pane fade active in" id="course_tab">
+        <br>
+      <fieldset>
+      <legend><%=@course.name%></legend>
+      <div class="container" style='width: 100%'>
+        <div class= 'row'>
+          <div class= 'col-lg-3'>
+            <%=image_tag @course.image, style: "height: 200px; width:300px;"%>
+          </div>
+          <div class= 'col-lg-9'>
+             <table class="table table-bordered">
+                <tr>
+                  <th>课程名称</th>
+                  <td><%= @course.name %></td>
+                  <th>讲师</th>
+                  <td><%=@course.users.map{|user| user.name}.join(' ') %>
+                  </td>
+                </tr>
+                <tr>
+                  <th>课程费用</th>
+                  <td><%= @course.price %></td>
+                  <th>费用简介</th>
+                  <td><%= @course.price_detail %></td>
+                </tr>
+                <tr>
+                  <table class="table table-bordered">
+                  <tr>
+                    <th>课程简介</th>
+                    <td><div style='word-wrap:break-word;'><%= @course.description %></div></td>
+                  </tr>
+                  </table>
+                </tr>
+            </table>
+      </div>
+      <%=form_for Entry.new do |f| %>
+        <%=f.hidden_field :course_id, value: @course.id %>
+        <%=f.submit "立即报名", method: "post",class: 'btn btn-primary', disabled: current_user && @current_students.include?(current_user.id)%>
+      <% end %>
+    </div>
+  </div>
+  </div>
+

@@ -1,4 +1,4 @@
-var app = angular.module('qilianCore', ['ngResource','ngRoute','mobile-angular-ui','Devise','rorymadden.date-dropdowns','ngFileUpload']);
+var app = angular.module('qilianCore', ['ngResource','ngRoute','mobile-angular-ui','Devise','rorymadden.date-dropdowns']);
 app.directive("fileUpload", [function () {
     return {
        templateUrl: 'template/directives/uploadImage.html',

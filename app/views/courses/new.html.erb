@@ -19,9 +19,9 @@
 
 
       <div class="form-group">
-        <label for="CourseDescription" class="col-lg-2 control-label">费用介绍</label>
-        <div class="col-lg-10">
-        <%=f.text_area :price_detail, class: 'form-control', rows: 4, required: true %>
+        <label for="CourseStarttime" class="col-lg-2 control-label">开课时间</label>
+        <div class="col-lg-4">
+          <%=f.text_field :starttime, class: "form-control datetimepicker", required: true %>
         </div>
       </div>
 
@@ -66,6 +66,8 @@
     </fieldset>
    <% end %>
 </div>
+<link rel="stylesheet" href="/assets/jquery.datetimepicker.css" />
+<script type="text/javascript" src="/assets/jquery.datetimepicker.js"></script>
 <script>
 function previewFile() {
   var preview = document.getElementById('eyecatch_url');
@@ -82,5 +84,7 @@ function previewFile() {
     preview.src = "";
   }
 }
+$('.datetimepicker').datetimepicker({
+    format: 'Y-m-d H:i',
+});
 </script>
-

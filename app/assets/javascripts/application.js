@@ -15,7 +15,9 @@
 //= require kindeditor
 //= require react
 //= require react_ujs
+//= require react-intl
+//= require react-event-calendar
 //= require components
-//= require ng-flow
-//= require ng-file-upload 
+//= require moment
+//= require fullcalendar
 //= require_tree .

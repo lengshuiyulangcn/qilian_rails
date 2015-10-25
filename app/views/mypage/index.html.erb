@@ -13,31 +13,17 @@
     <div class="col-lg-7">
 
       <%= render partial: '/mypage/common/ads'%> 
-      <!-- 资讯相关 -->
-      <div class="col-md-12 mt20">
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="active">
-            <a href="#new" role="tab" data-toggle="tab">最新资讯</a>
-          </li>
-          <li>
-            <a href="#favor" role="tab" data-toggle="tab">热门资讯</a>
-          </li>
-        </ul>
-        <div class="tab-content mt10">
-          <%= render partial: '/mypage/common/new'%> 
-          <%= render partial: '/mypage/common/favor'%> 
-        </div>
-      </div>
+      <!-- calender -->
+      <%= render partial: '/mypage/common/calendar'%>
+      
     </div>
-      <!-- /资讯相关 -->
 
+    <div class="col-lg-3">
+      Event lists should go here	
+    </div>
 
   </div><!-- /Main -->
 
-    <!-- Right recommend -->
-    <div class="col-lg-3">
-    	
-    </div><!-- /Right recommend -->
 
 </div>
   <!-- /.Row -->

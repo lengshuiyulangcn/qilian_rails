@@ -2,7 +2,9 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "angular-devise": "latest",
-    "ng-flow": "latest",
-    "ng-file-upload": "latest"
+    "react-intl": "latest",
+    "react-event-calendar": "latest"
+  },
+  "resolutions": {
   }
 }

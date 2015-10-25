@@ -1,0 +1,48 @@
+{
+  "name": "react-intl",
+  "version": "1.2.1",
+  "main": [
+    "dist/react-intl.js",
+    "dist/react-intl.min.js"
+  ],
+  "dependencies": {
+    "intl": "~0.1.2"
+  },
+  "keywords": [
+    "intl",
+    "i18n",
+    "internationalization",
+    "ecma402",
+    "react",
+    "reactjs"
+  ],
+  "ignore": [
+    "/example",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/yahoo/react-intl",
+  "authors": [
+    "Caridy Patino <caridy@gmail.com>",
+    "Eric Ferraiuolo <eferraiuolo@gmail.com>"
+  ],
+  "description": "React mixin for internationalization.",
+  "moduleType": [
+    "es6",
+    "globals",
+    "node"
+  ],
+  "license": "BSD",
+  "_release": "1.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.2.1",
+    "commit": "52d26e6164d3b524ac1721a34d50e2f69db03656"
+  },
+  "_source": "git://github.com/caridy/react-intl.git",
+  "_target": "*",
+  "_originalSource": "react-intl"
+}

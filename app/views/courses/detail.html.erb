@@ -13,44 +13,10 @@
 
     </ul> 
     <div class="tab-content">
-     <div  class="tab-pane fade active in" id="course_tab">
-    <fieldset>
-      <legend>课程信息</legend>
-      <div class="container" style='width: 80%'>
-     <table class="table table-bordered">
-        <tr>
-          <th>课程名称</th>
-          <td><%= @course.name %></td>
-          <th>讲师</th>
-          <td><%=@course.users.map{|user| user.name}.join(' ') %>
-          </td>
-        </tr>
-        <tr>
-          <th>课程费用</th>
-          <td><%= @course.price %></td>
-          <th>费用简介</th>
-          <td><%= @course.price_detail %></td>
-        </tr>
-        <tr>
-          <table class="table table-bordered">
-          <tr>
-            <th>课程简介</th>
-            <td><div style='word-wrap:break-word;'><%= @course.description %></div></td>
-            <td><%=image_tag @course.image, style: "max-height: 300px; margin-left: auto;margin-right: auto;"%></td>
-          </tr>
-          </table>
-        </tr>
-    </table>
-  </div>
-  <center>
-    <%=form_for Entry.new do |f| %>
-          <%=f.hidden_field :course_id, value: @course.id %>
-          <%=f.submit "立即报名", method: "post",class: 'btn btn-primary', disabled: current_user && @current_students.include?(current_user.id)%>
-        <% end %>
-  </center>
-  </div>
+      <%=render partial: 'courses/common/course_info'%> 
   <div  class="tab-pane fade in" id="outline_tab">
-  <legend>课程大纲</legend>
+  <br>
+  <legend><%=@course.name%></legend>
   <%== @course.content %>
   </div>
   <div  class="tab-pane fade in" id="schedule_tab">
