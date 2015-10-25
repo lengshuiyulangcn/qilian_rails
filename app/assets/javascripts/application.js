@@ -20,4 +20,5 @@
 //= require components
 //= require moment
 //= require fullcalendar
+//= require jquery.flexslider-min
 //= require_tree .

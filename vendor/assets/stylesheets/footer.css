@@ -1,0 +1,83 @@
+/* ====================================================================================================================
+*  FOOTER
+* ====================================================================================================================*/
+
+.footer-layout{
+  background-color: #3d4351;
+  margin: auto;
+}
+
+.footer-container-layout{
+  padding: 80px;
+}
+
+ul.footer-group {
+  border-top: solid 1px #4E566C;
+  padding-top: 25px;
+  margin-bottom: 45px;
+}
+ul.footer-group li {
+  display: inline-block;
+}
+ul.footer-group li a {
+  font-size: $nav-font-size;
+  text-transform: uppercase;
+}
+ul.footer-group li a:hover {
+  color: $accent-color;
+}
+ul.footer-group li {
+  margin-right: 30px;
+}
+ul.footer-group li:last-child {
+  margin-right: 0;
+}
+
+.footer-sitemap{
+  color: white;
+}
+
+a:hover{
+  color: #2ecc71
+}
+
+a i {
+  margin-top: 20px;
+  color: white;
+}
+
+/* Facebook*/
+.facebook-share{
+  height: 60px;
+  width: 60px;
+  background-color: #3B5898;
+  border-radius: 3px;
+  font-size: 22px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px;
+}
+
+/* 微博 */
+.weibo-share{
+  height: 60px;
+  width: 60px;
+  background-color: #e74c3c;
+  border-radius: 3px;
+  font-size: 22px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px;
+}
+
+/* 微信 */
+.weixin-share{
+  height: 60px;
+  width: 60px;
+  background-color: #2ecc71;
+  border-radius: 3px;
+  font-size: 22px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px;
+}

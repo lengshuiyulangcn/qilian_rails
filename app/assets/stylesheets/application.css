@@ -11,6 +11,9 @@
  * file per style scope.
  *
  *= require fullcalendar
+ *= require footer
+ *= require register
+ *= require flexslider
  *= require_tree .
  *= require_self
  */
