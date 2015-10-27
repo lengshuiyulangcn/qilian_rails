@@ -10,15 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require moment
 //= require jquery
 //= require jquery_ujs
 //= require kindeditor
 //= require react
 //= require react_ujs
 //= require react-intl
-//= require react-event-calendar
 //= require components
-//= require moment
 //= require fullcalendar
 //= require jquery.flexslider-min
 //= require_tree .

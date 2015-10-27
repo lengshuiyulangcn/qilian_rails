@@ -1,0 +1,341 @@
+/*
+ * Copyright 2015 QiLIan
+ * Contributing author: davidBera
+ */
+
+/* ====================================================================================================================
+ *  总体设定
+ * ====================================================================================================================*/
+
+ font-family: {
+   "Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+ }
+
+ /*背景颜色*/
+ body{
+     background-color: #ecf0f1;
+ }
+
+ /*landing-page 文字的定义*/
+ p{
+   color: rgba(28, 54, 83, 0.6);
+   line-height: 200%;
+ }
+
+ /* 了解更多 */
+ .btn-more-LearnMore{
+   margin-top: 30px;
+   padding: 8px 60px;
+   font-size: 13px;
+   border: solid 2px;
+   border-radius: 40px;
+   text-transform: uppercase;
+ }
+
+ /* ====================================================================================================================
+  *  Starting-Parts
+  * ====================================================================================================================*/
+
+/*标题图片的定义*/
+.header-banner{
+  background: url(/assets/front_slide.jpg) no-repeat center;
+  background-size: cover;
+  padding-top: 15%;
+  padding-bottom: 30%;
+  text-align: center;
+}
+.header-message {
+  position: relative;
+}
+/*标题文字*/
+.header-message > h1 {
+  margin: 0;
+  font-size: 5em;
+  color: white;
+}
+
+/*向下箭头*/
+
+.down-arrow {
+  color: #fff;
+  font-size: 30px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.floating-arrow {
+  -webkit-animation-name: floating-arrow;
+          animation-name: floating-arrow;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out; }
+
+@-webkit-keyframes floating-arrow {
+  from {
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0); }
+  65% {
+    -webkit-transform: translate(-50%, 15px);
+            transform: translate(-50%, 15px); }
+  to {
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0); } }
+
+@keyframes floating-arrow {
+  from {
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0); }
+  65% {
+    -webkit-transform: translate(-50%, 15px);
+            transform: translate(-50%, 15px); }
+  to {
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0); } }
+
+/* ====================================================================================================================
+*  总体设: 3种盈利方式
+* ====================================================================================================================*/
+
+/*上下的距离，背景的颜色*/
+.intro-padding{
+  background: #fff;
+  padding: 120px;
+}
+
+/*service的标题*/
+.intro-title{
+  font-size: 20px;
+}
+
+/*每个服务之间的上下距离*/
+.intro-section-padding{
+  padding: 20px;
+}
+
+/* ====================================================================================================================
+*  平台介绍
+* ====================================================================================================================*/
+
+/*具体课程layout*/
+/*主要是为了和上面的介绍文字分开距离*/
+.course-contents{
+	margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+/* details 介绍*/
+.course-section-layout{
+  display: block;
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.course-heading{
+  display: block;
+  margin: 20px;
+}
+.course-heading-title{
+  font-size: 24px;
+}
+
+/*每个描述性文字的上下距离*/
+.course-section-padding{
+  padding: 15px;
+}
+
+/*block下端的颜色*/
+.course-panel-border{
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+}
+
+/* 统计数字 */
+.course-panel-number{
+  font-size: 50px;
+  font-style: normal;
+  font-family: 'arial narrow';
+}
+
+/*统计部分的标题*/
+.course-panel-title{
+  text-align:center;
+  padding-bottom: 70px;
+  margin-top: -50px;
+}
+
+/*用来定义每一个课程板块之间的距离*/
+.course-schedule-section-layout{
+  margin-bottom: 15px;
+}
+
+/* ====================================================================================================================
+*  七联视界
+* ====================================================================================================================*/
+
+.news-section-layout{
+  padding-bottom: 100px;
+  background: url(/assets/course_bg.jpg) repeat center center;
+}
+
+/*figure will cross the whole column, which means ignore the padding*/
+.event-cover-style{
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+.news-description-article{
+  margin: 50px;
+  padding: 20px;
+}
+
+/*news介绍部分的字体*/
+.news-description-words{
+  text-align: center;
+}
+
+/*类别，标题的居中*/
+.news-title-align{
+  text-align: center;
+}
+
+/*推荐文章类别*/
+.news-category{
+  font-size: 13px;
+  color:#27ae60;
+}
+
+/*推荐文章标题*/
+.news-title{
+  font-size: 17px;
+}
+
+/*点击进入 news 网页*/
+.btn-more-padding-news{
+  margin-top: 10px;
+  padding: 8px 60px;
+  font-size: 13px;
+  border: solid 2px;
+  border-radius: 40px;
+  text-transform: uppercase;
+}
+
+/* ====================================================================================================================
+*  注册登陆
+* ====================================================================================================================*/
+
+.login-section-layout{
+  background-color: white;
+  padding-bottom: 120px;
+  padding-top: 20px;
+}
+
+/*统计部分的标题*/
+.login-title{
+  text-align:center;
+  margin: 50px;
+  padding: 50px;
+}
+
+/*登陆的按钮*/
+.btn-login-layout{
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.input-group-addon {
+  min-width:50px;
+  text-align:left;
+}
+
+/* ====================================================================================================================
+*  FOOTER
+* ====================================================================================================================*/
+
+.footer-layout{
+  background-color: #3d4351;
+  margin: auto;
+}
+
+.footer-container-layout{
+  padding: 50px;
+}
+
+ul.footer-group {
+  border-top: solid 1px #4E566C;
+  padding-top: 25px;
+  margin-bottom: 45px;
+}
+ul.footer-group li {
+  display: inline-block;
+}
+ul.footer-group li a {
+  font-size: $nav-font-size;
+  text-transform: uppercase;
+}
+ul.footer-group li a:hover {
+  color: $accent-color;
+}
+ul.footer-group li {
+  margin-right: 30px;
+}
+ul.footer-group li:last-child {
+  margin-right: 0;
+}
+
+.footer-sitemap{
+  color: white;
+}
+
+a:hover{
+  color: #2ecc71
+}
+
+a i {
+  margin-top: 20px;
+  color: white;
+}
+
+/* Facebook*/
+.facebook-share{
+  height: 60px;
+  width: 60px;
+  background-color: #3B5898;
+  border-radius: 3px;
+  font-size: 22px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px;
+}
+
+/* 微博 */
+.weibo-share{
+  height: 60px;
+  width: 60px;
+  background-color: #e74c3c;
+  border-radius: 3px;
+  font-size: 22px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px;
+}
+
+/* 微信 */
+.weixin-share{
+  height: 60px;
+  width: 60px;
+  background-color: #2ecc71;
+  border-radius: 3px;
+  font-size: 22px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px;
+}
