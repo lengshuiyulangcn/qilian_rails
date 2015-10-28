@@ -23,14 +23,14 @@ def configure_devise_permitted_parameters
 end
 
 def admin_only
-  if current_user.role!= "admin"
+  if current_user && current_user.role!= "admin"
     flash[:error]= "你没有管理员权限"
     redirect_to '/' 
   end
 end
 
 def finish_userinfo
-  if current_user.phone.nil?
+  if current_user && current_user.phone.nil?
     flash[:error]= "请先完善用户信息"
     redirect_to edit_user_path(current_user.id) 
   end

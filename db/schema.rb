@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151025132544) do
+ActiveRecord::Schema.define(version: 20151028140543) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +55,18 @@ ActiveRecord::Schema.define(version: 20151025132544) do
   add_index "entries", ["course_id"], name: "index_entries_on_course_id"
   add_index "entries", ["user_id"], name: "index_entries_on_user_id"
 
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "content"
+    t.boolean  "available"
+    t.datetime "timestart"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "image"
+    t.datetime "timeend"
+  end
+
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type"
     t.integer  "impressionable_id"
@@ -79,6 +91,24 @@ ActiveRecord::Schema.define(version: 20151025132544) do
   add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
   add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id"
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "content"
+    t.string   "position"
+    t.datetime "expire_at"
+    t.text     "detail"
+    t.string   "step"
+    t.text     "target"
+    t.text     "schedule"
+    t.string   "location"
+    t.string   "num"
+    t.string   "source_url"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "comp_name"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title",       null: false

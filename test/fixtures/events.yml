@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  content: MyString
+  available: false
+  timestart: 2015-10-27 21:05:41
+
+two:
+  title: MyString
+  description: MyText
+  content: MyString
+  available: false
+  timestart: 2015-10-27 21:05:41

@@ -1,5 +1,6 @@
 require 'redcarpet'
 class PostsController < ApplicationController
+  before_action :admin_only 
   layout  'admin'
   def index
     @posts = Post.page(params.permit(:page)[:page]).order('created_at DESC')

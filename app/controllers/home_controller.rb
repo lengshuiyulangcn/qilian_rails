@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   
   def index
-    render layout: false
+    redirect_to news_index_path
   end
 end

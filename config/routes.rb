@@ -15,6 +15,8 @@ Rails.application.routes.draw do
    resources :entries, only: [:create,:destroy]
    scope :admin do
     resources :posts
+    resources :jobs
+    resources :events
     resources :categories 
     resources :courses
    end
