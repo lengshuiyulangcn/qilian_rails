@@ -42,7 +42,7 @@
      
       <div class="form-group">
         <label>截止日期</label>
-          <%=f.text_field :expire_at, class: "form-control datetimepicker", style: "width: 140px",required: true %>
+          <%=f.text_field :expire_at, class: "form-control datetimepicker", style: "width: 240px",required: true %>
       </div>
 
       <div class="form-group" id='editor'>
@@ -55,6 +55,21 @@
             <%= f.file_field :image, id: "eyecatch_upload", onchange: "previewFile()" %><br />
             <%= image_tag @job.image, id: "eyecatch_url",style: "width: 140px; height: 140px;" %>
       </div>
+      <div class="form-group">
+        <label class="control-label">大分类</label>
+        <div id="category_select">
+          <% @labels.each do |label| %>
+          <div class="checkbox-inline">
+            <%= f.check_box(:labels, {multiple: true, checked: @job.labels.include?(label) }, label.name, nil) %>
+            <%= f.label label.name %>
+          </div>
+          <% end %>
+        </div>
+        <button type="button" class="btn btn-mini" data-toggle="modal" data-target="#new_category_modal">
+          添加
+        </button>
+      </div>
+
       <button type="submit" class="btn btn-primary">保存</button>
     <% end %>
   </div>

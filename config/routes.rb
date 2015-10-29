@@ -16,11 +16,13 @@ Rails.application.routes.draw do
    scope :admin do
     resources :posts
     resources :jobs
+    resources :labels
     resources :events
     resources :categories 
     resources :courses
    end
    get '/course/:id' => 'courses#detail', as: :course_detail
+   get '/job/:id' => 'jobs#detail', as: :job_detail
    get '/courses/all' => 'courses#all', as: :courses_all
    resources :news, only: [:index, :show]
    get '/news/category/:id' => 'news#category', as: :news_category
