@@ -23,6 +23,7 @@ Rails.application.routes.draw do
    end
    get '/course/:id' => 'courses#detail', as: :course_detail
    get '/job/:id' => 'jobs#detail', as: :job_detail
+   get '/jobs/search' => 'jobs#search', as: :job_search
    get '/courses/all' => 'courses#all', as: :courses_all
    resources :news, only: [:index, :show]
    get '/news/category/:id' => 'news#category', as: :news_category

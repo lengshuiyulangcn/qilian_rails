@@ -3,6 +3,14 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
   end
+
+  def search
+    jobs = Job.all
+    @selected_label =[] 
+    @jobs = jobs.map{|job| {job: job, labels: job.labels}}
+    render layout: 'normal'
+  end
+
   def new
     @job = Job.new
     @labels = Label.all

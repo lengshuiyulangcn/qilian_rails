@@ -1,0 +1,66 @@
+
+<!-- Page Content -->
+<div class="container" id="news-detail">
+  <!-- Page Heading/Breadcrumbs -->
+  <div class="row">
+      <div class="col-lg-12">
+          <h2 class="page-header">
+              最新企业说明会信息一览
+          </h2>
+          Breadcrumbs
+      </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Content Row -->
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">分类检索</div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label class="control-label">卒業年度</label><br>
+            <% Label.by_graduate_year.each do |label|%>
+              <input type="checkbox" name="<%=label.name%>" value="<%=label.id%>" <%=  "checked" if @selected_label.include? label %>> <%=label.name%>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">カテゴリー</label><br>  
+            <% Label.by_category.each do |label|%>
+              <input type="checkbox" name="<%=label.name%>" value="<%=label.id%>" <%=  "checked" if @selected_label.include? label %>> <%=label.name%>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">業界</label><br> 
+            <% Label.by_industry.each do |label|%>
+              <input type="checkbox" name="<%=label.name%>" value="<%=label.id%>" <%=  "checked" if @selected_label.include? label %>> <%=label.name%>
+            <% end %>
+          </div>
+          <div class="form-group pull-right">
+          <button onclick="do_search()" class="btn btn-primary">搜索</button>
+          </div>
+        </div>
+      </div>
+      <div id="seachResults">
+        <%= react_component('JobSearch',{jobs: @jobs.to_json}) %>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      合作广告
+    </div>
+    <!-- /main-right sidebar -->
+
+  </div>
+</div>
+  <!-- /.Row -->
+  <script>
+function do_search(){
+  var data = [];
+  $("input:checkbox:checked").each(function() {
+    data.push(this.value)
+  });
+  window.location.href = '/jobs/search?'+jQuery.param({labels: data});
+  }
+  </script>

@@ -72,7 +72,6 @@ componentDidMount: function() {
     } 
   },
   render: function() {
-    console.log(this.state.schedules.length)
     return(
     <div>
     { this.state.schedules.map(function(object, i){

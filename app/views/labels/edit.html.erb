@@ -14,7 +14,7 @@
       <div class="form-group">
         <label for="CategoryBoderLeftColor" class="col-lg-2 control-label">类别区分</label>
         <div class="col-lg-10">
-          <%=f.text_field :category, class: 'form-control' %>
+          <%=f.select :category,{"卒業年度"=>"gradyear","カテゴリー"=>"genre", "業界"=>"industry"} %>
         </div>
       </div>
 
