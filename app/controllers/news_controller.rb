@@ -18,7 +18,10 @@ class NewsController < ApplicationController
     @hot_posts = get_hot_passages
     respond_to do |format|
       format.html
-      format.json {render json: @posts}
+     @posts = @category.posts
+        format.json do
+        render json: @posts
+      end
     end
   end
   private

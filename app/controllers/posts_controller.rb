@@ -3,10 +3,14 @@ class PostsController < ApplicationController
   before_action :admin_only 
   layout  'admin'
   def index
-    @posts = Post.page(params.permit(:page)[:page]).order('created_at DESC')
     respond_to do |format|
-      format.html
-      format.json {render json: @posts}
+      format.html do 
+        @posts = Post.page(params.permit(:page)[:page]).order('created_at DESC')
+      end
+      format.json do 
+        @posts = Post.all.order('created_at DESC')
+        render json: @posts
+      end 
     end
   end
   def new

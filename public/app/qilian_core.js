@@ -178,7 +178,16 @@ app.controller('sessionCtrl', ['Auth','$scope','$location',function(Auth,$scope,
 }]);
 
 app.controller('newsCtrl', ['Post','News','Category','$scope','$location',function(Post,News,Category,$scope,$location) {
-  $scope.posts = Post.index();
+  $scope.numberShow = 5;
+  $scope.total_posts = Post.index(function(data){
+    $scope.total_posts = data
+    $scope.posts = $scope.total_posts.slice(0,$scope.numberShow);
+  });
+  $scope.readMore = function(){ 
+    $scope.numberShow+=5 
+    $scope.posts = $scope.total_posts.slice(0,$scope.numberShow);
+  };
+  console.log($scope.posts)
   $scope.categories = Category.index();
   $scope.title = '咨询一览';
   $scope.show_post = function(index){
@@ -186,7 +195,9 @@ app.controller('newsCtrl', ['Post','News','Category','$scope','$location',functi
   }
   $scope.postsInCategory = function(id,category) {
     News.getCategory(id).then(function(data) {
-      $scope.posts = data;
+      $scope.numberShow = 5;
+      $scope.total_posts = data;
+      $scope.posts = $scope.total_posts.slice(0,$scope.numberShow);
       $scope.title = category;
     });
   };
@@ -195,16 +206,6 @@ app.controller('newsCtrl', ['Post','News','Category','$scope','$location',functi
 app.controller('userinfoCtrl', ['Auth','User','$scope','$location',function(Auth,User,$scope, $location) {
   Auth.currentUser().then(function(user) {
   $scope.image_source = user.image.profile.url
-  //$scope.setFile = function(element) {
-  //  $scope.currentFile = element.files[0];
-  //  var reader = new FileReader();
-  //   reader.onload = function(event) {
- //     $scope.image_source = event.target.result
-  //    $scope.$apply()
-   // }
-  // when the file is read it triggers the onload event above.
-   // reader.readAsDataURL(element.files[0]);
- // }
   $scope.user = user;   
   $scope.title  = user.name;
   $scope.updateUserInfo = function() {
