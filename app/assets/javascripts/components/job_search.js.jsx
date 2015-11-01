@@ -6,7 +6,7 @@ var JobSearch = React.createClass({
     return (
     <div>
     { JSON.parse(this.props.jobs).map(function(data, i){
-     return <SearchResult title={data.job.title} labels={data.labels} expire_at={data.job.expire_at}/>
+     return <SearchResult id={data.job.id} title={data.job.title} labels={data.labels} expire_at={data.job.expire_at}/>
     }) }
     </div>
     )
@@ -20,7 +20,7 @@ var SearchResult = React.createClass({
     return (
       <div className="well well-sm">
        <h4>
-         {this.props.title}
+        <a href={'/job/'+this.props.id}> {this.props.title}</a>
          <span className="label label-danger pull-right">締切:
             <FormattedDate value={this.props.expire_at} day="numeric" month="long" year="numeric"/>
          </span>

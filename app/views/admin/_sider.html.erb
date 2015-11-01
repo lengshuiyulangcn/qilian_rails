@@ -1,31 +1,25 @@
-  <div class="panel panel-default">
-    <div class="panel-heading">资讯管理</div>
-    <div class="panel-body">
-      <div class="list-group">
-        <a href="/admin/posts" class="list-group-item">资讯一览</a>
-        <a href="/admin/posts/new" class="list-group-item">写资讯</a>
-        <a href="/admin/categories" class="list-group-item">资讯分类管理</a>
-      </div>
-    </div>
-  </div>
 
   <div class="panel panel-default">
-    <div class="panel-heading">课程教师管理</div>
+    <div class="panel-heading">信息管理</div>
     <div class="panel-body">
       <div class="list-group">
-        <a href="#" class="list-group-item">课程管理</a>
-        <a href="#" class="list-group-item">报名管理</a>
-        <a href="#" class="list-group-item">学生管理</a>
+        <%=link_to " 求人情报", jobs_path, class: "list-group-item"%>
+        <%=link_to " 课程一览", courses_path, class: "list-group-item" %>
+        <%=link_to " 活动一览", events_path, class: "list-group-item" %>
+        <%=link_to " 咨询一览", posts_path, class: "list-group-item" %>
+        <%=link_to " 用户一览", users_path, class: "list-group-item" %>
       </div>
     </div>
   </div>
 <div class="panel panel-default">
-    <div class="panel-heading">活动管理</div>
+  <div class="panel-heading">标签</div>
     <div class="panel-body">
       <div class="list-group">
-        <%=link_to '创建活动', new_event_path, class: "list-group-item" %>
+        <%=link_to " 咨询标签", categories_path, class: "list-group-item" %>
+        <%=link_to " 求人标签", labels_path, class: "list-group-item" %>
       </div>
     </div>
   </div>
+
 
 

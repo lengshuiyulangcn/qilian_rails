@@ -6,7 +6,11 @@
         <h1 class="page-header">
           <%= @job.title %>
         </h1>
-        breadcrumbs
+            <ol class="breadcrumb">
+              <li><%=link_to "Home", root_path%></li>
+              <li><%=link_to "资讯一览", job_search_path%></li>
+              <li><%=@job.title%></li>
+            </ol>
       </div>
   </div>
   <!-- /.row -->
@@ -29,7 +33,7 @@
              <span class="label label-success">
               <a href="#">
                 <i class="fa fa-tag"></i>
-                <%= label.name %>
+                <%=link_to  label.name, job_single_search_path(label.id) %>
               </a>
              </span>
              &nbsp;
@@ -109,7 +113,7 @@
       </table>
       
       <div class="row">
-        <a clsss="btn btn-primary btn-lg btn-block " target="_blank">点击申请</a>
+        <a class="btn btn-primary btn-lg btn-block " target="_blank">点击申请</a>
       </div>
       <br />
       <br />

@@ -10,4 +10,5 @@ class Label < ActiveRecord::Base
   def self.by_industry
     self.where(category: "industry")
   end
+  
 end

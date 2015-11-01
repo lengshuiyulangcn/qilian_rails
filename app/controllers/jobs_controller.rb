@@ -3,13 +3,35 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
   end
-
+  
+  # multi category search
   def search
-    jobs = Job.all
     @selected_label =[] 
-    @jobs = jobs.map{|job| {job: job, labels: job.labels}}
+    labels = params.permit(:labels=>[])[:labels]
+    if labels
+      graduate_jobs = Job.all.category_select(labels,'gradyear')
+      category_jobs =Job.all.category_select(labels,'genre')
+      industry_jobs = Job.all.category_select(labels,'industry') 
+      @jobs = graduate_jobs & category_jobs & industry_jobs
+      @jobs = Job.where(id: @jobs.map{|job| job.id})
+      @selected_label = Label.where(id: labels )
+    else
+      @jobs = Job.all
+    end
+    @jobs = @jobs.page(params.permit(:page)[:page]).order('created_at DESC')
+    @jobs_labels = @jobs.map{|job| {job: job, labels: Job.find(job.id).labels}}
     render layout: 'normal'
   end
+
+  # single category search
+  def single_search
+    label = params.permit(:id)[:id]
+    @jobs = Label.find(label).jobs
+    @jobs = @jobs.page(params.permit(:page)[:page]).order('created_at DESC')
+    @selected_label = [Label.find(label)]
+    @jobs_labels = @jobs.map{|job| {job: job, labels: Job.find(job.id).labels}}
+    render template: 'jobs/search', layout: 'normal'
+  end 
 
   def new
     @job = Job.new

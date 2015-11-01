@@ -23,3 +23,24 @@ CSV.foreach('posts_categories.csv') do |row|
     puts row
   end
 end
+
+CSV.foreach('kubuns.csv') do |row|
+  Label.create!(id: row[0], category: row[1], name: row[2])
+end
+
+CSV.foreach('calendars.csv') do |row|
+  row = row.map{|element| element == nil ? "": element}
+  Job.create!(id: row[0], title: row[1], content: row[2], fakeimage: row[15], position: row[3], comp_name: row[5], expire_at: row[6], detail: row[7], step: row[8], target: row[9], schedule: row[10], location: row[11], num: row[12], source_url:row[14], created_at: row[16], updated_at: row[17])
+end
+
+CSV.foreach('kubun_relations.csv') do |row|
+  begin
+    job = Job.find(row[2])
+    label = Label.find(row[3])
+    job.labels << label  unless job.labels.include? label 
+    job.save
+  rescue
+    puts row
+  end
+end
+

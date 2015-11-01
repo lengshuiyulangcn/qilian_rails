@@ -7,7 +7,10 @@
           <h2 class="page-header">
               最新企业说明会信息一览
           </h2>
-          Breadcrumbs
+            <ol class="breadcrumb">
+              <li><%=link_to "Home", root_path%></li>
+              <li><%=link_to "资讯一览", job_search_path%></li>
+            </ol>
       </div>
   </div>
   <!-- /.row -->
@@ -44,8 +47,11 @@
         </div>
       </div>
       <div id="seachResults">
-        <%= react_component('JobSearch',{jobs: @jobs.to_json}) %>
+        <%= react_component('JobSearch',{jobs: @jobs_labels.to_json}) %>
       </div>
+        <div class="digg_pagination">
+          <%= will_paginate @jobs,:renderer => BootstrapPagination::Rails %>
+        </div>
     </div>
     <div class="col-lg-4">
       合作广告
