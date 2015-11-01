@@ -7,4 +7,9 @@ class Job < ActiveRecord::Base
     return self.all if category_labels == []
     self.includes(:labels).where(labels: {id: category_labels})
   end
+
+  def self.full_calendar_event
+    Job.all.map{|job| {id: job.id, title: "〆切:"+job.title, start: job.expire_at.to_date, color: "red", url: "/job/#{job.id}"}} 
+  end
+
 end

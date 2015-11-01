@@ -1,2 +1,9 @@
 <div id="calendar"></div>
+<script>
+  $(document).ready(function() {
+      $('#calendar').fullCalendar({
+        events: <%==(Event.full_calendar_event+Job.full_calendar_event).to_json%> 
+      })
+  });
+</script>
 
