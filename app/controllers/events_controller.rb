@@ -19,7 +19,13 @@ class EventsController < ApplicationController
   def edit 
     @event = Event.find(params.permit(:id)[:id])
   end
-  def show 
+  def detail 
+    @event = Event.find(params.permit(:id)[:id])
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    @event.content = markdown.render(@event.content)
+    render layout:  'normal'
+  end
+  def show
     @event = Event.find(params.permit(:id)[:id])
   end
   def update 
@@ -38,6 +44,29 @@ class EventsController < ApplicationController
     redirect_to posts_path
   end
 
+  #show on public page
+  def list
+    @events = Event.coming_events
+    render layout:  'normal'
+  end
+  def apply
+    if current_user
+      event_id = params.permit(:event_id)[:event_id]
+      event =  Event.find(event_id)
+      unless event.users.include? current_user
+        event.users << current_user 
+        event.save
+        flash[:success]="报名活动成功!"
+      else
+        flash[:error]="已经报名!"
+      end
+      redirect_to :back
+    else
+      flash[:error]="请先注册或者登录"
+      redirect_to new_user_session_path
+    end
+  end
+  private
   def event_params
     params.require(:event).permit(:id, :title, :description, :content, :image, :timestart,:timeend)
   end

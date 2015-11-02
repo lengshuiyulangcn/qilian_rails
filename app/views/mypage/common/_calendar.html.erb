@@ -2,7 +2,7 @@
 <script>
   $(document).ready(function() {
       $('#calendar').fullCalendar({
-        events: <%==(Event.full_calendar_event+Job.full_calendar_event).to_json%> 
+        events: <%==(Event.full_calendar_event+Job.full_calendar_event+Course.full_calendar_event).to_json%> 
       })
   });
 </script>

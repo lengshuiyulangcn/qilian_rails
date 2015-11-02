@@ -32,6 +32,7 @@ class CoursesController < ApplicationController
   end
   def show
     @course = Course.find(params.permit(:id)[:id])
+    @users = User.find(@course.entries.map{|entry| entry.user_id })
     respond_to do |format|
       format.html
       format.json do 
@@ -60,6 +61,6 @@ class CoursesController < ApplicationController
   end
   private
   def course_params
-    params.require(:course).permit(:id, :name, :image, :price, :price_detail, :description, :content)
+    params.require(:course).permit(:id, :name, :image, :price, :price_detail, :description, :content, :starttime, :endtime)
   end
 end

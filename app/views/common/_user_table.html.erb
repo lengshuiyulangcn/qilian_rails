@@ -1,5 +1,3 @@
-<h3><%= @event.title %></h3>
-报名情况
 <table class="table">
     <thead>
       <tr>
@@ -11,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-     <% @event.users.each do  |user|%>
+     <% users.each do  |user|%>
       <tr>
 	<td><%= user.family_name+" "+ user.given_name %></td>
 	<td><%= user.name%></td>

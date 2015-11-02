@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101090424) do
+ActiveRecord::Schema.define(version: 20151102122821) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -66,6 +66,14 @@ ActiveRecord::Schema.define(version: 20151101090424) do
     t.string   "image"
     t.datetime "timeend"
   end
+
+  create_table "events_users", id: false, force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "user_id",  null: false
+  end
+
+  add_index "events_users", ["event_id"], name: "index_events_users_on_event_id"
+  add_index "events_users", ["user_id"], name: "index_events_users_on_user_id"
 
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type"
