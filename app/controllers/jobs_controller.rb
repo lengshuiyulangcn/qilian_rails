@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   layout 'admin'
+  before_action :admin_only, except: [:search,:single_search,:detail]
   def index
     @jobs = Job.all
   end

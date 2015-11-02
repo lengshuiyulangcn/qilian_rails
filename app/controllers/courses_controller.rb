@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :admin_only, except: [:detail]
+  before_action :admin_only, except: [:all,:detail]
   layout 'admin'
   def index
     @courses = Course.all

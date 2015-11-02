@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   layout  'admin'
-  before_action :admin_only
+  before_action :admin_only, except: [:list,:detail,:apply]
   def index
     @events = Event.all
   end
