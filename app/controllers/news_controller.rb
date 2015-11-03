@@ -14,12 +14,12 @@ class NewsController < ApplicationController
   end
   def category
     @category = Category.find(params.permit(:id)[:id])
-    @posts = @category.posts.page(params.permit(:page)[:page]).order('created_at DESC')
+    @posts = @category.posts.scope.page(params.permit(:page)[:page]).order('created_at DESC')
     @hot_posts = get_hot_passages
     respond_to do |format|
       format.html
-     @posts = @category.posts
-        format.json do
+      format.json do
+        @posts = @category.posts
         render json: @posts
       end
     end
