@@ -1,6 +1,6 @@
 require 'redcarpet'
 class PostsController < ApplicationController
-  before_action :admin_only 
+  before_action :admin_only, except: [:index] 
   layout  'admin'
   def index
     respond_to do |format|

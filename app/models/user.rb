@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   VALIDATE_PHONE_NUMBER = /\A0[7,8,9]0\d{8}\z/ 
   attr_accessor :login
  
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,:confirmable
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :authentication_keys => [:login]
   
   has_and_belongs_to_many :courses, join_table: "users_courses"
