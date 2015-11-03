@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
   layout  'admin'
   before_action :admin_only, except: [:list,:detail,:apply]
+  before_action :authenticate_user!, only: [:apply]
+  before_action :finish_userinfo, only:[:apply]
   def index
     @events = Event.all
-  end
-  def new
+  end def new
     @event = Event.new
   end
   def create
@@ -50,21 +51,17 @@ class EventsController < ApplicationController
     render layout:  'normal'
   end
   def apply
-    if current_user
       event_id = params.permit(:event_id)[:event_id]
       event =  Event.find(event_id)
       unless event.users.include? current_user
         event.users << current_user 
         event.save
+        EventMessage.apply(current_user,event).deliver
         flash[:success]="报名活动成功!"
       else
         flash[:error]="已经报名!"
       end
       redirect_to :back
-    else
-      flash[:error]="请先注册或者登录"
-      redirect_to new_user_session_path
-    end
   end
   private
   def event_params

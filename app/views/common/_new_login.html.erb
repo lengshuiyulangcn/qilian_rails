@@ -49,7 +49,9 @@
         <%= f.check_box :remember_me %>
         保持登录
        </label>
-    <span style="float:right"><a href="forgetPassword.html" style="color:white;">忘记密码了?</a></span>
+    <span style="float:right">
+      <%= link_to "忘记密码了?", new_password_path(resource_name), style:"color:white;" %>
+    </span>
      </div>
      <%= f.submit "让我们开始吧",  class: "btn btn-default btn-block center-block btn-lg", style: "color:#2cc36b;" %>
      <hr>
