@@ -1,4 +1,4 @@
-var app = angular.module('qilianCore', ['ngResource','ngRoute','mobile-angular-ui','Devise','rorymadden.date-dropdowns']);
+var app = angular.module('qilianCore', ['ngResource','ngRoute','mobile-angular-ui','Devise','rorymadden.date-dropdowns','flash']);
 app.directive("fileUpload", [function () {
     return {
        templateUrl: 'template/directives/uploadImage.html',
@@ -135,11 +135,28 @@ app.controller('coursesCtrl', ['Course','$scope','$location',function(Course,$sc
   }
 }]);
 
-app.controller('courseCtrl', ['Course','$scope','$routeParams','$window',function(Course,$scope,$routeParams,$window) {  
+app.controller('courseCtrl', ['Flash','Course','$scope','$routeParams','$window','$location','Auth','$http',function(Flash,Course,$scope,$routeParams,$window,$location, Auth, $http) {  
   $scope.history = "课程";
-  $scope.enableBack = true; 
   $scope.goBack = function(){
     $window.history.back();
+  }
+  $scope.apply = function(){
+    Auth.currentUser().then(function(user) {
+      $http({
+      method: 'POST',
+      url: '/entries',
+      data: {course_id: $scope.course.id, user_id: user.id}
+      }).then(function successCallback(response) {
+        Flash.create('success', '报名成功', 'custom-class');
+      }, 
+      function errorCallback(response) {
+        Flash.create('danger', '已经申请过此课程', 'custom-class');
+      });      
+    },
+    function(){
+      Flash.create('danger', '请先登录', 'custom-class');
+      $location.path("/users/sign_in");
+    })  
   }
   $scope.course = Course.show({id: $routeParams.id});
   $scope.course.$promise.then(function (result) {
@@ -159,7 +176,7 @@ app.controller('mypageCtrl', ['Auth','$scope','$location',function(Auth,$scope, 
       $location.path("/users/sign_in");
     }); 
 }]);
-app.controller('sessionCtrl', ['Auth','$scope','$location',function(Auth,$scope, $location) {
+app.controller('sessionCtrl', ['Flash','Auth','$scope','$location',function(Flash,Auth,$scope, $location) {
  $scope.credentials = { login: '', password: '' };
  $scope.title = '用户注册/登陆';
  $scope.facebook_auth= function() {
@@ -168,11 +185,9 @@ app.controller('sessionCtrl', ['Auth','$scope','$location',function(Auth,$scope,
  }
  $scope.signIn = function() {
         Auth.login($scope.credentials).then(function(user) {
-          $location.path("/");
-          alert('Successfully signed in user!')
+          $location.path("/news");
         }, function(error) {
-          console.info('Error in authenticating user!');
-          alert('Error in signing in user!');
+        Flash.create('danger', '请输入正确的用户名或者密码', 'custom-class');
         });
    }
 }]);

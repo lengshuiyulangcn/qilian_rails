@@ -4,9 +4,9 @@
   <div class='app-content' style="background-color: white">
     <div class="scrollable">
      <div class="scrollable-content section">
+      <div flash-message="5000" ></div>
       <form role="form" ng-submit="signIn()" class="ng-pristine ng-valid ng-valid-email">
         <fieldset>
-          <legend>登录</legend>
             <div class="form-group has-success has-feedback">
               <label>Email/ID</label>
               <input type="text" ng-model="credentials.login" class="form-control ng-pristine ng-untouched ng-valid needsclick ng-valid-email" placeholder="ID or Email">

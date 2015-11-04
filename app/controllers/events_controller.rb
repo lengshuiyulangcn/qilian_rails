@@ -1,11 +1,12 @@
 class EventsController < ApplicationController
   layout  'admin'
-  before_action :admin_only, except: [:list,:detail,:apply]
   before_action :authenticate_user!, only: [:apply]
+  before_action :admin_only, except: [:list,:detail,:apply]
   before_action :finish_userinfo, only:[:apply]
   def index
     @events = Event.all
-  end def new
+  end
+  def new
     @event = Event.new
   end
   def create

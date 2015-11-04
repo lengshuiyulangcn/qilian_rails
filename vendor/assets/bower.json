@@ -3,8 +3,6 @@
   "dependencies": {
     "angular-devise": "latest",
     "react-intl": "latest",
-    "react-event-calendar": "latest"
-  },
-  "resolutions": {
+    "angular-flash-alert": "latest"
   }
 }
