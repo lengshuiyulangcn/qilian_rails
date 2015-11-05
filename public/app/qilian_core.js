@@ -1,4 +1,5 @@
 var app = angular.module('qilianCore', ['ngResource','ngRoute','mobile-angular-ui','Devise','rorymadden.date-dropdowns','flash']);
+
 app.directive("fileUpload", [function () {
     return {
        templateUrl: 'template/directives/uploadImage.html',
@@ -16,52 +17,18 @@ app.directive("fileUpload", [function () {
         }
     }
 }]);
-app.factory("Post", function($resource) {
-  return $resource("/admin/posts/:id.json", { id: "@id" },
-    {
-      'create':  { method: 'POST' },
-      'index':   { method: 'GET', isArray: true },
-      'show':    { method: 'GET', isArray: false },
-      'update':  { method: 'PUT' },
-      'destroy': { method: 'DELETE' }
-    }
-  );
-});
 
-app.factory("User", function($resource) {
-  return $resource("/users/:id.json", { id: "@id" },
-    {
-      'update':  { method: 'PUT' },
+app.controller('MainController', ['$location','$scope','Auth', function($location,$scope, Auth) {
+  Auth.currentUser().then(function(user) {
+    $scope.user = user;
+    $scope.gotoUserInfo= function(){
+      $location.url('/users/'+$scope.user.id+"/edit"); 
     }
-  );
-});
-
-app.factory("Category", function($resource) {
-  return $resource("/admin/categories/:id.json", { id: "@id" },
-    {
-      'index':   { method: 'GET', isArray: true },
-    }
-  );
-});
-app.factory("Course", function($resource) {
-  return $resource("/admin/courses/:id.json", { id: "@id" },
-    {
-      'index':   { method: 'GET', isArray: true },
-      'show':    { method: 'GET', isArray: false },
-    }
-  );
-});
-
-app.factory('News', function($http) {
-  var getCategory = function(id) {
-    return $http.get('/news/category/'+id+'.json').then(function(response) {
-      return response.data;
-    });
-  };
-  return {
-    getCategory: getCategory
-  };
-});
+  })
+    $scope.gotoMypage= function(){
+      $location.url('/mypage'); 
+    };
+}]);
 
 app.config(function($routeProvider,$locationProvider) {
   $routeProvider
@@ -98,6 +65,14 @@ app.config(function($routeProvider,$locationProvider) {
       templateUrl: 'template/detail.html',
       controller: 'postCtrl'      
     })
+    .when('/events/list', {
+      templateUrl: 'template/events.html',
+      controller: 'eventsCtrl'      
+    })
+    .when('/events/:id', {
+      templateUrl: 'template/event.html',
+      controller: 'eventCtrl'      
+    })
     .when('/users/:id/edit', {
       templateUrl: 'template/userinfo.html',
       controller: 'userinfoCtrl'      
@@ -108,6 +83,19 @@ app.config(function($routeProvider,$locationProvider) {
 
 app.controller('homeCtrl', function($scope, $route, $routeParams) {  
 });
+
+app.controller('eventsCtrl',['Event','$scope','$routeParams',function(Event,$scope, $routeParams) {  
+  Event.index(function(data){
+    $scope.events = data;
+    console.log($scope.events);
+  });  
+  $scope.title = "精彩活动";  
+}]);
+
+app.controller('eventCtrl', function($scope, $route, $routeParams) {  
+});
+
+
 app.controller('postCtrl', ['Post','$scope','$route','$routeParams','$window',function(Post,$scope, $route, $routeParams,$window) {  
   $scope.loading = true;
   $scope.history = "咨询";
@@ -231,7 +219,7 @@ app.controller('userinfoCtrl', ['Auth','User','$scope','$location',function(Auth
 
 ]);
 
-app.directive('qilianHeader',['$route','Auth',function($route,Auth) {
+app.directive('qilianHeader',['$route',function($route) {
   return {
     templateUrl: 'template/header.html',
     }

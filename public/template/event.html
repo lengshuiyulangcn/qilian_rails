@@ -1,0 +1,28 @@
+<qilian-header></qilian-header>
+<qilian-footer></qilian-footer>
+<div class='app-body'>
+  <div class='app-content' style="background-color: #16A086">
+    <br>
+    <div class="topic_box">
+      <div class="topics" ng-repeat="course in courses">
+        <div class="topic topic_line" ng-click="show_course($index+1)">
+          <img ng-src={{course.course.image.url}} class="avatar pull-left">
+          <div class="title">
+            {{course.course.name}}
+          </div>
+          <div class="title">
+            {{course.course.description}}
+          </div>
+          <div class="title">
+            报名人数: {{course.entries.length}}
+            授课老师: 
+            <a ng-repeat="teacher in course.teachers"> 
+              {{teacher.name}}
+            </a>
+          </div>
+         </div>
+       </div>
+     </div>
+   </div>
+  </div>
+</div>
