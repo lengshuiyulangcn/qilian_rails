@@ -1,28 +1,20 @@
 <qilian-header></qilian-header>
 <qilian-footer></qilian-footer>
 <div class='app-body'>
-  <div class='app-content' style="background-color: #16A086">
-    <br>
-    <div class="topic_box">
-      <div class="topics" ng-repeat="course in courses">
-        <div class="topic topic_line" ng-click="show_course($index+1)">
-          <img ng-src={{course.course.image.url}} class="avatar pull-left">
-          <div class="title">
-            {{course.course.name}}
+  <div class='app-content' style="background-color: white">
+    <div class="scrollable">
+    <div flash-message="5000" ></div>
+    <div class="scrollable-content"> 
+      <div class="list-group">
+        <div class="scrollable-content" ng-bind-html="event.content | rawHtml"></div>
+        <div class="list-group-item">
+          <div style="display: inline-block;width:50%; vertical-align: middle">
+            报名人数: {{event.users.length}}<br>
           </div>
-          <div class="title">
-            {{course.course.description}}
-          </div>
-          <div class="title">
-            报名人数: {{course.entries.length}}
-            授课老师: 
-            <a ng-repeat="teacher in course.teachers"> 
-              {{teacher.name}}
-            </a>
-          </div>
-         </div>
-       </div>
-     </div>
-   </div>
+            <a style="width: 100%" class="btn btn-primary" ng-click="apply()">立即报名</a>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 </div>

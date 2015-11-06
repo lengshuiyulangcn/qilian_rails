@@ -36,6 +36,15 @@ class EventsController < ApplicationController
   end
   def show
     @event = Event.find(params.permit(:id)[:id])
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    @event.content = markdown.render(@event.content)
+    respond_to do |format|
+      format.html
+      format.json do 
+        render json: @event.to_json(:include=>[:users])
+      end
+    end
+
   end
   def update 
     event = Event.find(params.permit(:id)[:id])

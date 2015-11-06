@@ -5,7 +5,7 @@
     <br>
     <div class="topic_box">
       <div class="topics" ng-repeat="event in events">
-        <div class="topic topic_line" ng-click="show_event(event.event.id)">
+        <div class="topic topic_line" ng-click="gotoEvent(event.event.id)">
           <img ng-src={{event.event.image.url}} class="avatar pull-left">
           <div class="title">
             {{event.event.title}}
@@ -14,6 +14,7 @@
             {{event.event.description}}
           </div>
           <div class="title">
+            活动时间: {{event.event.timestart |date:'MM/dd/yyyy h:mma'}}
             报名人数: {{event.users.length}}
           </div>
          </div>

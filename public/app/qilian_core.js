@@ -69,7 +69,7 @@ app.config(function($routeProvider,$locationProvider) {
       templateUrl: 'template/events.html',
       controller: 'eventsCtrl'      
     })
-    .when('/events/:id', {
+    .when('/event/:id', {
       templateUrl: 'template/event.html',
       controller: 'eventCtrl'      
     })
@@ -84,16 +84,43 @@ app.config(function($routeProvider,$locationProvider) {
 app.controller('homeCtrl', function($scope, $route, $routeParams) {  
 });
 
-app.controller('eventsCtrl',['Event','$scope','$routeParams',function(Event,$scope, $routeParams) {  
+app.controller('eventsCtrl',['$location','Event','$scope','$routeParams',function($location,Event,$scope, $routeParams) {  
   Event.index(function(data){
     $scope.events = data;
-    console.log($scope.events);
   });  
   $scope.title = "精彩活动";  
+  $scope.gotoEvent = function(id){
+    $location.url('/event/'+id) 
+  }
 }]);
 
-app.controller('eventCtrl', function($scope, $route, $routeParams) {  
-});
+app.controller('eventCtrl', ['Auth','Flash','Event','$scope','$routeParams','$http',function(Auth,Flash,Event,$scope,$routeParams,$http) {
+  console.log('here');
+  $scope.event = Event.show({id: $routeParams.id});
+  $scope.event.$promise.then(function (result) {
+    console.log(result);
+    $scope.event = result;
+    $scope.title = result.title;
+  });
+  $scope.apply = function(){
+    Auth.currentUser().then(function(user) {
+        $http({
+        method: 'POST',
+        url: 'events/apply',
+        data: {event_id: $scope.event.id}
+        }).then(function successCallback(response) {
+          Flash.create('success', '报名活动成功', 'custom-class');
+        }, 
+        function errorCallback(response) {
+          Flash.create('danger', '请不要重复报名', 'custom-class');
+        });      
+      },
+      function(){
+        Flash.create('danger', '请先登录', 'custom-class');
+        $location.path("/users/sign_in");
+      }) 
+  }
+}]);
 
 
 app.controller('postCtrl', ['Post','$scope','$route','$routeParams','$window',function(Post,$scope, $route, $routeParams,$window) {  
@@ -116,7 +143,6 @@ app.controller('coursesCtrl', ['Course','$scope','$location',function(Course,$sc
   courses.$promise.then(function (result) {
   $scope.title = '七联课程';
   $scope.courses = result;
-  console.log($scope.courses)
   });
   $scope.show_course = function(index){
   $location.path("/course/"+index);
@@ -150,7 +176,6 @@ app.controller('courseCtrl', ['Flash','Course','$scope','$routeParams','$window'
   $scope.course.$promise.then(function (result) {
     $scope.course = result;
   $scope.title = result.name; 
-    console.log($scope.couse)
   });
 }]);
 
@@ -158,7 +183,6 @@ app.controller('mypageCtrl', ['Auth','$scope','$location',function(Auth,$scope, 
   Auth.currentUser().then(function(user) {   
     $scope.title = '我的主页';
     $scope.user = user;
-    console.log(user);
   }, 
   function(error) {
       $location.path("/users/sign_in");
@@ -190,7 +214,6 @@ app.controller('newsCtrl', ['Post','News','Category','$scope','$location',functi
     $scope.numberShow+=5 
     $scope.posts = $scope.total_posts.slice(0,$scope.numberShow);
   };
-  console.log($scope.posts)
   $scope.categories = Category.index();
   $scope.title = '咨询一览';
   $scope.show_post = function(index){
