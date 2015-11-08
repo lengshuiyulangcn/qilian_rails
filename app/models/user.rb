@@ -55,4 +55,10 @@ class User < ActiveRecord::Base
   def email_changed?
     false
   end
+  def forem_name
+    name
+  end
+  def forem_email
+    email
+  end
 end

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -59,6 +59,10 @@ gem 'browser'
 
 # Web server
 gem 'puma'
+
+# mountable forum
+gem 'forem', :github => "radar/forem", :branch => "rails4"
+gem 'forem-bootstrap', :github => "radar/forem-bootstrap"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
