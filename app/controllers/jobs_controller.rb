@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   layout 'admin'
   before_action :admin_only, except: [:search,:single_search,:detail]
   def index
-    @jobs = Job.all
+    @jobs = Job.where(expire_at: Time.current..Time.current+1.year)
   end
   
   # multi category search
@@ -14,12 +14,12 @@ class JobsController < ApplicationController
       category_jobs =Job.all.category_select(labels,'genre')
       industry_jobs = Job.all.category_select(labels,'industry') 
       @jobs = graduate_jobs & category_jobs & industry_jobs
-      @jobs = Job.where(id: @jobs.map{|job| job.id})
+      @jobs = Job.where(id: @jobs.map{|job| job.id}, expire_at: Time.current..Time.current+1.year)
       @selected_label = Label.where(id: labels )
     else
-      @jobs = Job.all
+      @jobs = Job.where(expire_at: Time.current..Time.current+1.year)
     end
-    @jobs = @jobs.page(params.permit(:page)[:page]).order('created_at DESC')
+    @jobs = @jobs.page(params.permit(:page)[:page]).order('expire_at ASC')
     @jobs_labels = @jobs.map{|job| {job: job, labels: Job.find(job.id).labels}}
     render layout: 'normal'
   end
@@ -28,7 +28,7 @@ class JobsController < ApplicationController
   def single_search
     label = params.permit(:id)[:id]
     @jobs = Label.find(label).jobs
-    @jobs = @jobs.page(params.permit(:page)[:page]).order('created_at DESC')
+    @jobs = @jobs.page(params.permit(:page)[:page]).order('expire_at ASC')
     @selected_label = [Label.find(label)]
     @jobs_labels = @jobs.map{|job| {job: job, labels: Job.find(job.id).labels}}
     render template: 'jobs/search', layout: 'normal'

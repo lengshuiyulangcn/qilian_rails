@@ -19,5 +19,6 @@
 //= require react-intl
 //= require components
 //= require fullcalendar
+//= require fullcalendar/gcal
 //= require jquery.flexslider-min
 //= require_tree .

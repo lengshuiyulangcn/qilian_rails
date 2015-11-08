@@ -113,17 +113,14 @@
       </table>
       
       <div class="row">
-        <a class="btn btn-primary btn-lg btn-block " target="_blank">点击申请</a>
+        <a class="btn btn-primary btn-lg btn-block" href="<%= @job.source_url%>" target="_blank">点击申请</a>
       </div>
-      <br />
-      <br />
-      前后 
       <br>
     </div>
 
     <div class="col-lg-4">
     <!-- main-right sidebar -->
-     投放合作广告 
+      <%= render partial: '/mypage/common/calendar'%>
     <!-- /main-right sidebar -->
     </div>
 
