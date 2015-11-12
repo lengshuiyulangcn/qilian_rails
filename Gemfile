@@ -60,9 +60,6 @@ gem 'browser'
 # Web server
 gem 'puma'
 
-# mountable forum
-gem 'forem', :github => "radar/forem", :branch => "rails4"
-gem 'forem-bootstrap', :github => "radar/forem-bootstrap"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
