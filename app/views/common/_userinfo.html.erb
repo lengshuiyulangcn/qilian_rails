@@ -24,7 +24,7 @@
         <div class="form-group">
           <label for="PostImage">添加头像</label>
             <%= f.file_field :image, id: "eyecatch_upload", onchange: "previewFile()" %><br />
-            <%= image_tag  user.image, id: "heyecatch_url", style: "width: 140px; height: 140px;"%>
+            <%= image_tag  user.image, id: "eyecatch_url", style: "width: 140px; height: 140px;"%>
         </div>
 
         <div class="form-group">

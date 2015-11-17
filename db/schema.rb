@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108080142) do
+ActiveRecord::Schema.define(version: 20151116123002) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -45,6 +45,26 @@ ActiveRecord::Schema.define(version: 20151108080142) do
     t.text     "content"
   end
 
+  create_table "cvs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "kana"
+    t.datetime "birthday"
+    t.string   "gender"
+    t.string   "home_phone"
+    t.string   "cell_phone"
+    t.string   "email"
+    t.string   "current_address"
+    t.string   "emergency_address"
+    t.string   "skill"
+    t.string   "interest"
+    t.string   "major_work"
+    t.string   "self_pr"
+    t.string   "best_effort"
+    t.string   "image"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "entries", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.integer  "course_id",  null: false
@@ -75,7 +95,7 @@ ActiveRecord::Schema.define(version: 20151108080142) do
   add_index "events_users", ["event_id"], name: "index_events_users_on_event_id"
   add_index "events_users", ["user_id"], name: "index_events_users_on_user_id"
 
-   create_table "impressions", force: :cascade do |t|
+  create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type"
     t.integer  "impressionable_id"
     t.integer  "user_id"
@@ -159,12 +179,12 @@ ActiveRecord::Schema.define(version: 20151108080142) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",               null: false
-    t.string   "encrypted_password",     default: "",               null: false
+    t.string   "email",                  default: "",        null: false
+    t.string   "encrypted_password",     default: "",        null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,                null: false
+    t.integer  "sign_in_count",          default: 0,         null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"

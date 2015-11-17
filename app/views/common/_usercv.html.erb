@@ -1,0 +1,99 @@
+<div class="well">
+  <h3 class="page-header">
+   我的简历 
+  </h3>
+  <div class="row">
+    <div class="col-lg-12">
+      <%= form_for @cv do |f| %>
+        <div class="form-group">
+            <label>氏名</label>
+            <%=f.text_field :name, value: current_user.family_name+ " "+current_user.given_name, required: true  %>
+            <label>カタカナ</label>
+            <%=f.text_field :kana, required: true  %>
+        </div>
+        <div class="form-group">
+            <label>性別</label>
+            <%=f.select :gender, [["男", "男"], ["女", "女"]] %>
+          </div>
+
+        <div class="form-group">
+            <label>誕生日</label>
+            <%=f.date_select :birthday, use_month_numbers: :true, start_year: 1980, end_year: 2000 %>
+        </div>
+        <div class="form-group">
+          <label for="PostImage">顔写真</label>
+            <%= f.file_field :image, id: "eyecatch_upload", onchange: "previewFile()" %><br />
+            <%= image_tag  cv.image, id: "eyecatch_url", style: "width: 140px; height: 140px;"%>
+        </div>
+
+        <div class="form-group">
+          <label>自宅電話</label>
+          <%=f.text_field :home_phone, class: 'form-control',required: true  %>
+        </div>
+        <div class="form-group">
+          <label>携帯電話</label>
+          <%=f.text_field :cell_phone, value: current_user.phone, class: 'form-control',required: true  %>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <%=f.email_field :email, value: current_user.email, class: 'form-control'%>
+        </div>
+
+      <div class="form-group">
+        <label>現住所</label>
+          <%=f.text_field :current_address, class: 'form-control', required: true  %>
+      </div>
+
+      <div class="form-group">
+        <label for="PostImage">休暇中の住所</label>
+          <%=f.text_field :emergency_address, class: 'form-control', required: true  %>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">保有資格・スキル</label>
+          <%=f.text_area :skill, class: 'form-control', row:3 %>
+      </div>
+      <div class="form-group">
+        <label class="control-label">趣味・特技</label>
+          <%=f.text_area :interest, class: 'form-control', row:3 %>
+        </div>
+      <div class="form-group">
+        <label class="control-label">学業、ゼミ、研究室などで取り組んだ内容</label>
+            <%=f.text_area :major_work, class: 'form-control',row:4 %>
+      </div>
+      <div class="form-group">
+        <label class="control-label">自己 PR</label>
+            <%=f.text_area :self_pr, class: 'form-control',row:4 %>
+      </div>
+      <div class="form-group">
+        <label class="control-label">学生時代に最も打ち込んだこと</label>
+            <%=f.text_area :best_effort, class: 'form-control',row:5 %>
+      </div>
+
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <button type="submit" class="btn btn-primary">提交表单</button>
+        </div>
+      </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+<script>
+function previewFile() {
+  var preview = document.getElementById('eyecatch_url');
+  var file    = document.getElementById('eyecatch_upload').files[0];
+  var reader  = new FileReader();
+
+  reader.onloadend = function () {
+    preview.src = reader.result;
+  }
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "";
+  }
+}
+</script>
+
