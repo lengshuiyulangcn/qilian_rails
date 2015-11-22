@@ -17,4 +17,5 @@
 //= require react_ujs
 //= require components
 //= require angular-devise
+//= require angular-flash.min
 //= require_tree .

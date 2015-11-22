@@ -10,7 +10,7 @@ end
 CSV.foreach('posts.csv') do |row|
   row = row.map{|element| element == nil ? "": element}
   new_image_path = 'http://www.qilian.jp/image/'+row[5].split('/')[-1] if row[5] !=''
-  Post.create!(id: row[0], title: row[1], description: row[2], content: row[3], fakeimage: new_image_path, created_at: row[9], updated_at: row[10])
+  Post.create!(id: row[0], title: row[1], description: row[2], content: row[3], fakeview: row[3].length/2, fakeimage: new_image_path, created_at: row[9], updated_at: row[10])
 end
 
 ### import category and posts relationship
