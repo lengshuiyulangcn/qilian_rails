@@ -45,10 +45,21 @@
       </div>
 
       <div class="form-group">
-        <label for="PostImage">休暇中の住所</label>
+        <label>休暇中の住所</label>
           <%=f.text_field :emergency_address, class: 'form-control', required: true  %>
       </div>
-
+      
+      <div class="form-group">
+        <label>学歴・職歴</label>
+          <div class="form-group">
+            <ul id="experiences" >
+            <% @experiences.each do |ex| %>
+              <li><%=format_month ex.time_from%><b>から</b><%=format_month ex.time_to%><b>まで</b>&nbsp;&nbsp;&nbsp;<%=ex.stuff%></li>
+            <% end %>
+           </ul>
+           </div>
+        <a type="button" class="btn btn-info" data-toggle="modal" data-target="#newEx">追加</a>
+      </div>
       <div class="form-group">
         <label class="control-label">保有資格・スキル</label>
           <%=f.text_area :skill, class: 'form-control', row:3 %>
@@ -75,10 +86,41 @@
           <button type="submit" class="btn btn-primary">提交表单</button>
         </div>
       </div>
-        <% end %>
+    <% end %>
+    <!-- Modal for experiences -->
+    <div class="modal fade" id="newEx" role="dialog">
+      <div class="modal-dialog">
+	<!-- Modal content-->
+	<div class="modal-content">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal">&times;</button>
+	    <h4 class="modal-title">履歴追加</h4>
+	  </div>
+	  <div class="modal-body">
+	    <%= form_for Experience.new, html: {id: 'newEx_form'}, remote: true do |f| %>
+      	      <div class="form-group">
+		<%=f.text_field :time_from, id: "datetimepicker_from", style: "width: 40%" %>
+                <b>から</b>
+		<%=f.text_field :time_to, id: "datetimepicker_to", style:"width: 40%" %>
+                <b>まで</b>
+      	        </div>
+      	      <div class="form-group">
+                <label>履歴</label>
+		<%=f.text_field :stuff, class:"form-control" %>
+      	      </div>
+      	      <div class="form-group">
+                <button type="submit" class="btn btn-primary">追加</button>
+      	      </div>
+	    <% end %>
+	  </div>
+	</div>
+      </div>
+     </div>
+
     </div>
   </div>
 </div>
+<script type="text/javascript" src="/assets/jquery.monthpicker.min.js"></script>
 <script>
 function previewFile() {
   var preview = document.getElementById('eyecatch_url');
@@ -95,5 +137,11 @@ function previewFile() {
     preview.src = "";
   }
 }
+
+$('#datetimepicker_from').monthpicker({
+  'maxYear' : 2020});
+$('#datetimepicker_to').monthpicker({
+  'maxYear' : 2020});
+
 </script>
 

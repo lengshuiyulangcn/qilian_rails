@@ -14,6 +14,7 @@
  *= require footer
  *= require register
  *= require flexslider
+ *= require cv_style 
  *= require_tree .
  *= require_self
  */

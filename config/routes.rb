@@ -16,13 +16,14 @@ Rails.application.routes.draw do
    get '/mypage/courses' => 'mypage#my_courses', as: :my_courses
 
    resources :users
+   resources :experiences, only:[:create]
 
    get '/admin' => 'admin#index'
    get '/admin/userinfo/:id' => 'admin#userinfo', as: :admin_userinfo
 
    resources :entries, only: [:create,:destroy]
 
-   resources :cvs
+   resources :cvs, except: [:new,:create,:delete]
 
    scope :admin do
     resources :posts

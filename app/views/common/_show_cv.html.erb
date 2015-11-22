@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="pull-right">2015年10月23日現在
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-9">
+  <table class="mytable mytable-head">
+    <tr>
+        <th width="10%">フリガナ</th>
+	<td width="55%"><%=@cv.kana%></td>
+    </tr>
+</table>
+<table class="mytable mytable-body">
+  <tr>
+      <th width="10%">氏名</th>
+      <td width="55%"><span style="font-size: 25px"><%=@cv.name%></span></td>
+  </tr>
+</table>
+<table class="mytable mytable-body">
+    <tr>
+        <th width="10%">生年月日</th>
+	<td width="25%"><%=format_birthday @cv.birthday%></td>
+        <th width="5%">性別</th>
+	<td width="5%"><%=@cv.gender%></td>
+        <th width="10%">自宅電話</th>
+	<td width="15%"><%=@cv.home_phone%></td>
+    </tr>
+</table>
+<table class="mytable mytable-body">
+    <tr>
+        <th width="10%">Email</th>
+	<td width="35%"><%=@cv.email%></td>
+        <th width="10%">携帯電話</th>
+	<td width="15%"><%=@cv.cell_phone%></td>
+    </tr>
+</table>
+<table class="mytable mytable-body">
+    <tr>
+        <th width="6%">現住所</th>
+	<td width="35%"><%=@cv.current_address%></td>
+    </tr>
+    </table>
+    <table class="mytable mytable-body">
+    <tr>
+        <th width="6%">休暇中の<br>連絡先</th>
+        <td width="35%">
+	  <%=@cv.emergency_address%>
+        </td>
+    </tr>
+</table>
+  </div>
+  <div class="col-sm-3">
+    <%=image_tag @cv.image, class: 'profile_image'%>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-12">
+  <table class="table table-bordered">
+    <tr class="active">
+      <th>年月</th>
+      <th>学歴・職歴</th>
+    </tr>
+    <% @experiences.each do |ex| %>
+    <tr>
+      <td><%=format_month ex.time_from %> ～<%=format_month ex.time_to %></td>
+      <td><%=ex.stuff%></td>
+    </tr>
+    <% end %>
+    </table>
+    </div>
+</div>
+<div class="row">
+  <div class="col-sm-5">
+    <b>保有資格・スキル</b>
+    <hr>
+    <%=@cv.skill%>
+  </div>
+  <div class="col-sm-2"></div>
+  <div class="col-sm-5">
+    <b>趣味・特技</b>
+    <hr>
+    <%=@cv.interest%>
+  </div>
+</div>
+<br>
+<div class="row">
+  <b>学業、ゼミ、研究室などで取り組んだ内容</b>
+  <hr>
+  <%=@cv.major_work%>
+</div>
+<br>
+<div class="row">
+  <b>自己 PR</b>
+  <hr>
+  <%=@cv.self_pr%>
+</div>
+<br>
+<div class="row">
+  <b>学生時代に最も打ち込んだこと</b>
+  <hr>
+  <%=@cv.best_effort%>
+</div>

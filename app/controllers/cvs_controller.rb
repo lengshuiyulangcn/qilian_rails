@@ -3,11 +3,16 @@ class CvsController < ApplicationController
   def index
     @cvs = Cv.all
   end
-  def new
-    @cv = Cv.new
+  def edit
+    @cv = Cv.find(params.permit(:id)[:id])
+    @experiences = @cv.experiences.order(:time_from)
   end
-  def create
-    cv = Cv.new
+  def show
+    @cv = Cv.find(params.permit(:id)[:id])
+    @experiences = @cv.experiences.order(:time_from)
+  end
+  def update 
+    cv = Cv.find(params.permit(:id)[:id])
     cv.attributes = cvs_params
     unless cvs_params.has_key? :birthday
       birthday =params.require(:cv).permit("birthday(1i)","birthday(2i)","birthday(3i)").map{|k,v| v}.join("-").to_date 

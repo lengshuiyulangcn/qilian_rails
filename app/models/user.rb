@@ -18,10 +18,12 @@ class User < ActiveRecord::Base
   validates_presence_of :major, message: '专业不能为空', on: [:update]
  
   has_many :entries
+  has_one :cv
   has_and_belongs_to_many :events
 
   mount_uploader :image, ImageUploader
- 
+  after_create :make_cv
+
   def self.find_for_facebook_oauth(auth)
       user = User.where(provider: auth.provider, uid: auth.uid).first
       unless user
@@ -54,5 +56,10 @@ class User < ActiveRecord::Base
 
   def email_changed?
     false
+  end
+  
+  private
+  def make_cv
+    Cv.create(user_id: id, name: family_name+" "+given_name, email: email, cell_phone: phone, birthday: birthday, gender: gender)
   end
 end
