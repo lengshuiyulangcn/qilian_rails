@@ -15,6 +15,12 @@
  *= require register
  *= require flexslider
  *= require cv_style 
+ *= require bootstrap.min
+ *= require modern-business
+ *= require style
+ *= require blog-list
+ *= require md_preview
+ *= require qilian
  *= require_tree .
  *= require_self
  */

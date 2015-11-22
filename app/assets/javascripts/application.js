@@ -12,11 +12,17 @@
 //
 //= require moment
 //= require jquery
+//= require bootstrap.min
 //= require jquery_ujs
 //= require react
 //= require react_ujs
 //= require react-intl
 //= require components
 //= require fullcalendar
+//= require jquery.monthpicker.min
+//= require jquery.datetimepicker
 //= require jquery.flexslider-min
+//= require Markdown.Converter
+//= require Markdown.Sanitizer
+//= require Markdown.Editor
 //= require_tree .

@@ -22,7 +22,7 @@ gem 'carrierwave'
 gem 'rmagick'
 
 # Rich text editor
-gem 'rails_kindeditor'
+gem 'rails_kindeditor', github: 'javyliu/rails_kindeditor'
 
 # Calendar
 gem 'fullcalendar-rails'
