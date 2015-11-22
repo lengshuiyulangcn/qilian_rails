@@ -60,6 +60,6 @@ class User < ActiveRecord::Base
   
   private
   def make_cv
-    Cv.create(user_id: id, name: family_name+" "+given_name, email: email, cell_phone: phone, birthday: birthday, gender: gender)
+    Cv.create(user_id: id, email: email, cell_phone: phone, birthday: birthday, gender: gender)
   end
 end

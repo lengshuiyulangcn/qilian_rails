@@ -9,7 +9,7 @@ end
 ### import posts
 CSV.foreach('posts.csv') do |row|
   row = row.map{|element| element == nil ? "": element}
-  new_image_path = 'http://dev.qilian.jp/image/'+row[5].split('/')[-1] if row[5] !=''
+  new_image_path = 'http://www.qilian.jp/image/'+row[5].split('/')[-1] if row[5] !=''
   Post.create!(id: row[0], title: row[1], description: row[2], content: row[3], fakeimage: new_image_path, created_at: row[9], updated_at: row[10])
 end
 
@@ -31,7 +31,7 @@ end
 
 CSV.foreach('calendars.csv') do |row|
   row = row.map{|element| element == nil ? "": element}
-  new_image_path = 'http://dev.qilian.jp/image/'+row[15].split('/')[-1] if row[15] !=''
+  new_image_path = 'http://www.qilian.jp/image/'+row[15].split('/')[-1] if row[15] !=''
   Job.create!(id: row[0], title: row[1], content: row[2], fakeimage: new_image_path, position: row[3], comp_name: row[5], expire_at: row[6], detail: row[7], step: row[8], target: row[9], schedule: row[10], location: row[11], num: row[12], source_url:row[14], created_at: row[16], updated_at: row[17])
 end
 

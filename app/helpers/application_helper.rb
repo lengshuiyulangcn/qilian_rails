@@ -38,11 +38,11 @@ def devise_mapping
 end
 
 def format_birthday date
-  date.year.to_s+"年"+date.month.to_s+"月"+date.day.to_s+'日'
+  date!=nil ? date.year.to_s+"年"+date.month.to_s+"月"+date.day.to_s+'日' : "" 
 end
 
 def format_month date
-  date.year.to_s+"年"+date.month.to_s+"月"
+  date!=nil ? date.year.to_s+"年"+date.month.to_s+"月" : "" 
 end
 
 end

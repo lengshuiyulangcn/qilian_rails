@@ -20,6 +20,7 @@
  *= require style
  *= require blog-list
  *= require md_preview
+ *= require markdown
  *= require qilian
  *= require_tree .
  *= require_self

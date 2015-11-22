@@ -13,7 +13,7 @@
               <li class="main-list-group"><i class="fa fa-eye"></i><%=post.impressionist_count%> views</li>
               <% post.categories.each do |category|%>
               <li class="main-list-group">
-                <span class="label label-info">
+                <span class="label label-style">
                  <i class="fa fa-tag"></i><%=link_to category.name, category_path(category.id) %>
                 </span>
                 &nbsp;

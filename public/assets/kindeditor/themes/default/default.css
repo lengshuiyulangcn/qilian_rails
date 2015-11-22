@@ -1,10 +1,11 @@
 /* common */
-.ke-inline-block {
+input.ke-inline-block,.ke-inline-block{
 	display: -moz-inline-stack;
 	display: inline-block;
 	vertical-align: middle;
 	zoom: 1;
 	*display: inline;
+  margin:0;
 }
 .ke-clearfix {
 	zoom: 1;
@@ -734,6 +735,10 @@
 	zoom: 1;
 	*display: inline;
 	width: auto;
+  margin:0;
+  font-size:12px;
+  padding:0px 15px 0 0;
+  height:24px;
 }
 .ke-dialog-body .ke-textarea {
 	display: block;
@@ -819,7 +824,7 @@
 	text-decoration: none;
 }
 /* inputbox */
-.ke-input-text {
+input.ke-input-text {
 	background-color:#FFFFFF;
 	font-family: "sans serif",tahoma,verdana,helvetica;
 	font-size: 12px;
@@ -834,11 +839,13 @@
 	vertical-align: middle;
 	zoom: 1;
 	*display: inline;
+  box-sizing:content-box;
+  margin:0;
 }
-.ke-input-number {
+input.ke-input-number {
 	width: 50px;
 }
-.ke-input-color {
+input.ke-input-color {
 	border: 1px solid #A0A0A0;
 	background-color: #FFFFFF;
 	font-size: 12px;
@@ -853,6 +860,7 @@
 	vertical-align: middle;
 	zoom: 1;
 	*display: inline;
+  margin:0;
 }
 .ke-upload-button {
 	position: relative;
@@ -901,6 +909,7 @@
 	text-align: center;
 	color: #555555;
 	cursor: pointer;
+  font-size:12px;
 }
 .ke-tabs-li-selected {
 	background-color: #FFF;
