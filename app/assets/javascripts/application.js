@@ -13,7 +13,6 @@
 //= require moment
 //= require jquery
 //= require jquery_ujs
-//= require kindeditor
 //= require react
 //= require react_ujs
 //= require react-intl
