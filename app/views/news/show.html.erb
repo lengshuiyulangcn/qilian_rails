@@ -1,6 +1,6 @@
-
 <% content_for :extra_head do %>
-  <link rel="stylesheet" type="text/css" href="/assets/markdown.css" media="screen">
+  <title><%=@post.title%>|七联就职</title>
+  <meta name="description" content="<%= @post.description ? @post.description : truncate( strip_tags( markdown(post.content) ), length: 100)  %>">    
 <% end %>
 <!-- Page Content -->
 <div class="container" id="news-detail">
