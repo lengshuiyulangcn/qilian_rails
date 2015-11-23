@@ -17,7 +17,7 @@
 
   /*标题图片的定义*/
   .header-banner{
-    background: url(/image/news_bgd.jpg) no-repeat center;
+    background: url("http://www.qilian.jp/image/news_bgd.jpg") no-repeat center;
     background-color:#2980b9;
     background-size: cover;
     padding-top: 20%;
