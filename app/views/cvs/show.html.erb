@@ -12,7 +12,7 @@
     <!-- Main -->
     <div class="col-lg-8">
       <%=link_to "编辑简历", edit_cv_path(@cv.id) %>
-      <%= render partial: 'common/show_cv', locals: { cv: @cv }%>
+      <%= render partial: 'common/new_showcv', locals: { cv: @cv }%>
     </div><!-- /Main -->
 
     <div class="col-lg-2">

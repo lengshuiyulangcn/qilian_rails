@@ -1,11 +1,11 @@
-.table{border:1px solid #ddd}
-.mytable { border-collapse: collapse; width:100%; background-color:white; }
-.mytable-head {border:1px solid #ddd; border-bottom:1px dotted #ddd; margin-bottom:0;padding-bottom:0;}
-.mytable-head td { border:3px }
-.mytable-body { border:1px solid #ddd;border-top:0;margin-top:0;padding-top:0;margin-bottom:0;padding-bottom:0; }
-.mytable-body td { border:1px;border-top:0;}
-.mytable-footer { border:1px solid #ddd;border-top:0;margin-top:0;padding-top:0; }
-.mytable-footer td { border:1px solid #ddd;border-top:0;}
-.profile_image{height: 200px}
-th { font-size: 12px; padding-left: 2px; margin-top: 1px }
- hr {margin: 0 6 0 6;}
+.table-contents{
+  font-weight: 500;
+  font-size: 13px;
+}
+sup {
+  top: 0;
+  line-height: 1.42857143;
+}
+.table-prefix-time{
+  font-size: 10px;
+}

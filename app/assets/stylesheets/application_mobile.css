@@ -12,6 +12,5 @@
  *
  *= require mobile_topic 
  *= require mobile_framework 
- *= require_tree .
  *= require_self
  */
