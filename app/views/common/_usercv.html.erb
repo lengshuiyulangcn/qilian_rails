@@ -7,7 +7,7 @@
       <%= form_for @cv do |f| %>
         <div class="form-group">
             <label>氏名</label>
-            <%=f.text_field :name, value: current_user.family_name+ " "+current_user.given_name, required: true  %>
+            <%=f.text_field :name,  required: true  %>
             <label>カタカナ</label>
             <%=f.text_field :kana, required: true  %>
         </div>

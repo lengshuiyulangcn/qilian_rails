@@ -18,8 +18,10 @@
  *= require bootstrap.min
  *= require modern-business
  *= require style
- *= require blog-list
+ *= require news
  *= require md_preview
+ *= require blog-list
+ *= require markdown
  *= require qilian
  *= require_tree .
  *= require_self
