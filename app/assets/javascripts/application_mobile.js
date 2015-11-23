@@ -12,9 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require kindeditor
-//= require react
-//= require react_ujs
-//= require components
 //= require angular-devise
+//= require angular-flash.min
 //= require_tree .

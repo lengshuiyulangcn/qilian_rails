@@ -21,6 +21,7 @@
 //= require fullcalendar
 //= require jquery.monthpicker.min
 //= require jquery.datetimepicker
+//= require typed
 //= require jquery.flexslider-min
 //= require Markdown.Converter
 //= require Markdown.Sanitizer

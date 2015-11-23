@@ -18,7 +18,7 @@ app.directive("fileUpload", [function () {
     }
 }]);
 
-app.controller('MainController', ['$location','$scope','Auth', function($location,$scope, Auth) {
+app.controller('MainController', ['$location','$scope','Auth', '$window',function($location,$scope, Auth, $window) {
   Auth.currentUser().then(function(user) {
     $scope.user = user;
     $scope.gotoUserInfo= function(){
@@ -28,6 +28,10 @@ app.controller('MainController', ['$location','$scope','Auth', function($locatio
     $scope.gotoMypage= function(){
       $location.url('/mypage'); 
     };
+    $scope.gotoJob= function(){
+      $window.location = '/jobs/search'; 
+    };
+
 }]);
 
 app.config(function($routeProvider,$locationProvider) {

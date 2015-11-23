@@ -39,6 +39,7 @@ KindEditor.lang({
 	strikethrough : '删除线',
 	removeformat : '删除格式',
 	image : '图片',
+  smimage : '选择图片',
 	multiimage : '批量图片上传',
 	flash : 'Flash',
 	media : '视音频',

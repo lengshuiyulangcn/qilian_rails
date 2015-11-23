@@ -1,0 +1,254 @@
+/*
+  - CSS design by davidBear
+  - Last modified: 2015.07.24
+  - Ver: 0.1
+  - Introduction: 主要从立体 -> 拟物的设计
+  - Update in the next ver:
+      1) 边栏部分的 Top Pick
+      2) 文章以timeLine的形式显示出来 => Use "Load more" instead of "pagination"
+*/
+
+body {
+  background: #fafafa;
+}
+
+ .header-banner{
+  /*标题图片的定义*/
+  background: url(http://qilian.jp/appointment/img/header-img.jpg) no-repeat center;
+  background-size: cover;
+  padding-top: 15%;
+  padding-bottom: 15%;
+  text-align: center;
+  color:700px;
+  margin-bottom: 5px;
+}
+.header-message {
+  position: relative;
+}
+.header-message > h1 {
+  /*标题文字*/
+  margin: 0;
+  font-size: 5em;
+  color: white;
+}
+.header-message > hr{
+  /*华丽的分割线*/
+  width: 85%;
+  display:block;
+}
+.header-message > h3 {
+  color: #FFF;
+  font-size: 25px;
+  font-weight: lighter;
+}
+
+.fa-eye, .fa-expand {
+ /*阅读的fa-icon*/
+ color: #bdc3c7;
+ padding-right: 2px; /* distance between icon and text*/
+}
+
+.label-style {
+    background-color: rgba(39, 174, 96, 0.7);
+}
+
+.page-header-layout-style{
+ /* header部分的排版*/
+ color: #34495e;
+}
+h1 .page-header{
+ /*主标题*/
+ font-size: 50px;
+ font-weight: bold;
+}
+h4 a{
+     color: #444444;
+     font-weight: normal;
+ }
+.page-header-small-style{
+ /*副标题*/
+ color: #A0A7AD;
+ font-size: 16px;
+}
+.col-md-8{
+  /*文章主题部分，占全部比例的8/12*/
+  background-color: white;
+  border-right: 1px solid #ecf0f1;
+  /*border-top: 1px solid #34495e;*/
+  padding: 0px;
+}
+
+.col-md-8 > .col-md-12{
+  padding: 0px;
+}
+.col-md-8 > .col-md-11 {
+    padding: 25px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #ECF0F1;
+}
+.col-md-11 > h6{
+  /* 文章中显示发布时间的color */
+  color: #bdc3c7;
+}
+.col-md-8 > .col-md-11 > h6{
+  /* 网站主体*/
+  /* 文章中显示发布时间的color */
+  color: #bdc3c7;
+}
+.continue_Reading {
+    color: #57AD68;
+    font-weight: lighter;
+}
+.news-1:hover{
+  /*左侧边栏显示颜色*/
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: #39d179;
+  padding-left:22px; /* 同样的padding距离保证font不会向右移动*/
+  /* box-shadow: 1px 1px 2px grey; */
+}
+
+.description-style{
+  /*文章的描述文字*/
+  color:#7f8c8d;
+  line-height: 200%;
+}
+
+/* Definition of Image */
+.img-thumbView{
+  float: right;
+  margin-left:20px;
+}
+
+.icon-tools{
+  position:relative;
+  height: 15px;
+  width: auto;
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.main-list-group{
+  /*主页面的小图片*/
+  /*
+    1. 发布时间
+    2. 阅读数
+  */
+  display: inline;
+  margin-right: 12px;
+  color: #bdc3c7;
+}
+
+.event-cover-style{
+  /*banner，用于七联的活动宣传，以及未来广告的插入栏*/
+  /*figure will cross the whole column, which means ignore the padding*/
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+/* Category CSS */
+/*需要重新定义这个部分*/
+a:hover{
+  color:#1abc9c;
+  text-decoration:none;
+}
+a:visited{
+  text-decoration: none;
+}
+a:active {
+  color: #FFFFFF;
+  background-color: #1abc9c;
+}
+a::after{
+  color:#1abc9c;
+}
+
+.sidebar-layouts{
+  /*侧边栏的layout*/
+  margin: 10px;
+  padding:10px;
+  border-bottom-width: 1px;
+  border-bottom-style: dashed;
+  border-bottom-color:#bdc3c7;
+}
+
+.category-tags-style{
+  /*侧边栏的layout*/
+  margin: 10px;
+  padding:10px;
+  }
+
+.ul-tags-style{
+  /*用来设定list*/
+  list-style-type: none;
+  padding: 0px;
+}
+.ul-tags-style > .li-tags-style{
+  /*用来设定tag*/
+  color: #34495e;
+  margin-top: 5px;
+  line-height: 200%;
+}
+.tag-numbers-style{
+  /*用来显示tag中的数字*/
+  font-style: normal;
+  font-weight: bolder;
+  color: #95a5a6;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-position: right;
+  float: right;
+}
+.tag-font-style{
+/*分类浏览中的li部分的颜色*/
+color: #95a5a6;
+}
+
+.widget-col-md-4{
+  /*用来宣传我们的专栏文章*/
+  /*为了让图片可以在右侧占据整个部分，这里设定margin，padding为*/
+  /*带来的结果就是所有的其他的元素，都需要相对应的设定margin和padding*/
+  margin: 0px;
+  padding: 0px;
+}
+
+.sidebar-section-title{
+  /*定义所有sidebar的每一个section的title*/
+  font-weight: bolder;
+}
+.sidebar-tags{
+  /* 侧边栏 tags 定义*/
+  margin-bottom: 8px;
+  margin-right: 8px;
+  border-radius: 25px;
+  opacity: 0.6;
+}
+.sidebar-topPick-block{
+  /*针对side-bar block的定义*/
+  display: block;
+  padding: 5px;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-bottom-color: #eeeeee;
+  color:#7f8c8d;
+  font-size: 13px;
+}
+.side-bar-topPick-description{
+  /*描述性文字的定义*/
+  line-height: 150%;
+  opacity: 100%;
+}
+.sidebar-topPick-block > h4{
+  font-size: 15px;
+  line-height: 150%;
+}
+.fa-star{
+  /*对小星星的定义*/
+  color: #f1c40f;
+  margin-right: 3px;
+}
+.fa-tages,.fa-thumb-tack{
+  margin-right: 5px;
+}
