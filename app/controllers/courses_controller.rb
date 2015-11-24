@@ -54,6 +54,12 @@ class CoursesController < ApplicationController
       redirect_to :back
     end
   end
+  def destroy
+    course = Course.destroy_all(id: params.permit(:id)[:id])
+    flash[:success]='删除成功'
+    redirect_to courses_path
+  end
+
   def detail
     @course = Course.find(params.permit(:id)[:id])
     @current_students = Entry.where(course_id: @course.id).map{|entry| entry.user_id }
