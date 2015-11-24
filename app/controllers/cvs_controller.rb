@@ -1,5 +1,6 @@
 class CvsController < ApplicationController
   before_action :authenticate_user!
+  layout 'cv'
   def index
     @cvs = Cv.all
   end

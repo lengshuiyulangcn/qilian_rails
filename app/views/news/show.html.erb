@@ -1,6 +1,6 @@
-
 <% content_for :extra_head do %>
-  <link rel="stylesheet" type="text/css" href="/assets/markdown.css" media="screen">
+  <title><%=@post.title%>|七联就职</title>
+  <meta name="description" content="<%= @post.description ? @post.description : truncate( strip_tags( markdown(post.content) ), length: 100)  %>">    
 <% end %>
 <!-- Page Content -->
 <div class="container" id="news-detail">
@@ -29,7 +29,7 @@
         <div class="col-lg-5">
           <p class="mt5 gray">
               <!-- 阅读数 -->
-              <i class="fa fa-eye"></i><%= @count + @post.fakeview %> views
+              <i class="fa fa-eye"></i><%= @count + (@post.fakeview.blank? ? 0 : @post.fakeview) %> views
               <!-- 发布日期 -->
               <i class="fa fa-clock-o"></i> <%=time_ago_in_words @post.created_at %>
           </p>
@@ -49,7 +49,6 @@
       <%== @post.content %>
       </div>
       <div class="clearfix">
-        before_next 
       </div>
       <!-- Duoshuo Comments -->
       <%= render partial: "common/comment_widget", locals: {post: @post } %>

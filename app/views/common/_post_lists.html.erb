@@ -1,38 +1,39 @@
- <div class="col-md-8">
-        <% posts.each do |post| %>
-        <!-- 资讯相关内容 -->
-        <div class="col-md-11 news-1">
-          <h4>
-             <%= link_to post.title, news_path(post.id) %>
-          </h4><!-- /title -->
-             <%= link_to image_tag( post.image ? post.fakeimage : post.image, class: "img-responsive img-hover img-thumbView inbox-blog-list"), news_path(post.id)%>
-           
-          <h6>
-            <ul class="icon-tools">
-              <li class="main-list-group"><i class="fa fa-clock-o"></i> <%= time_ago_in_words post.created_at %></li>
-              <li class="main-list-group"><i class="fa fa-eye"></i><%=post.impressionist_count + post.fakeview %> views</li>
-              <% post.categories.each do |category|%>
-              <li class="main-list-group">
-                <span class="label label-style">
-                 <i class="fa fa-tag"></i><%=link_to category.name, category_path(category.id) %>
-                </span>
-                &nbsp;
-              </li>
-              <% end %>
-              
-            </ul><!-- end of icon-->
-          </h6>
+<div class="col-md-8">
+  <%= render partial: 'common/posts_head' %>
+    <% posts.each do |post| %>
+    <!-- 资讯相关内容 -->
+    <div class="col-md-11 news-1">
+      <h4>
+         <%= link_to post.title, news_path(post.id) %>
+      </h4><!-- /title -->
+         <%= link_to image_tag( post.image.blank? ? post.fakeimage : post.image, class: "img-responsive img-hover img-thumbView inbox-blog-list"), news_path(post.id)%>
+       
+      <h6>
+        <ul class="icon-tools">
+          <li class="main-list-group"><i class="fa fa-clock-o"></i> <%= time_ago_in_words post.created_at %></li>
+          <li class="main-list-group"><i class="fa fa-eye"></i><%=post.impressionist_count + (post.fakeview.blank? ? 0 : post.fakeview) %> views</li>
+          <% post.categories.each do |category|%>
+          <li class="main-list-group">
+            <span class="label label-style">
+             <i class="fa fa-tag"></i><%=link_to category.name, category_path(category.id) %>
+            </span>
+            &nbsp;
+          </li>
+          <% end %>
+          
+        </ul><!-- end of icon-->
+      </h6>
 
-          <p class="description-style">
-          <%= truncate( strip_tags( markdown(post.content) ), length: 200) %>
-          </p>
+      <p class="description-style">
+      <%= truncate( strip_tags( markdown(post.content) ), length: 200) %>
+      </p>
 
-          <h6>
-            <!-- <a class="continue_Reading" href="#">继续阅读</a> -->
-                  <%= link_to '继续阅读', news_path(post.id), class: 'continue_Reading' %>
-          </h6>
+      <h6>
+        <!-- <a class="continue_Reading" href="#">继续阅读</a> -->
+              <%= link_to '继续阅读', news_path(post.id), class: 'continue_Reading' %>
+      </h6>
 
-        </div><!-- /资讯相关内容 -->
+    </div><!-- /资讯相关内容 -->
 
         <!-- 广告 -->
         <!-- /广告 -->
@@ -44,5 +45,17 @@
           <%= will_paginate @posts,:renderer => BootstrapPagination::Rails %>
         </div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $(window).load(function() {
+    $('.flexslider').flexslider({
+      animation: "fade",
+      animationLoop: true,
+      slideshow: true,
+      keyboard: true,
+      controlNav: false
+    });
+  });
+</script>
 
 
