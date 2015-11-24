@@ -2,8 +2,7 @@
 <qilian-footer></qilian-footer>
 <div class='app-body'>
   <div class='app-content' style="background-color: #16A086">
-    <br>
-    <div class="topic_box">
+    <div ng-if="events.length" class="topic_box">
       <div class="topics" ng-repeat="event in events">
         <div class="topic topic_line" ng-click="gotoEvent(event.event.id)">
           <img ng-src={{event.event.image.url}} class="avatar pull-left">
@@ -20,6 +19,7 @@
          </div>
        </div>
      </div>
+     <img src='/not_yet.jpg' ng-if="!events.length" style="heigh: 100%">
    </div>
   </div>
 </div>

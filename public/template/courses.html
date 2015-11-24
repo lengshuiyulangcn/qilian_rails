@@ -2,7 +2,7 @@
 <qilian-footer></qilian-footer>
 <div class='app-body'>
   <div class='app-content' style="background-color: #16A086">
-    <div class="topic_box">
+    <div ng-if="courses.length" class="topic_box">
       <div class="topics" ng-repeat="course in courses">
         <div class="topic topic_line" ng-click="show_course(course.course.id)">
           <img ng-src={{course.course.image.url}} class="avatar pull-left">
@@ -22,6 +22,7 @@
          </div>
        </div>
      </div>
+     <img src='/not_yet.jpg' ng-if="!courses.length" style="heigh: 100%">
    </div>
   </div>
 </div>

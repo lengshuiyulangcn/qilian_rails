@@ -57,9 +57,9 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    post = Post.destroy_all(id: params.permit(:id)[:id])
+    event = Event.destroy_all(id: params.permit(:id)[:id])
     flash[:success]='删除成功'
-    redirect_to posts_path
+    redirect_to events_path
   end
 
   #show on public page
