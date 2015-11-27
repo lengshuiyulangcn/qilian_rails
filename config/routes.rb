@@ -47,6 +47,7 @@ Rails.application.routes.draw do
 
    resources :news, only: [:index, :show]
    get '/news/category/:id' => 'news#category', as: :news_category
+   get '/search' => 'news#search', as: :google_search
    
    scope :api do
      resources :schedules

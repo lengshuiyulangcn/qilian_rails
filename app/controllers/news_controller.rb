@@ -24,6 +24,10 @@ class NewsController < ApplicationController
       end
     end
   end
+  def search
+    query = "site:qilian.jp+#{params.permit(:q)[:q]}"
+    redirect_to "http://www.google.jp/?q=#{query}" 
+  end
   private
    def get_hot_passages
      #should use redis instead in the future
