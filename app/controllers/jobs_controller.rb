@@ -71,6 +71,11 @@ class JobsController < ApplicationController
     end
   end
 
+  def parttime
+    @jobs = Label.where(name: "アルバイト").first.jobs.page(params.permit(:page)[:page]).order('expire_at ASC')
+    @jobs_labels = @jobs.map{|job| {job: job, labels: Job.find(job.id).labels}}
+    render layout: 'normal'
+  end
   private
   def job_params
     params.require(:job).permit(:id,:title,:comp_name,:content,:detail,:schedule,:position,:expire_at,:image)

@@ -40,6 +40,7 @@ Rails.application.routes.draw do
    get '/job/:id' => 'jobs#detail', as: :job_detail
    get '/jobs/search' => 'jobs#search', as: :job_search
    get '/jobs/label/:id' => 'jobs#single_search', as: :job_single_search
+   get '/parttime' => 'jobs#parttime', as: :job_parttime
 
    get '/events/list' => 'events#list', as: :events_list
    get '/event/:id' => 'events#detail', as: :event_detail
