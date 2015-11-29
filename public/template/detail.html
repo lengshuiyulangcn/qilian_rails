@@ -1,9 +1,11 @@
+<div style="display: none">
+  <img id="wechat_pickup" src="{{wechat_pickup}}"/>
+</div>
 <qilian-header></qilian-header>
 <qilian-footer></qilian-footer>
 <div class='app-body'>
    <div class='app-content' style="background-color: white">
     <div class="scrollable">
-      <img id="mySpinner" src="/assets/loading_orange.gif" ng-show="loading" />
       <div class="scrollable-content" ng-bind-html="content | rawHtml"></div>
     </div>
   </div>
