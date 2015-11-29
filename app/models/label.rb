@@ -5,7 +5,8 @@ class Label < ActiveRecord::Base
     self.where(category: "gradyear")
   end
   def self.by_category
-    self.where(category: "genre")
+    # show アルバイトsomewhere else
+    self.where(category: "genre") - self.where(name: "アルバイト")
   end
   def self.by_industry
     self.where(category: "industry")
