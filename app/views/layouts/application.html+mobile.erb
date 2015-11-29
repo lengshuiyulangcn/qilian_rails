@@ -1,6 +1,9 @@
-<html>
+<html ng-app="qilianCore" ng-controller="MainController">
   <head>
+    <title ng-if="metadata.title">{{metadata.title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta title="{{ metadata.title }}" ng-if="metadata.title" />
+    <meta description="{{ metadata.description}}" ng-if="metadata.description" />
     <link rel="stylesheet" href="/bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
     <link rel="stylesheet" href="/assets/mobile_topic.css" />
     <link rel="stylesheet" href="/assets/mobile_framework.css" />
@@ -13,13 +16,13 @@
     <%= csrf_meta_tags %>
     <base href="/">
 </head>
-<body ng-app="qilianCore">
+<body>
 
   <!-- Sidebars -->
   <div class="sidebar sidebar-left"><!-- ... --></div>
   <div class="sidebar sidebar-right"><!-- ... --></div>
 
-  <div ng-controller="MainController">
+  <div>
     <div class="app">
       <!-- App body -->
           <ng-view></ng-view>

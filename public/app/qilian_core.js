@@ -25,13 +25,19 @@ app.controller('MainController', ['$location','$scope','Auth', '$window',functio
       $location.url('/users/'+$scope.user.id+"/edit"); 
     }
   })
-    $scope.gotoMypage= function(){
-      $location.url('/mypage'); 
-    };
-    $scope.gotoJob= function(){
-      $window.location = '/jobs/search'; 
-    };
-
+  $scope.gotoMypage= function(){
+    $location.url('/mypage'); 
+  };
+  $scope.gotoJob= function(){
+    $window.location = '/jobs/search'; 
+  };
+  $scope.metadata = {
+    'title': '七联就职资讯-有态度的资讯，左右职业人生|七联就职',
+    'description': '七联就职资讯-有态度的资讯，左右职业人生',
+  };
+  $scope.$on('newPageLoaded', function(event, metadata) {
+     $scope.metadata = metadata
+    });
 }]);
 
 app.config(function($routeProvider,$locationProvider) {
@@ -128,7 +134,6 @@ app.controller('eventCtrl', ['Auth','Flash','Event','$scope','$routeParams','$ht
 
 
 app.controller('postCtrl', ['Post','$scope','$route','$routeParams','$window',function(Post,$scope, $route, $routeParams,$window) {  
-  $scope.loading = true;
   $scope.history = "咨询";
   $scope.enableBack = true; 
   $scope.goBack = function(){
@@ -138,8 +143,9 @@ app.controller('postCtrl', ['Post','$scope','$route','$routeParams','$window',fu
   $scope.post.$promise.then(function (result) {
     $scope.title = $scope.post.title;
     $scope.content = result.content;
+    $scope.wechat_pickup = result.image.url ? result.image.url : result.fakeimage;
+    $scope.$emit('newPageLoaded', { 'title': $scope.title, 'description': $scope.post.description });
   });
-  $scope.loading = false
 }]);
 
 app.controller('coursesCtrl', ['Course','$scope','$location',function(Course,$scope,$location) {
@@ -209,6 +215,7 @@ app.controller('sessionCtrl', ['Flash','Auth','$scope','$location',function(Flas
 }]);
 
 app.controller('newsCtrl', ['Post','News','Category','$scope','$location',function(Post,News,Category,$scope,$location) {
+  $scope.$emit('newPageLoaded', { 'title': '咨询一览', 'description': '七联咨询' });
   $scope.numberShow = 5;
   $scope.total_posts = Post.index(function(data){
     $scope.total_posts = data
