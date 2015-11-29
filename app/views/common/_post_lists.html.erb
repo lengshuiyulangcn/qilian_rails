@@ -15,7 +15,7 @@
           <% post.categories.each do |category|%>
           <li class="main-list-group">
             <span class="label label-style">
-             <i class="fa fa-tag"></i><%=link_to category.name, category_path(category.id) %>
+             <i class="fa fa-tag"></i><%=link_to category.name, news_category_path(category.id) %>
             </span>
             &nbsp;
           </li>
