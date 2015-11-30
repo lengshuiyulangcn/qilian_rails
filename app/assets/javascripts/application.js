@@ -22,6 +22,7 @@
 //= require jquery.monthpicker.min
 //= require jquery.datetimepicker
 //= require typed
+//= require kindeditor 
 //= require jquery.flexslider-min
 //= require Markdown.Converter
 //= require Markdown.Sanitizer
