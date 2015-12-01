@@ -41,12 +41,18 @@
 
       <div class="form-group">
         <label>現住所</label>
-          <%=f.text_field :current_address, class: 'form-control', required: true  %>
+        <br>
+        <label>郵便番号</label>
+        <input type="text" id="zipcode1"> <a class="btn btn-mini" onclick="getAddress('#current_address','#zipcode1');">検索</a>
+          <%=f.text_field :current_address, class: 'form-control', required: true, id: "current_address"  %>
       </div>
 
       <div class="form-group">
         <label>休暇中の住所</label>
-          <%=f.text_field :emergency_address, class: 'form-control', required: true  %>
+        <br>
+        <label>郵便番号</label>
+          <input type="text" id="zipcode2"> <a class="btn btn-mini" onclick="getAddress('#emergency_address','#zipcode2');">検索</a>
+          <%=f.text_field :emergency_address, class: 'form-control', required: true, id:"emergency_address"  %>
       </div>
       
       <div class="form-group">
@@ -142,5 +148,19 @@ $('#datetimepicker_from').monthpicker({
 $('#datetimepicker_to').monthpicker({
   'maxYear' : 2020});
 
+function getAddress(address,zip){
+  zipcode = $(zip).val()
+  $.ajax({
+    url: "/zip/"+zipcode
+  }).done(function(data){
+    if (data.data!="error"){
+      $(address).val(data.data);
+    }
+    else{
+      alert("请输入正确的邮编")
+    }
+  });
+
+}
 </script>
 
