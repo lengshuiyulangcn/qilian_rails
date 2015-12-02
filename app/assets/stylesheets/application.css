@@ -19,6 +19,7 @@
  *= require style
  *= require news
  *= require md_preview
+ *= require jquery.datetimepicker
  *= require blog-list
  *= require markdown
  *= require qilian
