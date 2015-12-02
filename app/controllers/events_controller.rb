@@ -65,7 +65,7 @@ class EventsController < ApplicationController
   #show on public page
   def list
     @events = Event.coming_events
-    render layout:  'normal'
+    render layout:  'events'
   end
   def apply
       event_id = params.permit(:event_id)[:event_id]
