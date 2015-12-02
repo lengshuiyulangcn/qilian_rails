@@ -65,23 +65,25 @@ class EventsController < ApplicationController
   #show on public page
   def list
     @events = Event.coming_events
-    render layout:  'normal'
+    render layout:  'events'
   end
   def apply
       event_id = params.permit(:event_id)[:event_id]
       event =  Event.find(event_id)
-      unless event.users.include? current_user
+      if event.users.include? current_user
+        flash[:error]="已经报名!"
+      elsif event.limit && event.users.length > event.limit
+        flash[:error]="已经达到报名上限!"
+      else
         event.users << current_user 
         event.save
         EventMessage.apply(current_user,event).deliver
         flash[:success]="报名活动成功!"
-      else
-        flash[:error]="已经报名!"
       end
       redirect_to :back
   end
   private
   def event_params
-    params.require(:event).permit(:id, :title, :description, :content, :image, :timestart,:timeend)
+    params.require(:event).permit(:id, :title, :description, :content, :image, :timestart,:timeend,:limit,:fee)
   end
 end

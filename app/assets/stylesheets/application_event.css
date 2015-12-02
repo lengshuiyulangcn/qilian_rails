@@ -16,11 +16,8 @@
  *= require flexslider
  *= require bootstrap.min
  *= require modern-business
- *= require style
  *= require news
- *= require md_preview
- *= require blog-list
- *= require markdown
+ *= require event
  *= require qilian
  *= require_self
  */

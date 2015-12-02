@@ -28,6 +28,12 @@
           ~ <%=f.text_field :timeend, class: " datetimepicker", required: true %>
       </div>
       <div class="form-group">
+        <label>费用</label>
+          <%=f.text_field :fee, required: true %>
+        <label>人数限制</label>
+          <%=f.number_field :limit, required: true %>
+      </div>
+      <div class="form-group">
         <label>简介</label>
         <%=f.text_area :description, class: 'form-control', rows: 4, required: true %>
       </div>
