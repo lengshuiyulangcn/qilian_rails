@@ -16,6 +16,7 @@
  *= require flexslider
  *= require bootstrap.min
  *= require modern-business
+ *= require jquery.datetimepicker
  *= require news
  *= require event
  *= require qilian
