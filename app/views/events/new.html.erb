@@ -26,7 +26,10 @@
           ~ <%=f.text_field :timeend, class: " datetimepicker", required: true %>
       </div>
       <div class="form-group">
-        <label>活动地点</label>
+        <label>费用</label>
+          <%=f.text_field :fee, required: true %>
+        <label>人数限制</label>
+          <%=f.number_field :limit, required: true %>
       </div>
 
       <div class="form-group">
