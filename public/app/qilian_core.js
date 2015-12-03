@@ -95,9 +95,9 @@ app.controller('homeCtrl', function($scope, $route, $routeParams) {
 });
 
 app.controller('eventsCtrl',['$location','Event','$scope','$routeParams',function($location,Event,$scope, $routeParams) {  
-  Event.index(function(data){
+  Event.list().then(function(data){
     $scope.events = data;
-  });  
+  });
   $scope.title = "精彩活动";  
   $scope.gotoEvent = function(id){
     $location.url('/event/'+id) 
@@ -106,24 +106,28 @@ app.controller('eventsCtrl',['$location','Event','$scope','$routeParams',functio
 
 app.controller('eventCtrl', ['Auth','Flash','Event','$scope','$routeParams','$http',function(Auth,Flash,Event,$scope,$routeParams,$http) {
   console.log('here');
-  $scope.event = Event.show({id: $routeParams.id});
-  $scope.event.$promise.then(function (result) {
-    console.log(result);
-    $scope.event = result;
-    $scope.title = result.title;
+  $scope.event = Event.detail($routeParams.id).then(function(data){
+    $scope.event = data;
+    $scope.title = data.title;
+    $scope.$emit('newPageLoaded', {'title': $scope.title, 'description': $scope.event.description });
   });
   $scope.apply = function(){
     Auth.currentUser().then(function(user) {
         $http({
         method: 'POST',
-        url: 'events/apply',
+        url: '/event/apply.json',
         data: {event_id: $scope.event.id}
         }).then(function successCallback(response) {
-          Flash.create('success', '报名活动成功', 'custom-class');
+          if (response.data.response=="ok"){
+            Flash.create('success', '报名活动成功', 'custom-class');
+          }
+          else{
+            Flash.create('danger', '请不要重复报名', 'custom-class');
+          }
         }, 
         function errorCallback(response) {
           Flash.create('danger', '请不要重复报名', 'custom-class');
-        });      
+        });
       },
       function(){
         Flash.create('danger', '请先登录', 'custom-class');

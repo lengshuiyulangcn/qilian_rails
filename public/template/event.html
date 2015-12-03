@@ -6,10 +6,10 @@
     <div flash-message="5000" ></div>
     <div class="scrollable-content"> 
       <div class="list-group">
-        <div class="scrollable-content" ng-bind-html="event.content | rawHtml"></div>
+        <div class="scrollable-content" ng-bind-html="event.content | rawHtml" style="height: auto"></div>
         <div class="list-group-item">
           <div style="display: inline-block;width:50%; vertical-align: middle">
-            报名人数: {{event.users.length}}<br>
+            报名人数: {{event.users.length}}/{{event.limit}}<br>
           </div>
             <a style="width: 100%" class="btn btn-primary" ng-click="apply()">立即报名</a>
         </div>

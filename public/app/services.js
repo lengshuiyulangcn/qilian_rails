@@ -35,13 +35,21 @@ app.factory("Course", function($resource) {
   );
 });
 
-app.factory("Event", function($resource) {
-  return $resource("/admin/events/:id.json", { id: "@id" },
-    {
-      'index':   { method: 'GET', isArray: true },
-      'show':    { method: 'GET', isArray: false },
-    }
-  );
+app.factory("Event", function($http) {
+  var list = function(){
+    return $http.get('/events/list.json').then(function(response) {
+      return response.data;
+    });
+  };
+  var detail = function(id){
+    return $http.get('/event/'+id+'.json').then(function(response) {
+      return response.data;
+    });
+  };
+  return{
+    list: list,
+    detail: detail 
+  } 
 });
 
 app.factory('News', function($http) {

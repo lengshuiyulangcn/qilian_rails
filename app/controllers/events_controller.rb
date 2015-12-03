@@ -32,7 +32,14 @@ class EventsController < ApplicationController
     @event = Event.find(params.permit(:id)[:id])
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
     @event.content = markdown.render(@event.content)
-    render layout:  'normal'
+    respond_to do |format|
+      format.html do
+        render layout:  'normal'
+      end
+      format.json do 
+        render json: @event.to_json(:include=>[:users])
+      end
+    end
   end
   def show
     @event = Event.find(params.permit(:id)[:id])
@@ -65,11 +72,21 @@ class EventsController < ApplicationController
   #show on public page
   def list
     @events = Event.coming_events
-    render layout:  'events'
+    respond_to do |format|
+      format.html do
+        render layout:  'events'
+      end
+      format.json do 
+        events  = @events.map {|event| {event: event, users: event.users, applied: event.users.include?(current_user) }}
+        render json: events 
+      end
+    end
   end
+
   def apply
       event_id = params.permit(:event_id)[:event_id]
       event =  Event.find(event_id)
+      success_flag = false 
       if event.users.include? current_user
         flash[:error]="已经报名!"
       elsif event.limit && event.users.length > event.limit
@@ -78,9 +95,17 @@ class EventsController < ApplicationController
         event.users << current_user 
         event.save
         EventMessage.apply(current_user,event).deliver
+        success_flag = true 
         flash[:success]="报名活动成功!"
       end
-      redirect_to :back
+      respond_to do |format|
+        format.html do
+          redirect_to :back
+        end
+        format.json do
+          render json: {resonse: success_flag ? "ok" : "error"}
+        end
+      end
   end
   private
   def event_params
