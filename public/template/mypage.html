@@ -7,6 +7,7 @@
       <div style="display: inline">
         <div style="display: inline-block;margin-right: 5%;vertical-align: middle">
           <img ng-src={{user.image.profile.url}}>
+          <img ng-if = "!user.image.thumb.url" src="/NoPic.png" style="width: 100px;height: 100px">
         </div>
         <div style="display: inline-block;vertical-align: middle">
           <div><span style="font-size: 20px;"><i class="fa fa-user"></i> {{user.name}}</div>

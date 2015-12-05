@@ -12,9 +12,11 @@
           <div class="title">
             {{event.event.description}}
           </div>
-          <div class="title">
-            活动时间: {{event.event.timestart |date:'MM/dd/yyyy h:mma'}}
-            报名人数: {{event.users.length}}
+          <div class="title" style="padding-left: 5%">
+            <i class="fa fa-calendar"></i>{{event.event.timestart |date:'MM/dd/yyyy h:mma'}}~{{event.event.timeend |date:'h:mma'}}<br>
+            <i class="fa fa-money"></i> {{event.event.fee}}&nbsp;&nbsp;&nbsp;
+            <i class="fa fa-users"></i>{{event.users.length}}/{{event.event.limit}}
+               <span ng-if="event.applied">(已报名)</span>
           </div>
          </div>
        </div>
