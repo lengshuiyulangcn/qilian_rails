@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   respond_to :html, :json
   protect_from_forgery with: :exception
-  before_action :detect_mobile 
+  before_action :detect_mobile
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
 
 
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 protected
 
 def detect_mobile
-  if browser.tablet? || browser.mobile?
+  if (browser.tablet? || browser.mobile?) && params[:angular]
      request.variant = :mobile
   end 
 end
