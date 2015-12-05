@@ -22,7 +22,7 @@
 
       <div class="form-group">
         <label>公司概要</label>
-        <%=f.kindeditor :content,:height => 200, simple_mode: true  %>
+        <%=f.kindeditor :content,:height => 200%>
       </div>
       <div class="form-group">
         <label>职位</label>
@@ -49,7 +49,7 @@
 
       <div class="form-group" id='editor'>
         <label>具体内容</label>
-          <%=f.text_area :detail, rows: 6,class: 'form-control', required: true %>
+          <%=f.kindeditor :detail, rows: 6,class: 'form-control', required: true %>
       </div>
       <div class="form-group" id='editor'>
         <label>来源链接</label>
