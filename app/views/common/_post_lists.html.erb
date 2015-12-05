@@ -10,7 +10,7 @@
        
       <h6>
         <ul class="icon-tools">
-          <li class="main-list-group"><i class="fa fa-clock-o"></i> <%= time_ago_in_words post.created_at %></li>
+          <li class="main-list-group"><i class="fa fa-clock-o"></i> <%= time_ago_in_words post.created_at %> ago</li>
           <li class="main-list-group"><i class="fa fa-eye"></i><%=post.impressionist_count + (post.fakeview.blank? ? 0 : post.fakeview) %> views</li>
           <% post.categories.each do |category|%>
           <li class="main-list-group">
