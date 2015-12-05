@@ -47,7 +47,7 @@
       <!-- calendar Content Markdown Editor -->
       <div class="calendar-content">
         <div class="alert alert-danger" role="alert">
-          締切: <%=format_birthday @job.expire_at %> 
+          締切: <%=format_birthday(@job.expire_at)%> 
         </div>
 
         <%== @job.content %>
@@ -99,7 +99,7 @@
         
         <tr>
           <th>報応募締切</th>
-          <td><%=format_birthday @job.expire_at %></td>
+          <td><%= @job.exstr ? @job.exstr : format_birthday(@job.expire_at) %></td>
         </tr>
 
         <tr>

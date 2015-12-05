@@ -78,7 +78,7 @@ class JobsController < ApplicationController
   end
   private
   def job_params
-    params.require(:job).permit(:id,:title,:comp_name,:content,:detail,:schedule,:position,:expire_at,:image,:location,:target,:source_url)
+    params.require(:job).permit(:id,:title,:comp_name,:content,:detail,:schedule,:position,:expire_at,:image,:location,:target,:source_url,:exstr)
   end
   def get_labels
     params.require(:job).permit(:labels=>[])
