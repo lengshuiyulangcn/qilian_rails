@@ -33,6 +33,15 @@
           <%=f.text_area :schedule, class: 'form-control',rows: 4%>
       </div>
      
+      <div class="form-group" id='editor'>
+        <label>场所</label>
+          <%=f.text_field :location, class: 'form-control'%>
+      </div>
+
+      <div class="form-group" id='editor'>
+        <label>参加对象</label>
+          <%=f.text_field :target, class: 'form-control'%>
+      </div>
       <div class="form-group">
         <label>截止日期</label>
           <%=f.text_field :expire_at, class: "form-control datetimepicker", style: "width: 240px",required: true %>
