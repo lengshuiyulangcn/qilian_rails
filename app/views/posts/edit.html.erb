@@ -37,7 +37,10 @@
             <%= f.file_field :image, id: "eyecatch_upload", onchange: "previewFile()" %><br />
             <%= image_tag @post.image, id: "eyecatch_url",style: "width: 140px; height: 140px;" %>
       </div>
-
+      <div class="form-group">
+        <label>添加已有图片</label>
+        <%=f.text_field :fakeimage, class: 'form-control'%>
+      </div>
 
       <div class="form-group">
         <label class="control-label">大分类</label>
