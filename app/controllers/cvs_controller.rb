@@ -15,11 +15,11 @@ class CvsController < ApplicationController
   end
   def show
     @cv = Cv.find(params.permit(:id)[:id])
-    if current_user!= @cv.user or current_user.role!="admin" 
+    unless current_user== @cv.user or  current_user.role=="admin" 
+      @experiences = @cv.experiences.order(:time_from)
+    else
       flash[:error]="你无法查看别人的简历"
       redirect_to mypage_path 
-    else
-      @experiences = @cv.experiences.order(:time_from)
     end
   end
   def update 
