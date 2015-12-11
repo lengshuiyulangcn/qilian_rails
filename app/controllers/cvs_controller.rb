@@ -15,7 +15,7 @@ class CvsController < ApplicationController
   end
   def show
     @cv = Cv.find(params.permit(:id)[:id])
-    unless current_user== @cv.user or  current_user.role=="admin" 
+    if current_user== @cv.user or  current_user.role=="admin" 
       @experiences = @cv.experiences.order(:time_from)
     else
       flash[:error]="你无法查看别人的简历"
