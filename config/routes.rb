@@ -16,7 +16,7 @@ Rails.application.routes.draw do
    get '/mypage/courses' => 'mypage#my_courses', as: :my_courses
 
    resources :users
-   resources :experiences, only:[:create]
+   resources :experiences, only:[:create,:destroy]
 
    get '/admin' => 'admin#index'
    get '/admin/userinfo/:id' => 'admin#userinfo', as: :admin_userinfo

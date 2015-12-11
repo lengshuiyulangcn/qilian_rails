@@ -32,11 +32,11 @@
         </div>
         <div class="form-group">
           <label>携帯電話</label>
-          <%=f.text_field :cell_phone, value: current_user.phone, class: 'form-control',required: true  %>
+          <%=f.text_field :cell_phone, class: 'form-control',required: true  %>
         </div>
         <div class="form-group">
           <label>Email</label>
-          <%=f.email_field :email, value: current_user.email, class: 'form-control'%>
+          <%=f.email_field :email, class: 'form-control'%>
         </div>
 
       <div class="form-group">
@@ -60,7 +60,9 @@
           <div class="form-group">
             <ul id="experiences" >
             <% @experiences.each do |ex| %>
-              <li><%=format_month ex.time_from%><b>から</b><%=format_month ex.time_to%><b>まで</b>&nbsp;&nbsp;&nbsp;<%=ex.stuff%></li>
+                <li id="ex_<%=ex.id%>"><%=format_month ex.time_from%><b>から</b><%=format_month ex.time_to%><b>まで</b>&nbsp;&nbsp;&nbsp;<%=ex.stuff%>&nbsp;
+                <%=link_to "删除", experience_path(ex.id), method: :delete, remote: true%>
+              </li>
             <% end %>
            </ul>
            </div>
@@ -154,7 +156,7 @@ function getAddress(address,zip){
     url: "/zip/"+zipcode
   }).done(function(data){
     if (data.data!="error"){
-      $(address).val(data.data);
+      $(address).val("〒"+zipcode+" "+data.data);
     }
     else{
       alert("请输入正确的邮编")

@@ -6,11 +6,21 @@ class CvsController < ApplicationController
   end
   def edit
     @cv = Cv.find(params.permit(:id)[:id])
-    @experiences = @cv.experiences.order(:time_from)
+    if current_user!= @cv.user
+      flash[:error]="你无法修改别人的简历"
+      redirect_to mypage_path 
+    else
+      @experiences = @cv.experiences.order(:time_from)
+    end
   end
   def show
     @cv = Cv.find(params.permit(:id)[:id])
-    @experiences = @cv.experiences.order(:time_from)
+    if current_user!= @cv.user or current_user.role!="admin" 
+      flash[:error]="你无法查看别人的简历"
+      redirect_to mypage_path 
+    else
+      @experiences = @cv.experiences.order(:time_from)
+    end
   end
   def update 
     cv = Cv.find(params.permit(:id)[:id])
@@ -22,7 +32,8 @@ class CvsController < ApplicationController
       cv.birthday = Date.parse cvs_params[:birthday]
     end
     if cv.save
-      redirect_to :back 
+      flash[:success]="修改简历成功"
+      redirect_to cv_path(cv) 
     end
   end
   private
