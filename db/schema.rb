@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122121651) do
+ActiveRecord::Schema.define(version: 20151212101448) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 20151122121651) do
     t.datetime "updated_at",  null: false
     t.string   "image"
     t.datetime "timeend"
+    t.string   "fee"
+    t.integer  "limit"
   end
 
   create_table "events_users", id: false, force: :cascade do |t|
@@ -147,6 +149,7 @@ ActiveRecord::Schema.define(version: 20151122121651) do
     t.datetime "updated_at", null: false
     t.string   "comp_name"
     t.string   "fakeimage"
+    t.string   "exstr"
   end
 
   create_table "jobs_labels", id: false, force: :cascade do |t|
@@ -187,6 +190,18 @@ ActiveRecord::Schema.define(version: 20151122121651) do
     t.datetime "updated_at",    null: false
     t.integer  "course_id"
     t.text     "content"
+  end
+
+  create_table "teamsites", force: :cascade do |t|
+    t.string   "path"
+    t.string   "description"
+    t.text     "body"
+    t.string   "locale"
+    t.string   "handler",     default: "erb"
+    t.boolean  "partial",     default: true
+    t.string   "format",      default: "html"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade do |t|
