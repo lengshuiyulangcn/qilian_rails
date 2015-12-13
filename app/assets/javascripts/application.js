@@ -27,3 +27,6 @@
 //= require Markdown.Converter
 //= require Markdown.Sanitizer
 //= require Markdown.Editor
+//= require ace-rails-ap
+//= require ace/theme-monokai
+//= require ace/mode-html

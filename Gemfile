@@ -33,6 +33,11 @@ gem 'cancancan', '~> 1.10'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# find view from db
+gem "panoramic"
+
+# assets pipeline for ace
+gem 'ace-rails-ap'
 
 # bower
 gem "bower-rails", "~> 0.10.0"
