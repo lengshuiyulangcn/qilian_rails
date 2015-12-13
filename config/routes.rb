@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :events
     resources :categories 
     resources :courses
+    resources :teamsites
    end
 
    get '/course/:id' => 'courses#detail', as: :course_detail

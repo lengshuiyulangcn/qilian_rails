@@ -41,6 +41,6 @@ class TeamsitesController < ApplicationController
   end
   private
     def teamsites_params
-      params.require(:teamsite).permit(:id,:path,:description,:body)
+      params.require(:teamsite).permit(:id,:path,:description,:body,:partial)
     end
 end
