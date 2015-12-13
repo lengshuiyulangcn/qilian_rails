@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :detect_mobile
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
-
+  prepend_view_path Teamsite.resolver
 
 
 protected
