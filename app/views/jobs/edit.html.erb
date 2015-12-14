@@ -39,8 +39,16 @@
       </div>
 
       <div class="form-group" id='editor'>
-        <label>参加对象</label>
+        <label>参加资格</label>
           <%=f.text_field :target, class: 'form-control'%>
+      </div>
+      <div class="form-group" id='editor'>
+        <label>募集人数</label>
+          <%=f.number_field :num, class: 'form-control'%>
+      </div>
+      <div class="form-group" id='editor'>
+        <label>选考流程</label>
+          <%=f.kindeditor :step, row:6, class: 'form-control'%>
       </div>
       <div class="form-group">
         <label>截止日期</label>
