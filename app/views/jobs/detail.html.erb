@@ -28,7 +28,7 @@
         <div class="col-lg-3">
           <p class="mt5 gray">　
               <!-- 发布日期 -->
-              <i class="fa fa-clock-o"></i><%= @job.created_at %>
+              <i class="fa fa-clock-o"></i><%=time_ago_in_words @job.created_at %> ago
           </p>
         </div>
         <div class="col-lg-9 mt5">
@@ -50,16 +50,17 @@
           締切: <%=format_birthday(@job.expire_at)%> 
         </div>
 
-        <%== @job.content %>
       </div>
       
-      <h3>実施要項</h3>
       <table class="table table-hover table-striped table-bordered table-bgd-color">
         <tr>
           <th>会社名</th>
           <td><%= @job.comp_name %></td>
         </tr>
-
+        <tr>
+          <th>会社紹介</th>
+          <td><%== @job.content %></td>
+        </tr>
         <tr>
           <th class="col-md-3">募集種別</th>
           <td><%= @job.position %></td>
