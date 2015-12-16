@@ -2,86 +2,86 @@
    <!-- 标题党-->
    <div class="row login-title">
     <div class="col-md-6 col-md-offset-3">
-    <h2 style="text-align:center;">现在开始，加入七联大家庭</h2>
+    <h2>现在开始，加入七联大家庭</h2>
     <p>有生之年，一起去看看这个美丽易碎的世界吧！</p>
     </div>
    </div>
 
    <!-- slide + 内容-->
-   <div class="row">
+<div class="row">
     <!-- 左侧的slideshow -->
     <div class="col-md-5 col-xs-10 col-xs-offset-1">
     <!-- image here -->
-     <div class="col-md-10">
-     <div class="flexslider">
-      <ul class="slides">
-      <li>
-        <img class="img-responsive" alt="Responsive image" src="<%= image_url('register_left_img.png') %>" style="margin-top:-40px">
-      </li>
-      <li>
-        <img class="img-responsive" alt="Responsive image" src="<%= image_url('register_left_img_1.png') %>" style="margin-top:-40px"/>
-      </li>
-      <li>
-        <img class="img-responsive" alt="Responsive image" src="<%= image_url('register_left_img_2.png') %>" style="margin-top:-40px"/>
-      </li>
-      </ul>
-     </div>
-     </div>
+     	<div class="col-md-10">
+     		<div class="flexslider">
+      			<ul class="slides">
+      				<li>
+        			<img class="img-responsive" alt="Responsive image" src="<%= image_url('register_left_img.png') %>" style="margin-top:-40px">
+      				</li>
+      				<li>
+        			<img class="img-responsive" alt="Responsive image" src="<%= image_url('register_left_img_1.png') %>" style="margin-top:-40px"/>
+      				</li>
+      				<li>
+        			<img class="img-responsive" alt="Responsive image" src="<%= image_url('register_left_img_2.png') %>" style="margin-top:-40px"/>
+      				</li>
+      			</ul>
+     		</div>
+     	</div>
     </div>
 
     <!-- 重置密码 -->
     <div class="col-md-4 col-xs-12">
-     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
-     <div class="form-group form-group-lg"><!-- Email -->
-     <div class="input-group has-feedback">
-      <span class="input-group-addon"><i class="fa fa-user"></i></span>
-      <%= f.text_field :name, class: "form-control", autofocus: true, id: "UserName", placeholder: "ID" %>
-     </div>
-     </div>
-     <div class="form-group form-group-lg"><!-- Email -->
-     <div class="input-group has-feedback">
-      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-      <%= f.email_field :email, class: "form-control", autofocus: true, id: "UserEmail", placeholder: "Email" %>
-     </div>
-     </div>
+     	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
+     	<div class="form-group form-group-lg"><!-- UserName -->
+     		<div class="input-group has-feedback">
+      			<span class="input-group-addon"><i class="fa fa-user"></i></span>
+      			<%= f.text_field :name, class: "form-control", autofocus: true, id: "UserName", placeholder: "ID" %>
+     		</div>
+     	</div>
+     	<div class="form-group form-group-lg"><!-- Email -->
+     		<div class="input-group has-feedback">
+      			<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+      			<%= f.email_field :email, class: "form-control", autofocus: true, id: "UserEmail", placeholder: "Email" %>
+     		</div>
+     	</div>
 
-     <div class="form-group form-group-lg"><!-- Password -->
-     <div class="input-group has-feedback">
-      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-      <%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "密码"%>
-        <% if @validatable %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %>
+     	<div class="form-group form-group-lg"><!-- Password -->
+     		<div class="input-group has-feedback">
+      			<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+      			<%= f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "密码"%>
+        		<% if @validatable %>
+        		<em>(<%= @minimum_password_length %> characters minimum)</em>
+        		<% end %>
+     		</div>
+     	</div>
+     	<div class="form-group form-group-lg"><!-- Confirm Password -->
+     		<div class="input-group has-feedback">
+      			<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+      			<%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off", placeholder: "确认密码"%>
+     		</div>
+     	</div>
+     	<%= f.submit "欢迎加入七联大家庭",  class: "btn btn-default btn-block btn-lg", style: "color:#2cc36b;" %>
+     	<hr>
+     	<h5 style="text-align:center; color: white;">或者</h5>
+     	<div class="btn-group btn-group-justified" role="group" aria-label="...">
+      		<div class="btn-group" role="group">
+      			<a type="submit" class="btn btn-danger"><i class="fa fa-google"></i></a>
+     		</div>
+     		<div class="btn-group" role="group">
+      			<%- if devise_mapping.omniauthable? %>
+        			<%- resource_class.omniauth_providers.each do |provider| %>
+          			<%= link_to content_tag(:i, '', class: 'fa fa-facebook'), omniauth_authorize_path(resource_name, provider), class: "btn btn-primary" %>
+        		<% end -%>
+<!--       		<% end -%> -->
+     		</div>
+     	</div><!-- end of 直接登陆 google / Facebook -->
+     	<% end %><!-- end of 表单 -->
      </div>
-     </div>
-     <div class="form-group form-group-lg"><!-- Password -->
-     <div class="input-group has-feedback">
-      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off", placeholder: "确认密码"%>
-     </div>
-     </div>
-     <%= f.submit "走进七联",  class: "btn btn-default btn-block center-block btn-lg", style: "color:#2cc36b;" %>
-     <hr>
-     <h5 style="text-align:center; color: white;">或者</h5>
-     <div class="btn-group btn-group-justified" role="group" aria-label="...">
-      <div class="btn-group" role="group">
-      <a type="submit" class="btn btn-danger"><i class="fa fa-google fa-2x"></i></a>
-     </div>
-     <div class="btn-group" role="group">
-      <%- if devise_mapping.omniauthable? %>
-        <%- resource_class.omniauth_providers.each do |provider| %>
-          <%= link_to content_tag(:i, '', class: 'fa fa-facebook fa-2x'), omniauth_authorize_path(resource_name, provider), class: "btn btn-primary" %>
-        <% end -%>
-      <% end -%>
-     </div>
+</div><!-- end of row -->
+</div><!-- end of end -->
+<!-- </div> -->
 
-     </div>
-     <% end %><!-- end of 注册 -->
 
-     </div>
-</div>
-</div>
-</div>
 <script type="text/javascript" charset="utf-8">
   $(window).load(function() {
   $('.flexslider').flexslider();

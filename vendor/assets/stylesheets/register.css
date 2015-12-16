@@ -15,8 +15,16 @@
 .login-title{
   color: white;
   text-align:center;
-  margin: 50px;
+  margin:50px;
   padding: 50px;
+}
+
+/* 避免markdown CSS的干扰，在这里重新定义h2字体*/
+h2 {
+  color: white;
+  border-bottom: none;
+  font-size:30px;
+  text-align:center;
 }
 
 /*登陆的按钮*/
@@ -40,3 +48,5 @@
   border: solid 2px;
   text-transform: uppercase;
 }
+
+
