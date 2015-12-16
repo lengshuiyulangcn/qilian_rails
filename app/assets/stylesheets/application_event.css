@@ -18,6 +18,7 @@
  *= require modern-business
  *= require jquery.datetimepicker
  *= require news
+ *= require jobs
  *= require event
  *= require qilian
  *= require_self

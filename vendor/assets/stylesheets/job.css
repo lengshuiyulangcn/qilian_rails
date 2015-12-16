@@ -1,0 +1,43 @@
+h4 a{
+       color: #444444;
+       font-weight: normal;
+   }
+
+  .company-main-layout{
+    padding: 0px;
+    padding-bottom: 40px;
+  }
+
+  /* 图片占据整个空间，所以设定padding=0px */
+  .company-main-layout > .col-md-12{
+    padding: 0px;
+  }
+
+  /* 公司图片 */
+  .company-cover-img{
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
+
+  /* 七联评价 */
+  .fa-star{
+    color: #f1c40f;
+  }
+
+  /* 表格的颜色 */
+  .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: rgba(26, 188, 156, 0.1);
+  }
+
+  /* 表格整体居中 */
+  .table tbody>tr>td{
+    vertical-align: middle;
+  }
+
+  /*表格的背景颜色*/
+  .table-bgd-color{
+    background-color: white;
+  }
+
