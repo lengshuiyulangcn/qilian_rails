@@ -11,6 +11,9 @@
     <!-- <link rel="stylesheet" href="/appointment/css/qilian.css"> -->
     <!-- jQuery -->
     <%= stylesheet_link_tag "application", :media => "all" %>
+     <%# todo: modify to local.ja after https://github.com/andyearnshaw/Intl.js/issues/69 get fixed %>
+     <%# or remove after safari implemented Intl API                                                %>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
