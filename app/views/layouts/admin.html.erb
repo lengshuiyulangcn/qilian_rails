@@ -10,6 +10,9 @@
     <%= yield :extra_head %>
     <link rel="icon" href="/favicon.ico" />
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%# todo: modify to local.ja after https://github.com/andyearnshaw/Intl.js/issues/69 get fixed %>
+    <%#  or remove after safari implemented Intl API                                               %>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
