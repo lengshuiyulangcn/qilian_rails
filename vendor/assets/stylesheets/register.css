@@ -49,4 +49,14 @@ h2 {
   text-transform: uppercase;
 }
 
+/* override css from bootstrap.min.css*/
+.form-horizontal > .form-group{
+  margin-right: 0px;
+  margin-left: 0px;
+}
 
+/* 区别footer中相同变量的定义，在这里添加针对注册时候的icon css定义*/
+.register_icon > i {
+  margin: 0px;
+  color: white;
+}
