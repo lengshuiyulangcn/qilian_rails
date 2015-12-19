@@ -15,8 +15,16 @@
 .login-title{
   color: white;
   text-align:center;
-  margin: 50px;
+  margin:50px;
   padding: 50px;
+}
+
+/* 避免markdown CSS的干扰，在这里重新定义h2字体*/
+h2 {
+  color: white;
+  border-bottom: none;
+  font-size:30px;
+  text-align:center;
 }
 
 /*登陆的按钮*/
@@ -39,4 +47,16 @@
   font-size: 13px;
   border: solid 2px;
   text-transform: uppercase;
+}
+
+/* override css from bootstrap.min.css*/
+.form-horizontal > .form-group{
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+/* 区别footer中相同变量的定义，在这里添加针对注册时候的icon css定义*/
+.register_icon > i {
+  margin: 0px;
+  color: white;
 }

@@ -58,12 +58,12 @@
      <h5 style="text-align:center; color: white;">或者</h5>
      <div class="btn-group btn-group-justified" role="group" aria-label="...">
      <div class="btn-group" role="group">
-      <a type="submit" class="btn btn-danger"><i class="fa fa-google fa-2x"></i></a>
+      <a type="submit" class="btn btn-danger register_icon"><i class="fa fa-google"></i></a>
      </div>
      <div class="btn-group" role="group">
       <%- if devise_mapping.omniauthable? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
-          <%= link_to content_tag(:i, '', class: 'fa fa-facebook fa-2x'), omniauth_authorize_path(resource_name, provider), class: "btn btn-primary" %>
+          <%= link_to content_tag(:i, '', class: 'fa fa-facebook'), omniauth_authorize_path(resource_name, provider), class: "btn btn-primary register_icon" %>
         <% end -%>
       <% end -%>
      </div>
