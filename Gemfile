@@ -87,6 +87,9 @@ gem 'zip_code_jp'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#pagination for api
+gem 'grape-pagination'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

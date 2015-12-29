@@ -17,6 +17,6 @@ module Squirrel
     end
     mount Zipcode
     mount Auth
-    mount NewsService 
+    mount NewsService::News
   end
 end
