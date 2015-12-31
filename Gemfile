@@ -65,6 +65,7 @@ gem 'browser'
 # Web server
 gem 'puma'
 
+gem 'rack-cors', :require => 'rack/cors'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -76,6 +77,8 @@ gem 'react-rails', '~> 1.3.0'
 
 # restful api
 gem 'grape'
+gem 'grape-jbuilder'
+gem 'grape-rabl'
 
 gem 'zip_code_jp'
 # Use ActiveModel has_secure_password

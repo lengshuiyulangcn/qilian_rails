@@ -32,7 +32,8 @@ module NewsService
     end
     get :category, jbuilder: 'index' do
       posts = Post.includes(:categories).where(categories: {id: params[:category_id]}).order(created_at: "DESC")
-      @posts = paginate  posts
+      @posts = paginate posts
+      @category_name = Category.find(params[:category_id]).name
       @page = params[:page] ? params[:page] : 1
       @per_page = params[:per_page] ? params[:per_page] : 30 
       @total_page = posts.length/@per_page+1
