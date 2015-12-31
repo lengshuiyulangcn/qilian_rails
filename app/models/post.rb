@@ -6,4 +6,13 @@ class Post < ActiveRecord::Base
   def self.most_viewed(top=5)
     Post.order("fakeview DESC").first(5)
   end
+  def truncate_description(length=200)
+    ActionController::Base.helpers.truncate(
+     ActionController::Base.helpers.strip_tags(ApplicationController.helpers.markdown(self.content)), 
+      length: length)
+  end
+
+  def markdown
+    ApplicationController.helpers.markdown(self.content)
+  end
 end

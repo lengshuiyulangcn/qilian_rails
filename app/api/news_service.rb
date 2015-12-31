@@ -21,6 +21,7 @@ module NewsService
       end
       get ":id", jbuilder: 'post' do
         @post = Post.find(params[:id])
+        @post.content = @post.markdown
       end
     end
     desc "get by category id"
