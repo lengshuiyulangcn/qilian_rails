@@ -18,6 +18,6 @@ module Squirrel
     mount Zipcode
     mount Auth
     mount NewsService::News
-    mount JobSearch::Job
+    mount JobSearch::JobSearch
   end
 end
