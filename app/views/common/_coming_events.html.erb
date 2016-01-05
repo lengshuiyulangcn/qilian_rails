@@ -16,11 +16,11 @@
           <div class="col-md-8 col-md-offset-2 search">
             <div class="input-group input-group-lg">
               <div class="input-group-btn">
-                  <button type="submit" class="btn btn-success"><span><i class="fa fa-search"></i></span></button>
+                  <button type="submit" onclick="doSearch()" class="btn btn-success"><span><i class="fa fa-search"></i></span></button>
               </div>
               <input id="search-input" type="text" class="form-control" placeholder="查看就职资讯, 选考情报, 活动信息..." id="query" name="queriesy" value="">
                <div class="input-group-btn">
-                  <button type="submit" class="btn btn-danger" data-toggle="dropdown" aria-haspopup="true" air-expaned="false"><i class="fa fa-group"></i> 加入七联</button>
+                  <button type="submit" onclick="goLogin()" class="btn btn-danger" data-toggle="dropdown" aria-haspopup="true" air-expaned="false"><i class="fa fa-group"></i> 加入七联</button>
                </div>               
             </div><!-- end of input-group -->
           </div><!-- end of search-bar -->
@@ -110,4 +110,13 @@
               typeSpeed: 150
             });
       });
+</script>
+<script>
+  function doSearch(){
+    query = "http://www.google.jp/search?q=site:qilian.info "+$("#search-input").val();
+    window.open(query)
+  }
+  function goLogin(){
+    window.open('/users/sign_in')
+  }
 </script>
