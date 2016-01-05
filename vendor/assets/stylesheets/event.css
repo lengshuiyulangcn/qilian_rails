@@ -7,125 +7,13 @@
  *  Header Setting
  * ====================================================================================================================*/
 
-  font-family: {
-    "Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
-  }
-  /*背景颜色*/
-  body{
-      background-color: #fafafa;
-  }
-
-  /*标题图片的定义*/
-  .header-banner{
-    background: url("http://qilian.jp/events_bgd.jpg") no-repeat center;
-    background-color:#2980b9;
-    background-size: cover;
-    padding-top: 20%;
-    padding-bottom: 25%;
-    text-align: center;
-    color:700px;*/
-    margin-bottom: 5px;
-  }
-  .header-message {
-    position: relative;
-  }
-  /*标题文字*/
-  .header-message > h1 {
-    margin: 0;
-    font-size: 4.5em;
-    color: white;
-  }
-  /*华丽的分割线*/
-  .header-message > hr{
-    width: 85%;
-    display:block;
-  }
-  /*华丽的分割线*/
-  .header-message > h3{
-    color: white;
-    font-size: 25px;
-    font-weight: lighter;
-  }
-
-  /* 跳动的指引图标 */
-  .down-arrow {
-    color: #fff;
-    font-size: 30px;
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%);
-  }
-
-  .floating-arrow {
-    -webkit-animation-name: floating-arrow;
-            animation-name: floating-arrow;
-    -webkit-animation-duration: 2s;
-            animation-duration: 2s;
-    -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-    -webkit-animation-timing-function: ease-in-out;
-            animation-timing-function: ease-in-out; }
-
-  @-webkit-keyframes floating-arrow {
-    from {
-      -webkit-transform: translate(-50%, 0);
-              transform: translate(-50%, 0); }
-    65% {
-      -webkit-transform: translate(-50%, 15px);
-              transform: translate(-50%, 15px); }
-    to {
-      -webkit-transform: translate(-50%, 0);
-              transform: translate(-50%, 0); } }
-
-  @keyframes floating-arrow {
-    from {
-      -webkit-transform: translate(-50%, 0);
-              transform: translate(-50%, 0); }
-    65% {
-      -webkit-transform: translate(-50%, 15px);
-              transform: translate(-50%, 15px); }
-    to {
-      -webkit-transform: translate(-50%, 0);
-              transform: translate(-50%, 0); } }
-
-
-    /* 为type.js 添加光标效果 */
-    .typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-    }
-    @keyframes blink{
-      0% { opacity:1; }
-      50% { opacity:0; }
-      100% { opacity:1; }
-    }
-    @-webkit-keyframes blink{
-      0% { opacity:1; }
-      50% { opacity:0; }
-      100% { opacity:1; }
-    }
-    @-moz-keyframes blink{
-      0% { opacity:1; }
-      50% { opacity:0; }
-      100% { opacity:1; }
-    }
-
-/* ====================================================================================================================
- *  main-section setting
- * ====================================================================================================================*/
-
- .panel-heading{
+ #events.panel-heading{
    padding: 0px;
  }
 
  /* 每一行的设定，主要是间距的设定*/
  /* 第一行的padding-top在html中单独设定*/
- .board-row-style{
+  #events .board-row-style{
    padding-left: 50px;
    padding-right: 50px;
    padding-top: 25px;
@@ -133,28 +21,41 @@
  }
 
  /* define events-board */
- .events-board-color{
+  #events .events-board-color{
    background-color:#FFFFFF;
    padding:0px;
  }
  /* events font */
- .events-board-color > .col-md-12 > h4{
+  #events .events-board-color > .col-md-12 > h4{
    padding-top: 20px;
  }
  /* events anchor */
- .events-board-color > .col-md-12 > h4 > a{
+  #events.events-board-color > .col-md-12 > h4 > a{
    color: #2c3e50;
  }
 
  /* align-center for icon*/
-  .icon-center{
+  #events .icon-center{
     text-align:center;
   }
   /* show the special color when the regiseted number is larger than scheduled numbers*/
-  .over-registered-number{
+  #events  .over-registered-number{
     color: #ea6153;
     font-weight: bold;
   }
+
+ /* button to check detail style*/
+  #events .btn-event-details{
+   margin-bottom:30px;
+   border-radius:40px;
+   border-color:#27ae60;
+   color:#2ecc71;
+ }
+ /* anchor style*/
+  #events .col-md-12 > a:hover {
+    color: white;
+    background-color: #27ae60;
+ }
 
  /* fo-awsome-icon color*/
  .fa-calendar, .fa-users, .fa-money{
@@ -163,16 +64,4 @@
  /* Likes color*/
  .fa-heart{
    color:#e74c3c;
- }
- /* button to check detail style*/
- .btn-event-details{
-   margin-bottom:30px;
-   border-radius:40px;
-   border-color:#27ae60;
-   color:#2ecc71;
- }
- /* anchor style*/
- .col-md-12 > a:hover {
-    color: white;
-    background-color: #27ae60;
  }

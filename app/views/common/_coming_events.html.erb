@@ -1,23 +1,37 @@
 <!-- recommend_widget -->
- <!-- Page Header -->
-<div class="header-banner">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 header-message">
-        <h1>七联・比邻</h1>
-        <hr>
-        <h3>
-          <span class="slogan">
-            我们的征途是星辰大海，我们的世界从不狭隘
-          </span>
-        </h3>
+<!-- Page Header -->
+<div class="header-banner-events">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 header-message">
+            <h1>七联比邻</h1>
+            <hr>
+            <h3><span class="slogan">
+              我们的征途是星辰大海，我们的世界从不狭隘</span>
+            </h3>
+          </div>
+          <!-- 搜索栏 + 进入文章 -->
+          <!-- Search bar  -->
+          <!-- 点击右侧的icon，跳转注册页面 -->
+          <div class="col-md-8 col-md-offset-2 search">
+            <div class="input-group input-group-lg">
+              <div class="input-group-btn">
+                  <button type="submit" class="btn btn-success"><span><i class="fa fa-search"></i></span></button>
+              </div>
+              <input id="search-input" type="text" class="form-control" placeholder="查看就职资讯, 选考情报, 活动信息..." id="query" name="queriesy" value="">
+               <div class="input-group-btn">
+                  <button type="submit" class="btn btn-danger" data-toggle="dropdown" aria-haspopup="true" air-expaned="false"><i class="fa fa-group"></i> 加入七联</button>
+               </div>               
+            </div><!-- end of input-group -->
+          </div><!-- end of search-bar -->
+
+          <div class="down-arrow floating-arrow"><a href="#events"><i class="fa fa-angle-down"></i></a></div>
+        </div>
       </div>
-      <div class="down-arrow floating-arrow"><a href="#news"><i class="fa fa-angle-down"></i></a></div>
-    </div>
-  </div>
-</div><!-- end of header -->
+    </div><!-- end of header -->
+
     <!-- Page Content -->
-<div class="container-fluid" id="news">
+<div class="container-fluid" id="events">
   <div class="row">
       <!-- 只有第一排单独设定padding-top:100px, 为了不让nav-fix-top遮挡住第一排 -->
       <div class="col-md-12 board-row-style" style="padding-top:100px">
@@ -31,7 +45,11 @@
                     <div class="col-md-12">
                       <h4><%=link_to event.title, event_detail_path(event.id) %></h4>
                       <p>
-                        <i class="fa fa-heart"></i> <span style="margin-left:5px;">341 Likes</span>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
+                        <i class="fa fa-heart"></i>
                       </p>
                     </div>
                     <!-- Basic info -->
