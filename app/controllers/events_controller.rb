@@ -34,7 +34,7 @@ class EventsController < ApplicationController
     @event.content = markdown.render(@event.content)
     respond_to do |format|
       format.html do
-        render layout:  'normal'
+        render layout:  'events'
       end
       format.json do 
         render json: @event.to_json(:include=>[:users])
