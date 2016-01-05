@@ -19,7 +19,15 @@ module JobSearch
       category_jobs =Job.all.category_select(labels,'genre')
       industry_jobs = Job.all.category_select(labels,'industry') 
       @jobs = graduate_jobs & category_jobs & industry_jobs
+      @labels = Label.where(id: labels)
       @jobs = Job.where(id: @jobs.map{|job| job.id}, expire_at: Time.current..Time.current+1.year)  
+    end
+    desc "search jobs"
+    params do
+      requires :id, type: Integer
+    end
+    get "/job", jbuilder: "job" do
+      @job = Job.find(params[:id])
     end
   end
 end
