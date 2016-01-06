@@ -18,7 +18,7 @@ Rails.application.routes.draw do
    resources :users
    resources :experiences, only:[:create,:destroy]
 
-   get '/admin' => 'admin#index'
+   get '/admin' => 'admin#index', as: :admin_home
    get '/admin/userinfo/:id' => 'admin#userinfo', as: :admin_userinfo
 
    resources :entries, only: [:create,:destroy]
@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
    scope :admin do
     resources :posts
+    resources :qilian_mail, only: [:new,:create]
     resources :jobs
     resources :labels
     resources :events
