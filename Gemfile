@@ -78,6 +78,9 @@ gem 'react-rails', '~> 1.3.0'
 gem 'grape'
 
 gem 'zip_code_jp'
+
+# task runner
+gem 'sucker_punch', '~> 1.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
