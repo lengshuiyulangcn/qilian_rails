@@ -19,9 +19,9 @@
  *= require news
  *= require md_preview
  *= require jquery.datetimepicker
- *= require blog-list
  *= require markdown
  *= require register 
  *= require qilian
+ *= require common
  *= require_self
  */
