@@ -65,15 +65,12 @@
       </tr>                                                                                          
     </table>
     </div><!-- end of Panel -->
-      <br>
-      <div class="col-md-8 col-md-offset-2 col-xs-12">
         <% if Time.now < @event.timestart %>
           <%=form_tag ('/event/apply') do%>
             <%= hidden_field_tag :event_id, @event.id %>
-            <%= submit_tag "立即报名", class: "btn btn-success btn-block btn-event_detail" %><br>
+            <%= submit_tag "立即报名", class: "btn btn-success btn-block btn-event_detail", style: "width: 70%; margin-left: 15%" %><br>
           <% end %>
         <% end %>
-      </div>
   </div>
       <!-- main-right sidebar -->
       <div class="col-lg-4">
