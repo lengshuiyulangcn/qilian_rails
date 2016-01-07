@@ -2,5 +2,7 @@
 
 尊敬的: <%= @user.name%> <br>
 <p>
-感谢您报名<%=@event.title%> 活动。
+感谢您报名七联组织的“<%=@event.title%>” 活动。<br>
+活动具体内容请点击<%=link_to "此处", event_detail_url(@event)%>查看。<br>
+我们由衷期待您的到来。
 </p>
