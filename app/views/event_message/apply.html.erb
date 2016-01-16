@@ -1,8 +1,33 @@
-<h1>报名成功！</h1>
+<h4>Dear <%= @user.name%>,</h4>
 
-尊敬的: <%= @user.name%> <br>
 <p>
-感谢您报名七联组织的“<%=@event.title%>” 活动。<br>
-活动具体内容请点击<%=link_to "此处", event_detail_url(@event)%>查看。<br>
-我们由衷期待您的到来。
+This mail is from QiLian.<br>
+
+Thank you very much for registering <%=link_to "this event", event_detail_url(@event)%>.
+</p>
+======<br>
+<p>
+非常感谢报名参加<%=link_to "这次", event_detail_url(@event)%>活动，期待活动当天的见面！<br>
+
+也希望您能继续支持【七联】，让【七联】更好的为大家服务下去。<br>
+<br>
+【活动情报】
+<br>
+活动名称: <%=@event.title%><br>
+日期： <%= @event.timestart.strftime("%y/%m/%d %I:%M%p")+"~"+@event.timeend.strftime("%I:%M%p")%><br>
+场地： <%=link_to "详见", event_detail_url(@event)%><br>
+费用： <%=@event.fee%><br><br>
+Best regards<br>
+David
+
+<p>
+【七联・就职】<br>
+外国人职业生涯发展支援平台<br>
+:::::::::::::::::::::::::::::::::::::::::::::::<br>
+HP: <a href="http://qilian.jp">http://qilian.jp</a><br>
+FB: <a href="https://www.facebook.com/qilian">https://www.facebook.com/qilian</a><br>
+微博: 七联_日本就职﻿﻿<br>
+微信公共平台: findjobinjapan<br>
+メールアドレス：info@qilian.jp<br>
+:::::::::::::::::::::::::::::::::::::::::::::::
 </p>
