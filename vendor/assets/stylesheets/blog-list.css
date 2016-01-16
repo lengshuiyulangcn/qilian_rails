@@ -145,27 +145,6 @@
    font-size: 16px;
  }
   /*文章主题部分，占全部比例的8/12*/
-  .col-md-8{
-    background-color: white;
-    border-right: 1px solid #ecf0f1;
-    border-left: 1px solid #ecf0f1;
-    padding: 0px;
-  }
-  /* 图片占据整个空间，所以设定padding=0px */
-  .col-md-8 > .col-md-12{
-    padding: 0px;
-  }
-  /* 网站主体*/
-  /* 文章中显示发布时间的color */
-  .col-md-8 > .col-md-11 > h6{
-    color: #bdc3c7;
-  }
-  /* 消息 */
-  .col-md-8 > .col-md-11{
-    padding:25px; /* 20px的目标是把event图片和文本之间的距离控制好 */
-    padding-bottom: 40px;
-    border-bottom: 1px solid #ecf0f1;
-    }
   /*左侧边栏显示颜色*/
   .news-1:hover{
     border-left-width: 3px;

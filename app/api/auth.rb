@@ -42,6 +42,21 @@ class Auth < Grape::API
       authenticate!
       { message: "pong" }
     end
+    desc "update user info"
+    params do
+      requires :token, type: String, desc: "Access token."
+      requires :image, :type => Rack::Multipart::UploadedFile, desc: "Image file."
+    end
+    post :update, jbuilder: 'user' do
+      authenticate!
+      @user = current_user
+      new_file = ActionDispatch::Http::UploadedFile.new(params[:image])
+      @user.image = new_file
+      @key = ApiKey.create(user_id: @user.id)
+      unless @user.save
+        error!('Internal Error', 500)
+      end
+    end
   end 
   rescue_from :all do |e|
     Rails.logger.error "\n#{e.class.name} (#{e.message}):"
