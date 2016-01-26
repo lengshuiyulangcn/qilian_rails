@@ -144,7 +144,7 @@ dl dd > :last-child {
    margin-bottom: 0; }
 
 blockquote {
-   border-left: 4px solid #dddddd;
+   border-left: 4px solid #1dd2af;
    padding: 0 15px;
    color: #777777; }
 blockquote > :first-child {
