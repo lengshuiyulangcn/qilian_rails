@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122121651) do
+ActiveRecord::Schema.define(version: 20160202131805) do
+
+  create_table "api_keys", force: :cascade do |t|
+    t.string   "access_token", null: false
+    t.datetime "expires_at",   null: false
+    t.integer  "user_id"
+    t.boolean  "active"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "api_keys", ["access_token"], name: "index_api_keys_on_access_token", unique: true
+  add_index "api_keys", ["user_id"], name: "index_api_keys_on_user_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +33,7 @@ ActiveRecord::Schema.define(version: 20151122121651) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "father_id"
+    t.boolean  "need_login",        default: false
   end
 
   create_table "categories_posts", id: false, force: :cascade do |t|
@@ -86,6 +99,8 @@ ActiveRecord::Schema.define(version: 20151122121651) do
     t.datetime "updated_at",  null: false
     t.string   "image"
     t.datetime "timeend"
+    t.string   "fee"
+    t.integer  "limit"
   end
 
   create_table "events_users", id: false, force: :cascade do |t|
@@ -147,6 +162,7 @@ ActiveRecord::Schema.define(version: 20151122121651) do
     t.datetime "updated_at", null: false
     t.string   "comp_name"
     t.string   "fakeimage"
+    t.string   "exstr"
   end
 
   create_table "jobs_labels", id: false, force: :cascade do |t|
@@ -187,6 +203,18 @@ ActiveRecord::Schema.define(version: 20151122121651) do
     t.datetime "updated_at",    null: false
     t.integer  "course_id"
     t.text     "content"
+  end
+
+  create_table "teamsites", force: :cascade do |t|
+    t.string   "path"
+    t.string   "description"
+    t.text     "body"
+    t.string   "locale"
+    t.string   "handler",     default: "erb"
+    t.boolean  "partial",     default: true
+    t.string   "format",      default: "html"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade do |t|

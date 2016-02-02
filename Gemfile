@@ -65,6 +65,7 @@ gem 'browser'
 # Web server
 gem 'puma'
 
+gem 'rack-cors', :require => 'rack/cors'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -76,6 +77,8 @@ gem 'react-rails', '~> 1.3.0'
 
 # restful api
 gem 'grape'
+gem 'grape-jbuilder'
+gem 'grape-rabl'
 
 gem 'zip_code_jp'
 
@@ -89,6 +92,9 @@ gem 'sucker_punch', '~> 1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+#pagination for api
+gem 'grape-pagination'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

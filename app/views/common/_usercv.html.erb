@@ -153,7 +153,7 @@ $('#datetimepicker_to').monthpicker({
 function getAddress(address,zip){
   zipcode = $(zip).val()
   $.ajax({
-    url: "/zip/"+zipcode
+    url: "/api/zip/"+zipcode
   }).done(function(data){
     if (data.data!="error"){
       $(address).val("〒"+zipcode+" "+data.data);
