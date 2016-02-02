@@ -6,6 +6,12 @@ class NewsController < ApplicationController
   end
   def show
     @post = Post.find(params.permit(:id)[:id])
+    need_login = @post.categories.exists?(need_login: true) 
+    if need_login && !current_user
+      flash[:error]="该分类需要登录方可查看。利用facebook可快速登录。"
+      redirect_to new_user_session_path
+      return
+    end
     impressionist(@post, nil, :unique => [:session_hash])
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
     @post.content = markdown.render(@post.content)
