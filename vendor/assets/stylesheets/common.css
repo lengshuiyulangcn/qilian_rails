@@ -209,14 +209,17 @@
     margin-left:20px;
   }
 
-  .icon-tools{
+  .news-icon-tools{
+    margin-top: 10px;
+    padding-bottom: 30px;
     position:relative;
     height: 15px;
     width: auto;
     list-style-type: none;
     padding-left: 0px;
+    line-height: 150%;
+    font-size: 12px;
   }
-
 
   /*定义tag 颜色*/
   .label-style{
@@ -365,17 +368,18 @@
 /* ====================================================================================================================
  *  继续阅读，收藏（未完成）
  * ====================================================================================================================*/
-.continue_Reading{
-  /*继续阅读定义*/
+.mark-continue_Reading{
   color: #57ad68;
   font-weight: lighter;
 }
-.main-bookmark{
+
+/* 会员限定Font-CSS*/
+.mark-news_member_only{
   margin-left: 10px;
-  color: #7f8c8d;
+  color: #c0392b;
 }
 
-.main-readingTime{
-  margin-left: 2px;
-  font-weight: normal;
+/* 会员限定fo－awsome CSS*/
+.mark-news_member_only .fa-lock{
+  color: #e74c3c;
 }
