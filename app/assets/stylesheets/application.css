@@ -16,7 +16,6 @@
  *= require bootstrap.min
  *= require modern-business
  *= require style
- *= require news
  *= require md_preview
  *= require jquery.datetimepicker
  *= require markdown

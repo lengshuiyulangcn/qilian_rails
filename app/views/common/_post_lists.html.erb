@@ -9,7 +9,7 @@
          <%= link_to image_tag( post.image.blank? ? post.fakeimage : post.image, class: "img-responsive img-hover img-thumbView inbox-blog-list"), news_path(post.id)%>
        
       <h6>
-        <ul class="icon-tools">
+        <ul class="news-icon-tools">
           <li class="main-list-group"><i class="fa fa-clock-o"></i> <%= time_ago_in_words post.created_at %> ago</li>
           <li class="main-list-group"><i class="fa fa-eye"></i><%=post.impressionist_count + (post.fakeview.blank? ? 0 : post.fakeview) %> views</li>
           <% post.categories.each do |category|%>
@@ -30,7 +30,10 @@
 
       <h6>
         <!-- <a class="continue_Reading" href="#">继续阅读</a> -->
-              <%= link_to '继续阅读', news_path(post.id), class: 'continue_Reading' %>
+        <%= link_to '继续阅读', news_path(post.id), class: 'continue_Reading' %>
+        <% if post.categories.exists?(need_login: true)%>
+          <span class="mark-news_member_only"><i class="fa fa-lock fa-fw main-bookmark-time"></i>会员限定</span>
+        <% end %>
       </h6>
 
     </div><!-- /资讯相关内容 -->
