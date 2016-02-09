@@ -29,7 +29,7 @@
         <div class="col-lg-5">
           <p class="mt5 gray">
               <!-- 阅读数 -->
-              <i class="fa fa-eye"></i><%= @count + (@post.fakeview.blank? ? 0 : @post.fakeview) %> views
+              <i class="fa fa-eye"></i><%= @count %> views
               <!-- 发布日期 -->
               <i class="fa fa-clock-o"></i> <%=time_ago_in_words @post.created_at %> ago
           </p>

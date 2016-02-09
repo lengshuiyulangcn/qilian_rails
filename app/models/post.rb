@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   is_impressionable  counter_cache:  true, column_name: :view_count
   self.per_page = 5
   def self.most_viewed(top=5)
-    Post.order("fakeview DESC").first(5)
+    Post.order("view_count DESC").first(5)
   end
   def truncate_description(length=200)
     ActionController::Base.helpers.truncate(
