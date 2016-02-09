@@ -15,7 +15,8 @@ class PostsController < ApplicationController
   end
   def new
     @post = Post.new
-    @categories = Category.all
+    # only show subcategories
+    @categories = Category.where.not(ancestry: nil)
   end
   def show
     @post = Post.find(params.permit(:id)[:id])
@@ -28,7 +29,7 @@ class PostsController < ApplicationController
   end
   def edit
     @post = Post.find(params.permit(:id)[:id])
-    @categories = Category.all
+    @categories = Category.where.not(ancestry: nil)
   end
   def create
     @post = Post.new

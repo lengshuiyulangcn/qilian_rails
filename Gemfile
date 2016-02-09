@@ -96,6 +96,8 @@ gem 'sucker_punch', '~> 1.0'
 #pagination for api
 gem 'grape-pagination'
 
+# tree model
+gem 'ancestry'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
