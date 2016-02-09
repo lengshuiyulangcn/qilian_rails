@@ -9,6 +9,7 @@ class CategoriesController < ApplicationController
   end
   def new
     @category = Category.new
+    @categories = Category.all
   end
   def create
     @post = Post.new
@@ -25,6 +26,7 @@ class CategoriesController < ApplicationController
   end
   def edit
     @category = Category.find(params.permit(:id)[:id])
+    @categories = Category.where.not(id: @category.id)
   end
   def update
     category = Category.find(category_params[:id])
@@ -41,6 +43,6 @@ class CategoriesController < ApplicationController
   end
   private
   def category_params
-    params.require(:category).permit(:id, :name,:slug,:border_left_color,:description,:need_login)
+    params.require(:category).permit(:id, :name,:slug,:border_left_color,:description,:need_login, :parent_id)
   end
 end

@@ -18,7 +18,7 @@
       <td>
         <h5><strong><%= category.name %></strong></h5>
       </td>
-      <td><%= "parentid" %></td>
+      <td><%= category.parent ? category.parent.name : "Root" %></td>
       <td>
         <ul class="list-inline">
           <li>
