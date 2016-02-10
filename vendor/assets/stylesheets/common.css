@@ -314,14 +314,6 @@
   font-size: 18px;
 }
 
-/* 侧边栏 tags 定义*/
-.sidebar-tags{
-  margin-bottom: 8px;
-  margin-right: 8px;
-  border-radius:40px;
-  opacity: 0.6;
-}
-
 /*针对side-bar block的定义*/
 .sidebar-topPick-block{
   display: block;
@@ -361,13 +353,6 @@
  *  新增tag定义（整合之后，请删除comment部分）
  * ====================================================================================================================*/
 
-/* tag上的badge颜色 */
-.btn-default > .badge{
-  background-color:#2ecc71;
-  color: white;
-  font-size: 10px;
-}
-
 .sidebar-subsection-title{
     font-size: 15px;
     font-weight: 400;
@@ -396,4 +381,97 @@ color: #c0392b;
 /* 会员限定fo－awsome CSS*/
 .mark-news_member_only .fa-lock{
 color: #e74c3c;
+}
+/* ====================================================================================================================
+ *  TAG定义
+ * ====================================================================================================================*/
+
+/* 主tag*/
+.sidebar-layouts > ul { 
+  list-style-type: none; 
+  -webkit-padding-start: 10px;
+}
+
+.sidebar-tag-ul {
+  width: 100%;
+  margin: 20px;
+  margin-left: 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.sidebar-tag-ul .sidebar-tag-link {
+  cursor: pointer;
+  display: block;
+  padding: 15px 15px 15px 42px;
+  color: #4D4D4D;
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 1px solid #CCC;
+  position: relative;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.sidebar-tag-ul li i {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  font-size: 18px;
+  color: #595959;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.sidebar-tag-ul li i.fa-chevron-down {
+  right: 12px;
+  left: auto;
+  font-size: 16px;
+}
+
+.sidebar-tag-ul li.open .sidebar-tag-link{ 
+  color: #27ae60; 
+}
+
+.sidebar-tag-ul li.open i{
+ color: #27ae60; 
+}
+
+.sidebar-tag-ul li.open i.fa-chevron-down {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+
+.sidebar-tag-submenu {
+  display: none;
+  /*background: #95a5a6;*/
+  font-size: 14px;
+  list-style-type: none; 
+}
+
+.sidebar-tag-submenu li{ 
+  border-bottom: 1px solid #ecf0f1; 
+}
+
+.sidebar-tag-submenu a {
+  display: block;
+  text-decoration: none;
+  color: #595959;
+  padding: 10px;
+  padding-left: 10px;
+  -webkit-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.sidebar-tag-submenu a:hover {
+  background: #27ae60;
+  color: #FFF;
+}
+.sidebar-tag-submenu li a > span{
+  float:right;
 }
