@@ -7,24 +7,24 @@
  *  Header Setting
  * ====================================================================================================================*/
 
-  font-family: {
-    "Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
-  }
-  /*背景颜色*/
-  body{
-      background-color: #fafafa;
-  }
+ font-family: {
+  "Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+}
+/*背景颜色*/
+body{
+  background-color: #fafafa;
+}
 
 
-  /*[NEWS]标题图片的定义*/
-  .header-banner-news{
-    background: url("http://qilian.info/image/news_bgd.jpg") no-repeat center;
-    background-color:#2980b9;
-    background-size: cover;
-    padding-top: 10%;
-    padding-bottom: 25%;
-    text-align: center;
-    color:700px;
+/*[NEWS]标题图片的定义*/
+.header-banner-news{
+  background: url("http://qilian.info/image/news_bgd.jpg") no-repeat center;
+  background-color:#2980b9;
+  background-size: cover;
+  padding-top: 10%;
+  padding-bottom: 25%;
+  text-align: center;
+  color:700px;
     /* 标题图片与
     margin-bottom: 50px; */
   }
@@ -66,76 +66,76 @@
     bottom: 30px;
     left: 50%;
     -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 
   .floating-arrow {
     -webkit-animation-name: floating-arrow;
-            animation-name: floating-arrow;
+    animation-name: floating-arrow;
     -webkit-animation-duration: 2s;
-            animation-duration: 2s;
+    animation-duration: 2s;
     -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
     -webkit-animation-timing-function: ease-in-out;
-            animation-timing-function: ease-in-out; }
+    animation-timing-function: ease-in-out; }
 
-  @-webkit-keyframes floating-arrow {
-    from {
-      -webkit-transform: translate(-50%, 0);
-              transform: translate(-50%, 0); }
-    65% {
-      -webkit-transform: translate(-50%, 15px);
-              transform: translate(-50%, 15px); }
-    to {
-      -webkit-transform: translate(-50%, 0);
-              transform: translate(-50%, 0); } }
+    @-webkit-keyframes floating-arrow {
+      from {
+        -webkit-transform: translate(-50%, 0);
+        transform: translate(-50%, 0); }
+        65% {
+          -webkit-transform: translate(-50%, 15px);
+          transform: translate(-50%, 15px); }
+          to {
+            -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0); } }
 
-  @keyframes floating-arrow {
-    from {
-      -webkit-transform: translate(-50%, 0);
-              transform: translate(-50%, 0); }
-    65% {
-      -webkit-transform: translate(-50%, 15px);
-              transform: translate(-50%, 15px); }
-    to {
-      -webkit-transform: translate(-50%, 0);
-              transform: translate(-50%, 0); } }
+            @keyframes floating-arrow {
+              from {
+                -webkit-transform: translate(-50%, 0);
+                transform: translate(-50%, 0); }
+                65% {
+                  -webkit-transform: translate(-50%, 15px);
+                  transform: translate(-50%, 15px); }
+                  to {
+                    -webkit-transform: translate(-50%, 0);
+                    transform: translate(-50%, 0); } }
 
-    /* 为type.js 添加光标效果 */
-    .typed-cursor{
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-    }
-    @keyframes blink{
-      0% { opacity:1; }
-      50% { opacity:0; }
-      100% { opacity:1; }
-    }
-    @-webkit-keyframes blink{
-      0% { opacity:1; }
-      50% { opacity:0; }
-      100% { opacity:1; }
-    }
-    @-moz-keyframes blink{
-      0% { opacity:1; }
-      50% { opacity:0; }
-      100% { opacity:1; }
-    }
-    /* search bar */
-    .search{
-      margin-top: 100px;
-      opacity: 0.85;
-    }
-    #search-input{
-      padding-left: 23px;
-      padding-right: 43px;
-      font-size: 16px;
-      font-weight: bold;              
-    }
-    
+                    /* 为type.js 添加光标效果 */
+                    .typed-cursor{
+                      opacity: 1;
+                      -webkit-animation: blink 0.7s infinite;
+                      -moz-animation: blink 0.7s infinite;
+                      animation: blink 0.7s infinite;
+                    }
+                    @keyframes blink{
+                      0% { opacity:1; }
+                      50% { opacity:0; }
+                      100% { opacity:1; }
+                    }
+                    @-webkit-keyframes blink{
+                      0% { opacity:1; }
+                      50% { opacity:0; }
+                      100% { opacity:1; }
+                    }
+                    @-moz-keyframes blink{
+                      0% { opacity:1; }
+                      50% { opacity:0; }
+                      100% { opacity:1; }
+                    }
+                    /* search bar */
+                    .search{
+                      margin-top: 100px;
+                      opacity: 0.85;
+                    }
+                    #search-input{
+                      padding-left: 23px;
+                      padding-right: 43px;
+                      font-size: 16px;
+                      font-weight: bold;              
+                    }
+
 /* ====================================================================================================================
  *  main-section setting
  * ====================================================================================================================*/
@@ -157,145 +157,174 @@
    font-weight: bold;
  }
  h4 a{
-       color: #444444;
-       font-weight: normal;
-   }
+   color: #444444;
+   font-weight: normal;
+ }
 
  /*副标题*/
  .page-header-small-style{
    color: #A0A7AD;
    font-size: 16px;
  }
-  /*文章主题部分，占全部比例的8/12*/
-  #news .col-md-8{
-    background-color: white;
-    border-right: 1px solid #ecf0f1;
-    border-left: 1px solid #ecf0f1;
-    padding: 0px;
-  }
-  /* 图片占据整个空间，所以设定padding=0px */
- #news .col-md-8 > .col-md-12{
-    padding: 0px;
-  }
-  /* 网站主体*/
-  /* 文章中显示发布时间的color */
- #news .col-md-8 > .col-md-11 > h6{
-    color: #bdc3c7;
-  }
-  /* 消息 */
- #news .col-md-8 > .col-md-11{
-    padding:25px; /* 25px的目标是把event图片和文本之间的距离控制好 */
-    padding-bottom: 40px;
-    border-bottom: 1px solid #ecf0f1;
-    border-left-width: 3px;
-    border-left-style: solid;
-    border-left-color: transparent;
-  }
-  /*左侧边栏显示颜色*/
-  #news .col-md-8 > .col-md-11:hover{
-    border-left-width: 3px;
-    border-left-style: solid;
-    border-left-color: #39d179;
+ /*文章主题部分，占全部比例的8/12*/
+ #news .col-md-8{
+  background-color: white;
+  border-right: 1px solid #ecf0f1;
+  border-left: 1px solid #ecf0f1;
+  padding: 0px;
+}
+/* 图片占据整个空间，所以设定padding=0px */
+#news .col-md-8 > .col-md-12{
+  padding: 0px;
+}
+/* 网站主体*/
+/* 文章中显示发布时间的color */
+#news .col-md-8 > .col-md-11 > h6{
+  color: #bdc3c7;
+}
+/* 消息 */
+#news .col-md-8 > .col-md-11{
+  padding:25px; /* 25px的目标是把event图片和文本之间的距离控制好 */
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ecf0f1;
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: transparent;
+}
+/*左侧边栏显示颜色*/
+#news .col-md-8 > .col-md-11:hover{
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: #39d179;
+}
+
+/*文章的描述文字*/
+.description-style{
+  color:#7f8c8d;
+  line-height: 200%;
+}
+
+/* Definition of Image */
+.img-thumbView{
+  float: right;
+  margin-left:20px;
+}
+
+/* news: tag分类，阅读数，发布时间*/
+.news-icon-tools{
+  margin-top: 10px;
+  padding-bottom: 30px;
+  position:relative;
+  height: 15px;
+  width: auto;
+  list-style-type: none;
+  padding-left: 0px;
+  line-height: 150%;
+  font-size: 12px;
+}
+
+
+/*****************************
+  文章下面的会员［继续阅读标签］ ＋ 会员限定标签
+  ******************************/
+
+  /*继续阅读定义*/
+  .mark-continue_Reading{
+    color: #fff;
+    font-weight: bold;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
-  /*文章的描述文字*/
-  .description-style{
-    color:#7f8c8d;
-    line-height: 200%;
+  /* 会员限定Font-CSS*/
+  .mark-news_member_only{
+    margin-left: 10px;
+    color: #c0392b;
+    font-size: 10px;
   }
 
-  /* Definition of Image */
-  .img-thumbView{
-    float: right;
-    margin-left:20px;
+  /* 会员限定fo－awsome CSS*/
+  .mark-news_member_only .fa-lock{
+    color: #e74c3c;
   }
 
-  .news-icon-tools{
-    margin-top: 10px;
-    padding-bottom: 30px;
-    position:relative;
-    height: 15px;
-    width: auto;
-    list-style-type: none;
-    padding-left: 0px;
-    line-height: 150%;
-    font-size: 12px;
-  }
 
   /*定义tag 颜色*/
   .label-style{
-      background-color: rgba(39, 174, 96, 0.7);
+    background-color: rgba(39, 174, 96, 0.7);
   }
 
   /*主页面的小图片*/
   /*
     1. 发布时间
     2. 阅读数
-  */
-  .main-list-group{
-    display: inline;
-    margin-right: 12px;
-    color: #bdc3c7;
-  }
+    */
+    .main-list-group{
+      display: inline;
+      margin-right: 12px;
+      color: #bdc3c7;
+    }
 
-  /*banner，用于七联的活动宣传，以及未来广告的插入栏*/
-  .event-cover-style{
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-    z-index: 0;
-  }
+    /*banner，用于七联的活动宣传，以及未来广告的插入栏*/
+    .event-cover-style{
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+    }
 
-  /* Category CSS */
-  /*需要重新定义这个部分*/
-  a:hover{
-    color:#1abc9c;
-    text-decoration:none;
-  }
-  a:visited{
-    text-decoration: none;
-  }
-  a:active {
-    color: #FFFFFF;
-    background-color: #1abc9c;
-  }
-  a::after{
-    color:#1abc9c;
-  }
+    /* Category CSS */
+    /*需要重新定义这个部分*/
+    a:hover{
+      color:#1abc9c;
+      text-decoration:none;
+    }
+    a:visited{
+      text-decoration: none;
+    }
+    a:active {
+      color: #FFFFFF;
+      background-color: #1abc9c;
+    }
+    a::after{
+      color:#1abc9c;
+    }
 
 /* ====================================================================================================================
- *  main-sectoin setting
+ *  main-section setting
  * ====================================================================================================================*/
-  
-  /*EVENT-DETAIL*/
-  /*events-detail左侧部分*/
-  #events-detail .btn-event_detail{
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
+
+ /*EVENT-DETAIL*/
+ /*events-detail左侧部分*/
+ #events-detail .btn-event_detail{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 /* ====================================================================================================================
  *  news-detail-setting
  * ====================================================================================================================*/  
 
-#news-detail{
-  background-color: white;
+ #news-detail{
+  /*background-color: white;*/
 }
 
-#news-detail > .row > .col-md-8{
-    padding-left:25px; /* 25px的目标是把event图片和文本之间的距离控制好 */
-    padding-right:25px; /* 25px的目标是把event图片和文本之间的距离控制好 */
+#news-detail > .col-md-8{
+  /* 25px的目标是把event图片和文本之间的距离控制好 */  
+   /* padding-left:25px; 
+    padding-right:25px; 
     padding-bottom: 40px;
+    */
     border-right: 1px solid #ecf0f1;
-    border-left-color: transparent;
-}
+  }
 
 /* ====================================================================================================================
  *  side-bar setting
  * ====================================================================================================================*/
 
  /*侧边栏的layout*/
-.sidebar-layouts{
+ .sidebar-layouts{
   margin: 10px;
   padding:10px;
   border-bottom-width: 1px;
@@ -353,9 +382,9 @@
  *  新增tag定义（整合之后，请删除comment部分）
  * ====================================================================================================================*/
 
-.sidebar-subsection-title{
-    font-size: 15px;
-    font-weight: 400;
+ .sidebar-subsection-title{
+  font-size: 15px;
+  font-weight: 400;
 }
 
 /* sub分类的距离 */
@@ -365,29 +394,11 @@
 }
 
 /* ====================================================================================================================
-*  继续阅读，收藏（未完成）
-* ====================================================================================================================*/
-.mark-continue_Reading{
-color: #57ad68;
-font-weight: lighter;
-}
-
-/* 会员限定Font-CSS*/
-.mark-news_member_only{
-margin-left: 10px;
-color: #c0392b;
-}
-
-/* 会员限定fo－awsome CSS*/
-.mark-news_member_only .fa-lock{
-color: #e74c3c;
-}
-/* ====================================================================================================================
  *  TAG定义
  * ====================================================================================================================*/
 
-/* 主tag*/
-.sidebar-layouts > ul { 
+ /* 主tag*/
+ .sidebar-layouts > ul { 
   list-style-type: none; 
   -webkit-padding-start: 10px;
 }
@@ -445,7 +456,6 @@ color: #e74c3c;
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-
 
 .sidebar-tag-submenu {
   display: none;

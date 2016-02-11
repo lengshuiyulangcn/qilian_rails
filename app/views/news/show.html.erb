@@ -3,19 +3,24 @@
   <meta name="description" content="<%= @post.description ? @post.description : truncate( strip_tags( markdown(post.content) ), length: 100)  %>">    
 <% end %>
 <!-- Page Content -->
-<div class="container" id="news-detail">
+<div class="container">
   <!-- Page Heading/Breadcrumbs -->
   <div class="row">
       <div class="col-lg-12">
           <h1 class="page-header">
               <%= @post.title %>
             </h1>
+            <ol class="breadcrumb">
+              <li><%=link_to "Home", root_path%></li>
+              <li><%=link_to "资讯一览", news_index_path%></li>
+              <li><%=@post.title%></li>
+            </ol>
       </div>
   </div>
   <!-- /.row -->
 
   <!-- Content Row -->
-  <div class="row">
+  <div class="row" id="news-detail">
     <!-- Post Content Column -->
     <div class="col-md-8">
       <!-- Post -->
