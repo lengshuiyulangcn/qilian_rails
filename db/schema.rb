@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209115004) do
+ActiveRecord::Schema.define(version: 20160211082320) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "access_token", null: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160209115004) do
     t.integer  "father_id"
     t.boolean  "need_login",        default: false
     t.string   "ancestry"
+    t.string   "icon"
   end
 
   add_index "categories", ["ancestry"], name: "index_categories_on_ancestry"

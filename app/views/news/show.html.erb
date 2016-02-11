@@ -3,7 +3,7 @@
   <meta name="description" content="<%= @post.description ? @post.description : truncate( strip_tags( markdown(post.content) ), length: 100)  %>">    
 <% end %>
 <!-- Page Content -->
-<div class="container" id="news-detail">
+<div class="container">
   <!-- Page Heading/Breadcrumbs -->
   <div class="row">
       <div class="col-lg-12">
@@ -20,13 +20,13 @@
   <!-- /.row -->
 
   <!-- Content Row -->
-  <div class="row">
+  <div class="row" id="news-detail">
     <!-- Post Content Column -->
-    <div class="col-lg-8">
+    <div class="col-md-8">
       <!-- Post -->
       
       <div class="row">
-        <div class="col-lg-5">
+        <div class="col-md-5">
           <p class="mt5 gray">
               <!-- 阅读数 -->
               <i class="fa fa-eye"></i><%= @count %> views
@@ -34,7 +34,7 @@
               <i class="fa fa-clock-o"></i> <%=time_ago_in_words @post.created_at %> ago
           </p>
         </div>
-        <div class="col-lg-7 mt5">
+        <div class="col-md-7 mt5">
             <% @post.categories.each do |category| %>
             <span class="label label-success">
               <i class="fa fa-tag"></i>
@@ -46,10 +46,11 @@
       
       <!-- Post Content Markdown Editor -->
       <div class="post-content">
-      <%== @post.content %>
+       <%== @post.content %>
       </div>
       <div class="clearfix">
       </div>
+
       <!-- Duoshuo Comments -->
       <%= render partial: "common/comment_widget", locals: {post: @post } %>
     </div>
