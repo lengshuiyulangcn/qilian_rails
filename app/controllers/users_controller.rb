@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :admin_only, only: :index
+  before_action :authenticate_user!
+  before_action :admin_only, only: [:index, :destroy]
   layout 'admin', only: :index
   def index
-      @users = User.all
+      @users = User.where.not(role: "admin")
   end
   def edit
     if current_user.id.to_s != params.permit(:id)[:id]
@@ -34,6 +35,13 @@ class UsersController < ApplicationController
       redirect_to :back
     end
   end 
+
+  def destroy
+    user = User.find(params.permit(:id)[:id])
+    User.delete(user)
+    flash[:success] = "删除用户成功"
+    redirect_to users_path
+  end
   private
   def user_params
     params.require(:user).permit(:birthday,:image,:email,:family_name,:gender,:role,:given_name,:phone,:school,:major,:job,:wechat,:line)
