@@ -48,7 +48,9 @@ class User < ActiveRecord::Base
       where(conditions).where(["name = :value OR lower(email) = lower(:value)", { :value => login }]).first
     else
       # conditions should be converted to hash
-      where(conditions.to_h).first end
+     permitted_conditions = conditions.permit(:birthday,:image,:email,:family_name,:gender,:role,:given_name,:phone,:school,:major,:job,:wechat,:line)
+      where(permitted_conditions.to_h).first
+    end
   end
   def email_required?
     false
