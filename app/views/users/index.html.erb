@@ -19,7 +19,7 @@
           <i class="fa fa-pencil"></i><%=link_to "修改用户信息", admin_userinfo_path(user.id), class: 'btn btn-blue'%>
           </li>
           <li>
-          <i class="fa fa-remove"></i><%=link_to "删除用户", user_path(user), class: 'btn btn-blue', method: 'delete'%>
+            <i class="fa fa-remove"></i><%=link_to "删除用户", user_path(user), class: 'btn btn-blue', method: 'delete', data: { confirm: "确认删除？"} %>
           </li>
         </ul>
       </td>
