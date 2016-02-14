@@ -48,8 +48,7 @@ class User < ActiveRecord::Base
       where(conditions).where(["name = :value OR lower(email) = lower(:value)", { :value => login }]).first
     else
       # conditions should be converted to hash
-     permitted_conditions = conditions.permit(:birthday,:image,:email,:family_name,:gender,:role,:given_name,:phone,:school,:major,:job,:wechat,:line)
-      where(permitted_conditions.to_h).first
+      where(conditions.to_hash).first
     end
   end
   def email_required?
@@ -60,8 +59,24 @@ class User < ActiveRecord::Base
     false
   end
   
+  # override devise reset_password! method
+  def reset_password!(new_password, new_password_confirmation)
+    self.password = new_password
+    self.password_confirmation = new_password_confirmation
+
+    validates_presence_of     :password
+    validates_confirmation_of :password
+    validates_length_of       :password, within: Devise.password_length, allow_blank: true
+
+    if errors.empty?
+      clear_reset_password_token
+      after_password_reset
+      save(validate: false)
+    end
+  end
   private
   def make_cv
     Cv.create(user_id: id, email: email, cell_phone: phone, birthday: birthday, gender: gender)
   end
+
 end
