@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   end
   def create
     @post = Post.new
-    @post.attributes = post_params.permit(:title, :description, :content, :image,:fakeimage)
+    @post.attributes = post_params.permit(:title, :description, :content, :image,:fakeimage,:sticky)
     @post.categories = Category.where(name: post_params[:categories])
     if @post.save 
       flash[:success]='创建文章成功'
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(post_params[:id])
-    @post.attributes = post_params.permit(:title, :description, :content, :image,:fakeimage)
+    @post.attributes = post_params.permit(:title, :description, :content, :image,:fakeimage, :sticky)
     @post.categories = Category.where(name: post_params[:categories])
     if @post.save 
       flash[:success]='修改文章成功'
@@ -64,6 +64,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:id, :title, :description, :content, :image, :fakeimage, :categories=>[])
+    params.require(:post).permit(:id, :title, :description, :content, :image, :fakeimage, :sticky, :categories=>[])
   end
 end
