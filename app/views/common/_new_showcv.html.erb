@@ -1,142 +1,176 @@
-<img style="width:25%"class="img-responsive" src="http://www.qilian.jp/image/qilian_CV_logo.jpg" alt="">
-<hr style="margin:0; margin-bottom:20px;">
-  <!-- 个人基本情报 -->
-  <div class="col-md-9">
-    <table class="table table-bordered">
-      <tr>
-        <td><sup>フリガナ</sup></td>
-        <td colspan="5" class="table-contents"><%= @cv.kana %></td>
-      </tr>
-      <tr>
-        <td><sup>氏 名</sup</td>
-        <td colspan="5" class="table-contents"><%= @cv.name %></td>
-      </tr>
-      <tr>
-        <td><sup>生年月日</sup></td>
-        <td class="table-contents"><%= format_birthday @cv.birthday %></td>
-        <td><sup>性別</sup></td>
-        <td class="table-contents"><%= @cv.gender %></td>
-        <td><sup>自宅電話</sup></td>
-        <td class="table-contents"><%= @cv.home_phone %></td>
-      </tr>
-      <tr>
-        <td><sup>e-mail</sup></td>
-        <td colspan="3" class="table-contents"><%= @cv.email %></td>
-        <td><sup>携帯電話</sup></td>
-        <td class="table-contents"><%= @cv.cell_phone %></td>
-      </tr>
-      <tr>
-        <td><sup>現住所</sup></td>
-        <td colspan="5" class="table-contents"><%= @cv.current_address %></td>
-      </tr>
-      <tr>
-        <td><sup>休暇中の連絡先</sup></td>
-        <td colspan="5" class="table-contents"><%= @cv.emergency_address %></td>
-      </tr>
-    </table>
+<div class="panel panel-success">
+  <div class="panel-heading">
+  <a href="javascript:void(0)" data-toggle="modal" data-target="#cv-form"><i class="fa fa-pencil-square-o "></i>编辑简历</a>
+  <img style="height: 30px"class="img-responsive pull-right" src="http://www.qilian.jp/image/qilian_CV_logo.jpg" alt="">
   </div>
-  <!-- 照片 -->
-  <div class="col-md-3">
-    <!-- Default image size fits for entry size: 360x480 -->
-    <%= image_tag @cv.image, class: "img-responsive" %>
-  </div>
+<div class="panel-body">
+<div class="row" >
+    <!-- 个人基本情报 -->
+    <div class="col-sm-9">
+      <table class="table table-bordered">
+        <tr>
+          <td><sup>フリガナ</sup></td>
+          <td colspan="5" class="table-contents"><%= @cv.kana %></td>
+        </tr>
+        <tr>
+          <td><sup>氏 名</sup</td>
+          <td colspan="5" class="table-contents"><%= @cv.name %></td>
+        </tr>
+        <tr>
+          <td><sup>生年月日</sup></td>
+          <td class="table-contents"><%= format_birthday @cv.birthday %></td>
+          <td><sup>性別</sup></td>
+          <td class="table-contents"><%= @cv.gender %></td>
+          <td><sup>自宅電話</sup></td>
+          <td class="table-contents"><%= @cv.home_phone %></td>
+        </tr>
+        <tr>
+          <td><sup>e-mail</sup></td>
+          <td colspan="3" class="table-contents"><%= @cv.email %></td>
+          <td><sup>携帯電話</sup></td>
+          <td class="table-contents"><%= @cv.cell_phone %></td>
+        </tr>
+        <tr>
+          <td><sup>現住所</sup></td>
+          <td colspan="5" class="table-contents"><%= @cv.current_address %></td>
+        </tr>
+        <tr>
+          <td><sup>休暇中の連絡先</sup></td>
+          <td colspan="5" class="table-contents"><%= @cv.emergency_address %></td>
+        </tr>
+      </table>
+    </div>
+    <!-- 照片 -->
+    <div class="col-sm-3">
+      <!-- Default image size fits for entry size: 360x480 -->
+      <% unless @cv.image.blank? %>
+        <%= image_tag @cv.image, class: "img-responsive" %>
+      <% else %>
+        <%= image_tag avatar_url(@user), class: "img-responsive" %>
+      <%end%>
+    </div>
+ </div>
+    <!-- 学歴・職歴 -->
+  <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <tr class="active">
+            <th>
+              年月
+            </th>
+            <th>
+              学歴・職歴
+            </th>
+          </tr>
+        <% @experiences.each do |ex| %>
+          <tr>
+            <td class="table-prefix-time"><%=format_month ex.time_from %> ～<%=format_month ex.time_to %></td>
+            <td><%=ex.stuff%></td>
+          </tr>
+        <% end %>
+        </table>
+      </div>
+    </div>
+    <!-- 保有資格・スキル + 趣味・特技 -->
+    <div class="row">
+      <div class="col-md-6" style="">
+        <table class="table table-hover">
+          <tr>
+            <th>
+              保有資格・スキル
+            </th>
+          </tr>
+          <tr>
+            <td class="table-contents">
+              <%=@cv.skill%>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-6" style="">
+        <table class="table table-hover">
+          <tr>
+            <th>
+              趣味・特技
+            </th>
+          </tr>
+          <tr>
+            <td class="table-contents">
+              <%=@cv.interest%>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
 
-  <!-- 学歴・職歴 -->
-  <div class="col-md-12">
-    <table class="table table-bordered">
-      <tr class="active">
-        <th>
-          年月
-        </th>
-        <th>
-          学歴・職歴
-        </th>
-      </tr>
-    <% @experiences.each do |ex| %>
-      <tr>
-        <td class="table-prefix-time"><%=format_month ex.time_from %> ～<%=format_month ex.time_to %></td>
-        <td><%=ex.stuff%></td>
-      </tr>
-    <% end %>
-    </table>
-  </div>
-  <!-- 保有資格・スキル + 趣味・特技 -->
-  <div class="col-md-12">
-    <div class="col-md-6" style="">
+    <!--  学業、ゼミ、研究室などで取り組んだ内容 -->
+  <div class="row">
+    <div class="col-md-12">
       <table class="table table-hover">
         <tr>
           <th>
-            保有資格・スキル
+            学業、ゼミ、研究室などで取り組んだ内容
           </th>
         </tr>
         <tr>
           <td class="table-contents">
-            <%=@cv.skill%>
+            <%=@cv.major_work%>
           </td>
         </tr>
       </table>
     </div>
-    <div class="col-md-6" style="">
+  </div>
+
+    <!--  自己 PR -->
+  <div class="row">
+    <div class="col-md-12">
       <table class="table table-hover">
         <tr>
           <th>
-            趣味・特技
+            自己 PR
           </th>
         </tr>
         <tr>
           <td class="table-contents">
-            <%=@cv.interest%>
+            <%=@cv.self_pr%>
           </td>
         </tr>
       </table>
     </div>
-  </div>
+    </div>
 
-  <!--  学業、ゼミ、研究室などで取り組んだ内容 -->
-  <div class="col-md-12">
-    <table class="table table-hover">
-      <tr>
-        <th>
-          学業、ゼミ、研究室などで取り組んだ内容
-        </th>
-      </tr>
-      <tr>
-        <td class="table-contents">
-          <%=@cv.major_work%>
-        </td>
-      </tr>
-    </table>
-  </div>
+  <div class="row">
+    <!--  学生時代に最も打ち込んだこと -->
+    <div class="col-md-12">
+      <table class="table">
+        <tr>
+          <th>
+            学生時代に最も打ち込んだこと
+          </th>
+        </tr>
+        <tr>
+          <td class="table-contents">
+            <%=@cv.best_effort%>
+          </td>
+        </tr>
+      </table>
+    </div>
+</div>
+</div>
+</div>
 
-  <!--  自己 PR -->
-  <div class="col-md-12">
-    <table class="table table-hover">
-      <tr>
-        <th>
-          自己 PR
-        </th>
-      </tr>
-      <tr>
-        <td class="table-contents">
-          <%=@cv.self_pr%>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <!--  学生時代に最も打ち込んだこと -->
-  <div class="col-md-12">
-    <table class="table">
-      <tr>
-        <th>
-          学生時代に最も打ち込んだこと
-        </th>
-      </tr>
-      <tr>
-        <td class="table-contents">
-          <%=@cv.best_effort%>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <hr>
+<div class="modal fade" id="cv-form" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	  <h4 class="modal-title">编辑简历</h4>
+        </div>
+        <div class="modal-body user-form">
+          <%=render partial: "common/usercv"%>
+        </div>
+      </div>
+      
+    </div>
+</div>

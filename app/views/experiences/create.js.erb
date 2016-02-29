@@ -1,4 +1,2 @@
-$('#newEx').modal('hide');
-$('#newEx_form')[0].reset();
-str = '<li id="ex_<%=@ex.id%>"><%=@ex.time_from%><b>から</b><%=@ex.time_to%><b>まで</b>&nbsp;&nbsp;&nbsp;<%=@ex.stuff%>&nbsp;<%=link_to "删除", experience_path(@ex), method: :delete, remote: true%></li>'
+str = '<li id="ex_<%=@ex.id%>"><%=format_month @ex.time_from%><b>から</b><%=format_month @ex.time_to%><b>まで</b>&nbsp;&nbsp;&nbsp;<%=@ex.stuff%>&nbsp;<%=link_to "删除", experience_path(@ex), method: :delete, remote: true%></li>'
 $('#experiences').append(str);

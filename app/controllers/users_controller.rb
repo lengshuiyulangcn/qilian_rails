@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_only, only: [:index, :destroy]
-  layout 'admin', only: :index
+  layout 'cv', only: :edit
   def index
       @users = User.where.not(role: "admin")
+      render layout: 'admin'
   end
   def edit
     if current_user.id.to_s != params.permit(:id)[:id]
@@ -24,9 +25,10 @@ class UsersController < ApplicationController
       @user.birthday = Date.parse user_params[:birthday]
     end
     if @user.save
-      flash[:success]= "更新用户表单成功"
-      if current_user.role != 'admin'
+      flash[:success]= "更新用户信息成功"
+      if (current_user.role == 'admin' && current_user == @user) || current_user.role != 'admin' 
         redirect_to mypage_path 
+        # modified by admin
       else
         redirect_to users_path
       end

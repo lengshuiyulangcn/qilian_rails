@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
    get '/mypage' => 'mypage#index'
    get '/mypage/courses' => 'mypage#my_courses', as: :my_courses
+   get '/mypage/cv' => 'mypage#cv', as: :my_cv
 
    resources :users
    resources :experiences, only:[:create,:destroy]

@@ -1,26 +1,19 @@
 <!-- Page Content -->
 <div class="container">
-  <!-- Page Heading/Breadcrumbs -->
   <%= render partial: 'common/mypage_header'%> 
 
   <div class="row">
     <!-- Menu -->
-    <div class="col-lg-2">
-      <%= render partial: 'common/mypage_right_side'%>
-    </div><!-- /Menu -->
 
     <!-- Main -->
     <div class="col-lg-7">
+      <%= render partial: 'common/new_showcv', locals:{user: @user} %> 
+    </div>
 
-      <%= render partial: '/mypage/common/ads'%> 
-      <!-- calender -->
+    <div class="col-lg-5">
+      <%= render partial: 'common/userinfo', locals:{user: @user} %> 
       <%= render partial: '/mypage/common/calendar'%>
-      
-    </div>
-
-    <div class="col-lg-3">
-      Event lists should go here	
-    </div>
+    </div><!-- /Menu -->
 
   </div><!-- /Main -->
 
