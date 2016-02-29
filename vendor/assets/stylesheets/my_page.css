@@ -1,0 +1,50 @@
+div.upload-image:hover img{
+    opacity:0.5;
+}
+div.upload-image img{
+  margin-left: 5%;
+  width: 100px;
+  height: 100px;
+}
+div.upload-image:hover a {
+    display: block;
+}
+div.upload-image a {
+    color: black;
+    position:absolute;
+    display:none;
+}
+div.upload-image a.upload {
+  bottom: 10px;
+  right: 30%;
+}
+.panel-heading a {
+  text-decoration: none;
+}
+
+.user-form .row {
+  margin-bottom: 10px;
+}
+.user-form hr {
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+div.cv-show {
+  position: relative;
+  padding: 0px;
+  margin: 0 0 10px 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1); 
+}
+
+div.job-news {
+ margin: 20px 0 10px 0;
+}
+ul.feedEkList {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}

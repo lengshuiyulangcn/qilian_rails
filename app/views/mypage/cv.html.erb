@@ -1,0 +1,24 @@
+<!-- Page Content -->
+<div class="container">
+  <!-- Page Heading/Breadcrumbs -->
+  <%= render partial: 'common/mypage_header'%>
+  
+  <div class="row">
+    <!-- Menu -->
+    <div class="col-lg-2">
+      <%= render partial: 'common/mypage_right_side'%>
+    </div><!-- /Menu -->
+
+    <!-- Main -->
+    <div class="col-lg-8">
+      <%=link_to "编辑简历", edit_cv_path(@cv.id) %>
+      <%= render partial: 'common/new_showcv', locals: { cv: @cv }%>
+    </div><!-- /Main -->
+
+    <div class="col-lg-2">
+    </div>
+    <!-- Right recommend -->
+  </div>
+  <!-- /.Row -->
+</div>
+  

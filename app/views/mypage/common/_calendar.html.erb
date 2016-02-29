@@ -1,9 +1,18 @@
-<h3>〆切一览</h3>
-<div id="calendar"></div>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <span>就职日历</span>
+  </div>
+  <div class="panel-body">
+    <div id="calendar"></div>
+  </div>
+</div>
+</div>
+
 <script>
 $(document).ready(function() {
       $('#calendar').fullCalendar({
-        events: <%==(Event.full_calendar_event+Job.full_calendar_event+Course.full_calendar_event).to_json%> 
+        events: <%==(Event.full_calendar_event+Job.full_calendar_event+Course.full_calendar_event).to_json%>,
+        lang: 'zh-cn'
       })
   });
 </script>

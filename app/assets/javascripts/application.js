@@ -19,6 +19,7 @@
 //= require react-intl
 //= require components
 //= require fullcalendar
+//= require fullcalendar/lang-all
 //= require jquery.monthpicker.min
 //= require jquery.datetimepicker
 //= require typed
@@ -31,3 +32,4 @@
 //= require ace/theme-monokai
 //= require ace/mode-html
 //= require ql-tag
+//= require FeedEk 

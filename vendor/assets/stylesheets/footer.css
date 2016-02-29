@@ -37,11 +37,11 @@ ul.footer-group li:last-child {
   color: white;
 }
 
-a:hover{
+.footer-layout a:hover{
   color: #2ecc71
 }
 
-a i {
+.footer-layout a i {
   margin-top: 20px;
   color: white;
 }

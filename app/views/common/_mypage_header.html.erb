@@ -1,9 +1,15 @@
-<div class="row">
-      <div class="col-lg-12">
-          <h1 class="page-header">
-              个人主页
-              <small>(<%= current_user.name %>)</small>
-          </h1>
-      </div>
+<div class="panel panel-warning job-news">
+  <div class="panel-heading">
+    就职动态
   </div>
-
+  <div class="panel-body">
+    <div id="divRss">
+    </div>
+  </div>
+</div>
+<script>
+$('#divRss').FeedEk({
+    FeedUrl : 'http://zasshi.news.yahoo.co.jp/rss/sjournal-all.xml',
+    ShowDesc : false 
+  });
+</script>

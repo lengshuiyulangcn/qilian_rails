@@ -1,131 +1,136 @@
-<div class="well">
-  <h3 class="page-header">
-   我的简历 
-  </h3>
-  <div class="row">
-    <div class="col-lg-12">
-      <%= form_for @cv do |f| %>
-        <div class="form-group">
-            <label>氏名</label>
-            <%=f.text_field :name,  required: true  %>
-            <label>カタカナ</label>
-            <%=f.text_field :kana, required: true  %>
+<div class="row">
+  <div class="col-lg-12">
+    <%= form_for @cv do |f| %>
+      <div class="row">
+        <div class="col-xs-4">
+          <label for="PostImage">顔写真</label><br>
+          <%= image_tag  @cv.image, id: "eyecatch_url", style: "width: 140px; height: 140px;"%><br><br>
+          <%= f.file_field :image, id: "eyecatch_upload", onchange: "previewFile()" %>
         </div>
-        <div class="form-group">
+        <div class="col-xs-6">
+          <label>氏名</label>
+          <%=f.text_field :name, class:"form-control", required: true  %>
+          <label>カタカナ</label>
+          <%=f.text_field :kana, class: "form-control", required: true  %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
             <label>性別</label>
             <%=f.select :gender, [["男", "男"], ["女", "女"]] %>
-          </div>
-
-        <div class="form-group">
+        </div>
+        <div class="col-xs-6">
             <label>誕生日</label>
             <%=f.date_select :birthday, use_month_numbers: :true, start_year: 1980, end_year: 2000 %>
         </div>
-        <div class="form-group">
-          <label for="PostImage">顔写真</label>
-            <%= f.file_field :image, id: "eyecatch_upload", onchange: "previewFile()" %><br />
-            <%= image_tag  cv.image, id: "eyecatch_url", style: "width: 140px; height: 140px;"%>
-        </div>
+      </div>
 
-        <div class="form-group">
+
+      <div class="row">
+        <div class="col-xs-6 col-md-4">
           <label>自宅電話</label>
           <%=f.text_field :home_phone, class: 'form-control',required: true  %>
         </div>
-        <div class="form-group">
+        <div class="col-xs-6 col-md-4">
           <label>携帯電話</label>
           <%=f.text_field :cell_phone, class: 'form-control',required: true  %>
         </div>
-        <div class="form-group">
+        <div class="col-xs-6 col-md-4">
           <label>Email</label>
           <%=f.email_field :email, class: 'form-control'%>
         </div>
+      </div>
 
-      <div class="form-group">
-        <label>現住所</label>
-        <br>
+    <label>現住所</label>
+    <div class="row">
+      <div class="col-xs-4">
         <label>郵便番号</label>
-        <input type="text" id="zipcode1"> <a class="btn btn-mini" onclick="getAddress('#current_address','#zipcode1');">検索</a>
-          <%=f.text_field :current_address, class: 'form-control', required: true, id: "current_address"  %>
+        <input type="text" id="zipcode1" class="form-control">
       </div>
-
-      <div class="form-group">
-        <label>休暇中の住所</label>
-        <br>
-        <label>郵便番号</label>
-          <input type="text" id="zipcode2"> <a class="btn btn-mini" onclick="getAddress('#emergency_address','#zipcode2');">検索</a>
-          <%=f.text_field :emergency_address, class: 'form-control', required: true, id:"emergency_address"  %>
+      <div class="col-xs-4">
+        <a class="btn btn-warning" style="margin-top: 25px;" onclick="getAddress('#current_address','#zipcode1');">検索</a>
       </div>
-      
-      <div class="form-group">
-        <label>学歴・職歴</label>
-          <div class="form-group">
-            <ul id="experiences" >
-            <% @experiences.each do |ex| %>
-                <li id="ex_<%=ex.id%>"><%=format_month ex.time_from%><b>から</b><%=format_month ex.time_to%><b>まで</b>&nbsp;&nbsp;&nbsp;<%=ex.stuff%>&nbsp;
-                <%=link_to "删除", experience_path(ex.id), method: :delete, remote: true%>
-              </li>
-            <% end %>
-           </ul>
-           </div>
-        <a type="button" class="btn btn-info" data-toggle="modal" data-target="#newEx">追加</a>
-      </div>
-      <div class="form-group">
-        <label class="control-label">保有資格・スキル</label>
-          <%=f.text_area :skill, class: 'form-control', row:3 %>
-      </div>
-      <div class="form-group">
-        <label class="control-label">趣味・特技</label>
-          <%=f.text_area :interest, class: 'form-control', row:3 %>
-        </div>
-      <div class="form-group">
-        <label class="control-label">学業、ゼミ、研究室などで取り組んだ内容</label>
-            <%=f.text_area :major_work, class: 'form-control',row:4 %>
-      </div>
-      <div class="form-group">
-        <label class="control-label">自己 PR</label>
-            <%=f.text_area :self_pr, class: 'form-control',row:4 %>
-      </div>
-      <div class="form-group">
-        <label class="control-label">学生時代に最も打ち込んだこと</label>
-            <%=f.text_area :best_effort, class: 'form-control',row:5 %>
-      </div>
-
-      <div class="form-group">
-        <div class="col-lg-10 col-lg-offset-2">
-          <button type="submit" class="btn btn-primary">提交表单</button>
-        </div>
-      </div>
-    <% end %>
-    <!-- Modal for experiences -->
-    <div class="modal fade" id="newEx" role="dialog">
-      <div class="modal-dialog">
-	<!-- Modal content-->
-	<div class="modal-content">
-	  <div class="modal-header">
-	    <button type="button" class="close" data-dismiss="modal">&times;</button>
-	    <h4 class="modal-title">履歴追加</h4>
-	  </div>
-	  <div class="modal-body">
-	    <%= form_for Experience.new, html: {id: 'newEx_form'}, remote: true do |f| %>
-      	      <div class="form-group">
-		<%=f.text_field :time_from, id: "datetimepicker_from", style: "width: 40%" %>
-                <b>から</b>
-		<%=f.text_field :time_to, id: "datetimepicker_to", style:"width: 40%" %>
-                <b>まで</b>
-      	        </div>
-      	      <div class="form-group">
-                <label>履歴</label>
-		<%=f.text_field :stuff, class:"form-control" %>
-      	      </div>
-      	      <div class="form-group">
-                <button type="submit" class="btn btn-primary">追加</button>
-      	      </div>
-	    <% end %>
-	  </div>
-	</div>
-      </div>
-     </div>
-
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <label>住所</label>
+        <%=f.text_field :current_address, class: 'form-control', required: true, id: "current_address"  %>
+      </div>
+    </div>
+
+    <label>休暇中の住所</label>
+    <div class="row">
+      <div class="col-xs-4">
+        <label>郵便番号</label>
+        <input type="text" id="zipcode2" class="form-control">
+      </div>
+      <div class="col-xs-4">
+        <a class="btn btn-warning" style="margin-top: 25px;" onclick="getAddress('#emergency_address','#zipcode2');">検索</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <label>住所</label>
+        <%=f.text_field :emergency_address, class: 'form-control', required: true, id:"emergency_address"  %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>学歴・職歴</label>
+        <div class="form-group">
+          <ul id="experiences" >
+          <% @experiences.each do |ex| %>
+              <li id="ex_<%=ex.id%>"><%=format_month ex.time_from%><b>から</b><%=format_month ex.time_to%><b>まで</b>&nbsp;&nbsp;&nbsp;<%=ex.stuff%>&nbsp;
+              <%=link_to "删除", experience_path(ex.id), method: :delete, remote: true%>
+            </li>
+          <% end %>
+         </ul>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        From <input type="text" id="timepicker_from">
+      </div>
+      <div class="col-xs-4">
+        To <input type="text" id="timepicker_to">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <input type="text" id="my_experience" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <a type="button" class="btn btn-info" onclick="addExperience();">追加</a>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label">保有資格・スキル</label>
+        <%=f.text_area :skill, class: 'form-control', row:3 %>
+    </div>
+    <div class="form-group">
+      <label class="control-label">趣味・特技</label>
+        <%=f.text_area :interest, class: 'form-control', row:3 %>
+      </div>
+    <div class="form-group">
+      <label class="control-label">学業、ゼミ、研究室などで取り組んだ内容</label>
+          <%=f.text_area :major_work, class: 'form-control',row:4 %>
+    </div>
+    <div class="form-group">
+      <label class="control-label">自己 PR</label>
+          <%=f.text_area :self_pr, class: 'form-control',row:4 %>
+    </div>
+    <div class="form-group">
+      <label class="control-label">学生時代に最も打ち込んだこと</label>
+          <%=f.text_area :best_effort, class: 'form-control',row:5 %>
+    </div>
+
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="submit" class="btn btn-primary">提交表单</button>
+      </div>
+    </div>
+  <% end %>
+
   </div>
 </div>
 <script>
@@ -145,10 +150,12 @@ function previewFile() {
   }
 }
 
-$('#datetimepicker_from').monthpicker({
-  'maxYear' : 2020});
-$('#datetimepicker_to').monthpicker({
-  'maxYear' : 2020});
+$('#timepicker_from').monthpicker({
+  'maxYear' : 2020,
+  'month' : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']});
+$('#timepicker_to').monthpicker({
+  'maxYear' : 2020,
+  'month' : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']});
 
 function getAddress(address,zip){
   zipcode = $(zip).val()
@@ -163,6 +170,23 @@ function getAddress(address,zip){
     }
   });
 
+}
+function addExperience(){
+  var date_from = $("#timepicker_from").val()
+  var date_to = $("#timepicker_to").val()
+  var content = $("#my_experience").val()
+  $.ajax({
+    type: "POST",
+    url: "/experiences/",
+    data: {experience: {
+      time_from: date_from,
+      time_to: date_to,
+      stuff: content
+      }
+    }
+  }).done(function(data){
+    }
+  );
 }
 </script>
 
