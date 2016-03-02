@@ -59,6 +59,12 @@ class User < ActiveRecord::Base
     false
   end
   
+  def admin?
+    self.role == 'admin'
+  end
+  def teacher?
+    self.role == 'teacher'
+  end
   # override devise reset_password! method
   def reset_password!(new_password, new_password_confirmation)
     self.password = new_password

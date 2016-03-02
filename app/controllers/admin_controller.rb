@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  before_action :admin_only
+ before_action :permitted_only
  def index
  end 
  def userinfo

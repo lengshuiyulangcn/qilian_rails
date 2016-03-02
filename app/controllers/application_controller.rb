@@ -30,8 +30,15 @@ protected
   end
 
   def admin_only
-    if  !current_user || current_user.role!= "admin"  
-      flash[:error]= "你没有管理员权限"
+    unless current_user && current_user.admin?
+      flash[:error]= "没有权限查看"
+      redirect_to '/' 
+    end
+  end
+
+  def permitted_only
+    unless current_user && (current_user.admin? || current_user.teacher?)
+      flash[:error]= "没有权限查看"
       redirect_to '/' 
     end
   end

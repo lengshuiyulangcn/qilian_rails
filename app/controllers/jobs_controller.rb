@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   layout 'admin'
-  before_action :admin_only, except: [:search,:single_search,:detail]
+  before_action :permitted_only, except: [:search,:single_search,:detail]
   def index
     @jobs = Job.where(expire_at: Time.current..Time.current+1.year)
   end

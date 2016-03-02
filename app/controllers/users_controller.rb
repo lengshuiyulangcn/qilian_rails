@@ -15,8 +15,9 @@ class UsersController < ApplicationController
     end
   end 
   def update
-    @user = User.find(params.permit(:id)[:id]) 
-    @user.attributes = user_params
+    @user = User.find(params.permit(:id)[:id])
+     # to prevent user change self role 
+    @user.attributes = current_user.admin? ? user_params : user_params.remove(:role)
     @user.image = parse_image_data(user_params[:image]) if user_params[:image].class == String
     unless user_params.has_key? :birthday
       birthday =params.require(:user).permit("birthday(1i)","birthday(2i)","birthday(3i)").map{|k,v| v}.join("-").to_date 
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
     end
     if @user.save
       flash[:success]= "更新用户信息成功"
-      if (current_user.role == 'admin' && current_user == @user) || current_user.role != 'admin' 
+      if (current_user.role == 'admin' && current_user == @user) || !current_user.admin?
         redirect_to mypage_path 
         # modified by admin
       else
