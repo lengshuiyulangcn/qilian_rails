@@ -9,6 +9,7 @@ class NewsController < ApplicationController
     need_login = @post.categories.exists?(need_login: true) 
     if need_login && !current_user
       flash[:error]="该分类需要登录方可查看。利用facebook可快速登录。"
+      session[:return_to] = request.fullpath
       redirect_to new_user_session_path
       return
     end

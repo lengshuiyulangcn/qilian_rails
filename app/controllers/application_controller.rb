@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     # check if user info is complete
     flash[:notice]="请先完善用户信息" unless resource.phone
-    mypage_path
-    #request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+    !!session[:return_to] ? session.delete(:return_to) : mypage_path
+    #request.env['omniauth.origin'] || stored_location_for(resource) || mypage_path
   end
 protected
 

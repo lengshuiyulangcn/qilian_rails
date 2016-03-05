@@ -28,6 +28,7 @@ module RailsQilian
     config.middleware.use(Rack::Config) do |env|
       env['api.tilt.root'] = Rails.root.join 'app', 'views', 'api'
     end
+    config.i18n.default_locale = "zh-CN".to_sym
     config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
       allow do
         origins '*'
