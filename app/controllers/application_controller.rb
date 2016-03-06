@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
   prepend_view_path Teamsite.resolver
 
   def after_sign_in_path_for(resource)
-    # check if user info is complete
     flash[:notice]="请先完善用户信息" unless resource.phone
     !!session[:return_to] ? session.delete(:return_to) : mypage_path
     #request.env['omniauth.origin'] || stored_location_for(resource) || mypage_path
@@ -49,5 +48,5 @@ protected
       redirect_to edit_user_path(current_user.id) 
     end
   end
-
+  
 end

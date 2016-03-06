@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # If you would like to change where this extension is mounted, simply change the :at option to something different.
   #
   mount Squirrel::API => '/api'
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => 'users/sessions' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 
    get '/events/list' => 'events#list', as: :events_list
    get '/event/:id' => 'events#detail', as: :event_detail
-   post '/event/apply' => 'events#apply', as: :event_apply
+   post '/event_apply/apply' => 'events#apply', as: :event_apply
 
    resources :news, only: [:index, :show]
    get '/news/category/:id' => 'news#category', as: :news_category
