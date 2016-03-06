@@ -10,10 +10,8 @@ class ApplicationController < ActionController::Base
   prepend_view_path Teamsite.resolver
 
   def after_sign_in_path_for(resource)
-    # check if user info is complete
-    flash[:notice]="请先完善用户信息" unless resource.phone
-    mypage_path
-    #request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+    !!session[:return_to] ? session.delete(:return_to) : mypage_path
+    #request.env['omniauth.origin'] || stored_location_for(resource) || mypage_path
   end
 protected
 
@@ -30,8 +28,15 @@ protected
   end
 
   def admin_only
-    if  !current_user || current_user.role!= "admin"  
-      flash[:error]= "你没有管理员权限"
+    unless current_user && current_user.admin?
+      flash[:error]= "没有权限查看"
+      redirect_to '/' 
+    end
+  end
+
+  def permitted_only
+    unless current_user && (current_user.admin? || current_user.teacher?)
+      flash[:error]= "没有权限查看"
       redirect_to '/' 
     end
   end
@@ -42,5 +47,5 @@ protected
       redirect_to edit_user_path(current_user.id) 
     end
   end
-
+  
 end

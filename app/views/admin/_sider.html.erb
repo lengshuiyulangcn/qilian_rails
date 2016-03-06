@@ -6,9 +6,9 @@
         <%=link_to " 求人情报", jobs_path, class: "list-group-item"%>
         <%=link_to " 课程一览", courses_path, class: "list-group-item" %>
         <%=link_to " 活动一览", events_path, class: "list-group-item" %>
-        <%=link_to " 咨询一览", posts_path, class: "list-group-item" %>
-        <%=link_to " 用户一览", users_path, class: "list-group-item" %>
-        <%=link_to " 群发邮件", new_qilian_mail_path, class: "list-group-item" %>
+        <%=link_to " 资讯一览", posts_path, class: "list-group-item" %>
+        <%=link_to " 用户一览", users_path, class: "list-group-item" if current_user.admin? %>
+        <%=link_to " 群发邮件", new_qilian_mail_path, class: "list-group-item" if current_user.admin? %>
       </div>
     </div>
   </div>
@@ -20,7 +20,8 @@
         <%=link_to " 求人标签", labels_path, class: "list-group-item" %>
       </div>
     </div>
-  </div>
+</div>
+<% if current_user.admin? %>
 <div class="panel panel-default">
   <div class="panel-heading">网站布局</div>
     <div class="panel-body">
@@ -28,7 +29,8 @@
         <%=link_to " 静态页面", teamsites_path, class: "list-group-item" %>
       </div>
     </div>
-  </div>
+</div>
+<% end %>
 
 
 

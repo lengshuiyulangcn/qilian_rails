@@ -1,4 +1,5 @@
 class LabelsController < ApplicationController
+  before_action :permitted_only, except: [:index]
   layout 'admin' 
   def index
     @labels = Label.all

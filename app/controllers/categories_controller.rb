@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
-  layout 'admin' 
+  before_action :permitted_only
+  layout 'admin'
   def index
     @categories = Category.all
     respond_to do |format|
