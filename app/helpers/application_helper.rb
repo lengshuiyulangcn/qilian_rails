@@ -11,6 +11,13 @@ module ApplicationHelper
               concat message 
             end)
     end
+      messages = resource.errors.full_messages.map { |msg| msg }.join
+      unless messages.blank?
+        concat(content_tag(:div, messages, class: "alert alert-danger fade in") do 
+                concat content_tag(:button, 'x', class: "close", data: { dismiss: 'alert' })
+                concat messages
+              end)
+      end
     nil
   end
 
