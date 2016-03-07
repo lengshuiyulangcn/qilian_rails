@@ -17,7 +17,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params.permit(:id)[:id])
      # to prevent user change self role 
-    @user.attributes = current_user.admin? ? user_params : user_params.remove(:role)
+    user_params.delete(:role) unless current_user.admin? 
+    @user.attributes =  user_params
     @user.image = parse_image_data(user_params[:image]) if user_params[:image].class == String
     unless user_params.has_key? :birthday
       birthday =params.require(:user).permit("birthday(1i)","birthday(2i)","birthday(3i)").map{|k,v| v}.join("-").to_date 
