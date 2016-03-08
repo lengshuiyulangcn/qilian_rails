@@ -26,8 +26,11 @@
       <!-- Post Content Markdown Editor -->
     <div class="panel panel-default" style="margin:0px;">
     <div class="panel-heading">
-      <!-- or we can add slides show here -->
-      <%= image_tag @event.image, class: "img-responsive" %>
+      <%unless @event.image.blank? %>
+        <%=link_to image_tag(@event.image, class:"img-responsive"), event_detail_path(@event.id) %>
+      <% else %>
+        <%=link_to image_tag(@event.fakeimage, class:"img-responsive"), event_detail_path(@event.id) %>
+      <% end %>
     </div>
     <div class="panel-body">
       <div class="col-md-12">

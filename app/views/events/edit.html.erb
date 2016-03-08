@@ -56,6 +56,11 @@
             <%= image_tag @event.image, id: "eyecatch_url",style: "width: 140px; height: 140px;" %>
       </div>
 
+      <div class="form-group">
+          <label>使用已有图片</label>
+            <%= f.text_field :fakeimage, class: "form-control" %>
+      </div>
+
       </div>
       <button type="submit" class="btn btn-primary">保存</button>
     <% end %>
