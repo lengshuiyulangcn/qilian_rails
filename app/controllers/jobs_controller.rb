@@ -21,7 +21,7 @@ class JobsController < ApplicationController
     end
     @jobs = @jobs.page(params.permit(:page)[:page]).order('expire_at ASC')
     @jobs_labels = @jobs.map{|job| {job: job, labels: Job.find(job.id).labels}}
-    render layout: 'normal'
+    render layout: 'jobs'
   end
 
   # single category search
@@ -31,7 +31,7 @@ class JobsController < ApplicationController
     @jobs = @jobs.page(params.permit(:page)[:page]).order('expire_at ASC')
     @selected_label = [Label.find(label)]
     @jobs_labels = @jobs.map{|job| {job: job, labels: Job.find(job.id).labels}}
-    render template: 'jobs/search', layout: 'normal'
+    render template: 'jobs/search', layout: 'jobs'
   end 
 
   def new
@@ -40,7 +40,7 @@ class JobsController < ApplicationController
   end
   def detail
     @job = Job.find(params.permit(:id)[:id])
-    render layout: 'normal'
+    render layout: 'jobs'
   end
   def edit
     @job = Job.find(params.permit(:id)[:id])
@@ -74,7 +74,7 @@ class JobsController < ApplicationController
   def parttime
     @jobs = Label.where(name: "アルバイト").first.jobs.page(params.permit(:page)[:page]).order('expire_at ASC')
     @jobs_labels = @jobs.map{|job| {job: job, labels: Job.find(job.id).labels}}
-    render layout: 'normal'
+    render layout: 'jobs'
   end
   private
   def job_params

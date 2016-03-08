@@ -10,14 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require fullcalendar
  *= require footer
  *= require flexslider
  *= require bootstrap.min
  *= require modern-business
  *= require style
- *= require md_preview
- *= require jquery.datetimepicker
  *= require markdown
  *= require register 
  *= require qilian

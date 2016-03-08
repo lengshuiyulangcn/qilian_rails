@@ -4,13 +4,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= yield :extra_head %>
-    <!-- Custom Fonts -->
+    <title>七联就职</title>
+    <meta name="description" content="七联就职社，日本最大的留学生、社会人交流就职转职平台。">    
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="/appointment/css/qilian.css"> -->
-    <!-- jQuery -->
     <%= stylesheet_link_tag "application", :media => "all" %>
-    <%# todo: modify to local.ja after https://github.com/andyearnshaw/Intl.js/issues/69 get fixed %>
-    <%#  or remove after safari implemented Intl API                                               %>
+    <%= stylesheet_link_tag "application_news", :media => "all" %>
+     <%# todo: modify to local.ja after https://github.com/andyearnshaw/Intl.js/issues/69 get fixed %>
+     <%# or remove after safari implemented Intl API                                                %>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
