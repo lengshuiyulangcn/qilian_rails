@@ -11,13 +11,7 @@
  * file per style scope.
  *
  *= require fullcalendar
- *= require footer
- *= require flexslider
- *= require bootstrap.min
- *= require modern-business
  *= require jquery.datetimepicker
  *= require common
  *= require event
- *= require qilian
- *= require_self
  */

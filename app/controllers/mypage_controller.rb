@@ -1,5 +1,4 @@
 class MypageController < ApplicationController
-  layout 'cv'
   before_action :authenticate_user!
   def index
     @user = current_user
