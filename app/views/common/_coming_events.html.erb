@@ -33,13 +33,18 @@
     <!-- Page Content -->
 <div class="container-fluid" id="events">
   <div class="row">
-      <!-- 只有第一排单独设定padding-top:100px, 为了不让nav-fix-top遮挡住第一排 -->
+    <!-- 只有第一排单独设定padding-top:100px, 为了不让nav-fix-top遮挡住第一排 -->
+    <!-- responsive的设计我怎么判断第一排=,=  -->
       <div class="col-md-12 board-row-style" style="padding-top:100px">
       <% events.each do |event| %>
         <div class="col-md-3 col-sm-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
+              <div class="panel-heading">
+                <% unless event.image.blank? %>
                   <%=link_to image_tag(event.image, class:"img-responsive"), event_detail_path(event.id) %>
+                <% else %>
+                  <%=link_to image_tag(event.fakeimage, class:"img-responsive"), event_detail_path(event.id) %>
+                <% end %>
                 </div>
                 <div class="panel-body events-board-color">
                     <div class="col-md-12">
