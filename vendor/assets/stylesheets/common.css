@@ -485,3 +485,25 @@ body{
 .sidebar-tag-submenu li a > span{
   float:right;
 }
+
+
+a.heart-link {
+  text-decoration: none;
+  color: gray;
+  font-size: 20px;
+}
+
+
+a.heart-link:hover {
+  text-decoration: none;
+  font-size: 30px;
+  color: gray;
+}
+
+.mylist a {
+  text-decoration: none;
+  color: #4D4D4D;
+}
+.mylist i {
+  color: yellow;
+}

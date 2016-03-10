@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
   impressionist :actions=>[:show]
+  before_action :authenticate_user!, only: [:mark, :mylist]
   def index
     @posts = Post.page(params.permit(:page)[:page]).order('sticky desc, created_at DESC')
     @hot_posts = get_hot_passages
@@ -34,6 +35,21 @@ class NewsController < ApplicationController
   def search
     query = "site:qilian.jp+#{params.permit(:q)[:q]}"
     redirect_to "http://www.google.jp/search?q=#{query}" 
+  end
+
+  def mark
+    @post = Post.find(params.permit(:id)[:id])
+    if current_user.liked_posts.include? @post
+      MarkedPost.destroy_all(user_id: current_user.id, post_id: @post.id)
+    else
+      current_user.liked_posts << @post
+      current_user.save
+    end
+    render 'mark.js.erb'
+  end
+  def mylist
+   @posts = current_user.liked_posts.page(params.permit(:page)[:page]).order('sticky desc, created_at DESC')
+   @hot_posts = get_hot_passages
   end
   private
    def get_hot_passages
