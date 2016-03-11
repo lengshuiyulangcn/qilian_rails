@@ -8,7 +8,7 @@
         <%=link_to " 活动一览", events_path, class: "list-group-item" %>
         <%=link_to " 资讯一览", posts_path, class: "list-group-item" %>
         <%=link_to " 用户一览", users_path, class: "list-group-item" if current_user.admin? %>
-        <%=link_to " 群发邮件", new_qilian_mail_path, class: "list-group-item" if current_user.admin? %>
+        <%=link_to " 群发邮件", new_qilian_mail_path, class: "list-group-item" if current_user.admin?||current_user.teacher? %>
       </div>
     </div>
   </div>

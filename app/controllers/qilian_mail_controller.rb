@@ -1,5 +1,5 @@
 class QilianMailController < ApplicationController
-  before_action :admin_only
+  before_action :permitted_only
   layout "admin"
   def new
   end
