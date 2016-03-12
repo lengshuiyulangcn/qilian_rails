@@ -48,3 +48,7 @@ ul.feedEkList {
   -webkit-columns: 2;
   -moz-columns: 2;
 }
+
+ul.collection-list {
+  list-style-type: none;
+}

@@ -156,11 +156,14 @@ body{
    font-size: 50px;
    font-weight: bold;
  }
- h4 a{
+ .news-1 .news-title a{
    color: #444444;
    font-weight: normal;
  }
 
+ .news-1 span {
+   font-size: 16px;
+ }
  /*副标题*/
  .page-header-small-style{
    color: #A0A7AD;

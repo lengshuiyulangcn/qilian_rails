@@ -11,9 +11,9 @@
             <span style="font-size: 30px"><%= @post.title %></span>
             <a  class="heart-link" href="javascript:void(0)" onclick="mark_post()">
               <% if current_user && current_user.liked_posts.include?(@post) %>
-                <i id="my_heart" class="fa fa-star qilian-like"></i>
+                <i id="my_heart_<%= @post.id %>" class="fa fa-star qilian-like"></i>
               <% else %>
-                <i id="my_heart" class="fa fa-star-o qilian-like"></i>
+                <i id="my_heart_<%= @post.id %>" class="fa fa-star-o qilian-like"></i>
               <% end %>
             </a>
             </div>

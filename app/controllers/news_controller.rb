@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
   impressionist :actions=>[:show]
+  before_filter :set_cache_headers, only:[:show,:index]
   before_action :authenticate_user!, only: [:mark, :mylist]
   def index
     @posts = Post.page(params.permit(:page)[:page]).order('sticky desc, created_at DESC')
