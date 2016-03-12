@@ -109,7 +109,7 @@ class EventsController < ApplicationController
   end
   private
   def event_params
-    params.require(:event).permit(:id, :title, :description, :content, :image, :timestart,:timeend,:limit,:fee, :fakeimage)
+    params.require(:event).permit(:id, :title, :description, :content, :image, :timestart,:timeend,:limit,:fee, :fakeimage, :location)
   end
   def store_event_url
     unless current_user
