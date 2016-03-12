@@ -61,10 +61,11 @@
  }
 
  /* fo-awsome-icon color*/
- .fa-calendar, .fa-users, .fa-money{
+
+ .event-table i{
    color: #16a085;
  }
  /* Likes color*/
- .fa-heart{
+div.events-board-color .fa-heart{
    color:#e74c3c;
  }
