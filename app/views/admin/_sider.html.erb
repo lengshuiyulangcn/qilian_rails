@@ -21,7 +21,7 @@
       </div>
     </div>
 </div>
-<% if current_user.admin? %>
+<% if current_user.admin? || current_user.teacher? %>
 <div class="panel panel-default">
   <div class="panel-heading">网站布局</div>
     <div class="panel-body">
