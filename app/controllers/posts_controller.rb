@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(post_params[:id])
+    @post = Post.find(params.permit(:id)[:id])
     @post.attributes = post_params.permit(:title, :description, :content, :image,:fakeimage, :sticky)
     @post.categories = Category.where(name: post_params[:categories])
     if @post.save 
