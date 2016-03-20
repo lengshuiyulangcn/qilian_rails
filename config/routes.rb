@@ -51,6 +51,8 @@ Rails.application.routes.draw do
 
    resources :news, only: [:index, :show]
    get '/news/category/:id' => 'news#category', as: :news_category
+   post '/news/mark' => 'news#mark', as: :news_mark
+   get '/mypage/mylist' => 'news#mylist', as: :news_mylist
    get '/search' => 'news#search', as: :google_search
    
    scope :api do

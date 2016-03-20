@@ -13,16 +13,19 @@
         </ul>
       </li>
       <% end %>
+      <li>
+        <div class="sidebar-tag-link mylist"><i class="fa fa-star"></i><%=link_to "我的收藏", news_mylist_path %></div>
+      </li>
     </ul>
   </div>
-  <div class="col-md-12 sidebar-layouts"><!-- 5 Top Picks Articles -->
+  <div class="col-md-12 sidebar-layouts">
     <%= render partial: "common/side_ads" %>
   </div>
-  <div class="col-md-12 sidebar-layouts"><!-- 5 Top Picks Articles -->
+  <div class="col-md-12 sidebar-layouts">
     <h4 class="sidebar-section-title"><i class="fa fa-thumb-tack"></i>人气推荐</h4>
     <% hot_posts.each do |post|%>
       <div class="sidebar-topPick-block">
-        <h4><i class="fa fa-star"></i><%= link_to  post.title, news_path(post.id) %></h4>
+        <h4><i class="fa fa-thumbs-up"></i><%= link_to  post.title, news_path(post.id) %></h4>
         <p class="side-bar-topPick-description">
         <%= post.description %>
         </p>

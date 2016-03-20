@@ -3,17 +3,25 @@
   <% posts.each do |post| %>
   <!-- 资讯相关内容 -->
   <div class="col-md-11 news-1">
-    <h4>
-     <%= link_to post.title, news_path(post.id) %>
-     <% if post.categories.exists?(need_login: true)%>
-     <span class="mark-news_member_only"><i class="fa fa-lock fa-fw main-bookmark-time"></i>会员限定</span>
-     <% end %>
-   </h4><!-- /title -->
+    <div class='news-title'>
+      <span><%= link_to post.title, news_path(post.id) %></span>
+      <a  class="heart-link" href="javascript:void(0)" onclick="mark_post(<%= post.id %>)">
+      <% if current_user && current_user.liked_posts.include?(post) %>
+        <i id="my_heart_<%= post.id %>" class="fa fa-star qilian-like"></i>
+      <% else %>
+        <i id="my_heart_<%= post.id %>" class="fa fa-star-o qilian-like"></i>
+      <% end %>
+      </a>
+       <% if post.categories.exists?(need_login: true)%>
+       <span class="mark-news_member_only"><i class="fa fa-lock fa-fw main-bookmark-time"></i>会员限定</span>
+       <% end %>
+   </div><!-- /title -->
    <%= link_to image_tag( post.image.blank? ? post.fakeimage : post.image, class: "img-responsive img-hover img-thumbView inbox-blog-list"), news_path(post.id)%>
 
    <ul class="news-icon-tools">
     <li class="main-list-group"><i class="fa fa-clock-o"></i> <%= time_ago_in_words post.created_at %> ago</li>
     <li class="main-list-group"><i class="fa fa-eye"></i><%=post.impressionist_count %> views</li>
+    <li class="main-list-group"><i class="fa fa-heart"></i><%=post.liked_users.length%></li>
     <% post.categories.each do |category|%>
     <li class="main-list-group">
       <span class="label label-style">
@@ -46,3 +54,18 @@
   <%= will_paginate @posts,:renderer => BootstrapPagination::Rails %>
 </div>
 </div>
+<script>
+<% if current_user %>
+function mark_post(id){
+ $.post("/news/mark",
+  { id: id },
+  function(data){});
+}
+<% else %>
+function mark_post(id){
+  alert('请先登录');
+  location.href = '/users/sign_in';
+}
+<% end %>
+</script>
+

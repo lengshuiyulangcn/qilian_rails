@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   validates_presence_of :major, message: '专业不能为空', on: [:update]
  
   has_many :entries
+  has_many :marked_posts
+  has_many :liked_posts, through: :marked_posts, source: :post
   has_one :cv
   has_and_belongs_to_many :events
 

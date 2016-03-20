@@ -1,0 +1,5 @@
+<% if current_user.liked_posts.include? @post %>
+  $('#my_heart_<%= @post.id %>').removeClass('fa-star-o').addClass('fa-star')
+<% else %>
+  $('#my_heart_<%= @post.id %>').removeClass('fa-star').addClass('fa-star-o')
+<% end%>

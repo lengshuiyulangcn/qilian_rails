@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
   has_and_belongs_to_many :categories
+  has_many :marked_posts
+  has_many :liked_users,  through: :marked_posts, source: :user
   mount_uploader :image, ImageUploader
   is_impressionable  counter_cache:  true, column_name: :view_count
   self.per_page = 5
