@@ -161,7 +161,7 @@ body{
    font-weight: normal;
  }
 
- .news-1 span {
+ .news-1 span.title {
    font-size: 16px;
  }
  /*副标题*/
