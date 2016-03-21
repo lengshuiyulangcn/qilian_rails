@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   layout  'admin'
   before_action :store_event_url, only: [:apply]
   before_action :authenticate_user!, only: [:apply]
-  before_action :permitted_only, except: [:index,:show,:list,:detail,:apply]
+  before_action :permitted_only, except: [:list,:detail,:apply]
   #before_action :finish_userinfo, only:[:apply]
   def index
     @events = Event.all
@@ -18,9 +18,9 @@ class EventsController < ApplicationController
     @event = Event.new
   end
   def create
-    event = Event.new
-    event.attributes = event_params
-    if event.save
+    @event = Event.new
+    @event.attributes = event_params
+    if @event.save
       redirect_to events_path 
     else
       redirect_to :back
@@ -54,9 +54,9 @@ class EventsController < ApplicationController
 
   end
   def update 
-    event = Event.find(params.permit(:id)[:id])
-    event.attributes = event_params
-    if event.save
+    @event = Event.find(params.permit(:id)[:id])
+    @event.attributes = event_params
+    if @event.save
       redirect_to events_path 
     else
       redirect_to :back

@@ -4,7 +4,7 @@
   <!-- 资讯相关内容 -->
   <div class="col-md-11 news-1">
     <div class='news-title'>
-      <span><%= link_to post.title, news_path(post.id) %></span>
+      <span class="title"><%= link_to post.title, news_path(post.id) %></span>
       <a  class="heart-link" href="javascript:void(0)" onclick="mark_post(<%= post.id %>)">
       <% if current_user && current_user.liked_posts.include?(post) %>
         <i id="my_heart_<%= post.id %>" class="fa fa-star qilian-like"></i>
