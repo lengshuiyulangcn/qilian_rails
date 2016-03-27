@@ -10,36 +10,144 @@
  font-family: {
   "Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
+
 /*背景颜色*/
 body{
   background-color: #fafafa;
 }
 
+/* ====================================================================================================================
+ *  【课程页面】header设定
+ * ====================================================================================================================*/
+
+ /*【课程页面】body 背景颜色设定 */
+
+#course{
+  background-color: #ecf0f1;
+}
+
+/*【课程页面】*/
+.header-banner-courses{
+  background: url(../img/course-bg.jpg) no-repeat center;
+  background-color:#2980b9;
+  background-size: cover;
+  padding-top: 10%;
+  padding-bottom: 15%;
+  text-align: center;
+  color:700px;
+}
+
+.header-banner-courses .course-header-title{
+  font-size: 36px;
+  color: white;
+  font-weight: bolder;
+}
+
+.header-banner-courses .course-header-sub-title{
+    color: white;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.header-banner-courses .course-header-separate-line{
+  border: 1;
+  height: 1;
+  width: 25%;  
+}
+
+/* 【课程页面】主标题，副标题的位置*/
+.course-title-position{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;  
+}
+
+.course-title-layout{
+  font-size: 36px;
+  font-weight: bolder;
+  display:block;
+  color: #3d4351;
+}
+
+.course-sub-title-layout{
+  text-align: center;
+  font-size: 20px;
+  font-weight: lighter;
+  display:block; /*change the line*/
+  color: #95a5a6;
+}
+
+/* 【课程页面】每一个section的基本设定 */
+.course-section-padding{
+  padding-top: 70px;
+  padding-bottom: 70px;  
+}
+
+/* 【课程页面】基本项目介绍*/
+.course-intersection-background{
+  background: #fff;
+}
+
+/* 【课程页面】基本项目介绍中的logo的背景颜色*/
+.course-intersection-background .text-success{
+  color: #2cc36b;
+}
+
+.course-intersection-background .text-danger{
+  color: #e74c3c;
+}
+
+.course-intersection-background .text-warning{
+  color: #f1c40f;
+}
+
+/*【课程页面】所有button的共同设定*/
+.course-btn-more{
+  margin-top: 10px;
+  padding-right: 30px;
+  padding-left: 30px; 
+  font-size: 13px;
+  border: solid 2px;
+  border-radius: 40px;
+  text-transform: uppercase;
+}
+
+/* ====================================================================================================================
+ *  【课程页面】基本服务
+ * ====================================================================================================================*/
+
+/* 【课程页面】基本项目介绍 */
+.course-service-padding{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+/* ====================================================================================================================
+ *  【七联视界】基本服务
+ * ====================================================================================================================*/
 
 /*[NEWS]标题图片的定义*/
 .header-banner-news{
-  background: url("http://qilian.info/image/news_bgd.jpg") no-repeat center;
+  background: url("http://qilian.jp/image/news_bgd.jpg") no-repeat center;
   background-color:#2980b9;
   background-size: cover;
   padding-top: 10%;
   padding-bottom: 25%;
   text-align: center;
   color:700px;
-    /* 标题图片与
-    margin-bottom: 50px; */
-  }
+}
   /*[EVENTSs]标题图片的定义*/
   .header-banner-events{
-    background: url("http://qilian.info/events_bgd.jpg") no-repeat center;
+    background: url("http://qilian.jp/events_bgd.jpg") no-repeat center;
     background-color:#2980b9;
     background-size: cover;
     padding-top: 10%;
     padding-bottom: 25%;
     text-align: center;
     color:700px;
-    /* 标题图片与
-    margin-bottom: 50px; */
-  }
+}
 
   .header-message {
     position: relative;

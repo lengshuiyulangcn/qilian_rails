@@ -58,6 +58,8 @@ Rails.application.routes.draw do
    scope :api do
      resources :schedules
    end
+
+   get '/static/courses' => 'static#course', as: :static_course
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
