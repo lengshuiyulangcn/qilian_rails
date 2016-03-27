@@ -1,5 +1,9 @@
 <% if current_user.liked_posts.include? @post %>
-  $('#my_heart_<%= @post.id %>').removeClass('fa-star-o').addClass('fa-star')
+  $('#my_heart_<%= @post.id %>').removeClass('fa-star-o').addClass('fa-star');
+  var count =  parseInt($('#like-count_<%= @post.id %>').text());
+  $('#like-count_<%= @post.id %>').html(count+1);
 <% else %>
-  $('#my_heart_<%= @post.id %>').removeClass('fa-star').addClass('fa-star-o')
+  $('#my_heart_<%= @post.id %>').removeClass('fa-star').addClass('fa-star-o');
+  var count =  parseInt($('#like-count_<%= @post.id %>').text());
+  $('#like-count_<%= @post.id %>').html(count-1);
 <% end%>
