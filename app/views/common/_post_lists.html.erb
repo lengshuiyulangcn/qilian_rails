@@ -5,7 +5,7 @@
   <div class="col-md-11 news-1">
     <div class='news-title'>
       <span class="title"><%= link_to post.title, news_path(post.id) %></span>
-      <a  class="heart-link" href="javascript:void(0)" onclick="mark_post(<%= post.id %>)">
+      <a  class="heart-link" href="javascript:void(0)" onclick="mark_post(<%= post.id %>)" data-toggle="tooltip" data-placement="right" title="点击收藏">
       <% if current_user && current_user.liked_posts.include?(post) %>
         <i id="my_heart_<%= post.id %>" class="fa fa-star qilian-like"></i>
       <% else %>
