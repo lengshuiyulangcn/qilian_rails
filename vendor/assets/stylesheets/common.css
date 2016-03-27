@@ -28,7 +28,7 @@ body{
 
 /*【课程页面】*/
 .header-banner-courses{
-  background: url(../img/course-bg.jpg) no-repeat center;
+  background: url("http://qilian.jp/image/course-bg.jpg") no-repeat center;
   background-color:#2980b9;
   background-size: cover;
   padding-top: 10%;
