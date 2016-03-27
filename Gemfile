@@ -43,7 +43,7 @@ gem 'ace-rails-ap'
 gem "bower-rails", "~> 0.10.0"
 
 # User Auth
-gem 'devise'
+gem 'devise',"~> 3.5.6"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'angular_rails_csrf'
@@ -105,6 +105,8 @@ group :development, :test do
   gem "xray"
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
