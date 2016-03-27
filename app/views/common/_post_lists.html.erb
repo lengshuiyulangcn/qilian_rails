@@ -20,8 +20,8 @@
 
    <ul class="news-icon-tools">
     <li class="main-list-group"><i class="fa fa-clock-o"></i> <%= time_ago_in_words post.created_at %> ago</li>
-    <li class="main-list-group"><i class="fa fa-eye"></i><%=post.impressionist_count %> views</li>
-    <li class="main-list-group"><i class="fa fa-heart"></i><%=post.liked_users.length%></li>
+    <li class="main-list-group"><i class="fa fa-eye"></i> <%=post.impressionist_count %> views</li>
+    <li class="main-list-group"><i class="fa fa-star-o"></i> <span id="like-count_<%=post.id%>"><%=post.liked_users.length%></span></li>
     <% post.categories.each do |category|%>
     <li class="main-list-group">
       <span class="label label-style">

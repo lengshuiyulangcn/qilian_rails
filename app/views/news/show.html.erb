@@ -33,16 +33,16 @@
       <!-- Post -->
       
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <p class="mt5 gray">
               <!-- 阅读数 -->
-              <i class="fa fa-eye"></i><%= @count %> views
+              <i class="fa fa-eye"></i> <%= @count %> views
               <!-- 发布日期 -->
               <i class="fa fa-clock-o"></i> <%=time_ago_in_words @post.created_at %> ago
-              <i class="fa fa-heart"></i><%= @post.liked_users.length %>
+              <i class="fa fa-star-o"></i> <span id="like-count_<%= @post.id%>"><%= @post.liked_users.length %></span>
           </p>
         </div>
-        <div class="col-md-7 mt5">
+        <div class="col-md-6 mt5">
             <% @post.categories.each do |category| %>
             <span class="label label-success">
               <i class="fa fa-tag"></i>
