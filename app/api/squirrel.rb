@@ -19,5 +19,6 @@ module Squirrel
     mount Auth
     mount NewsService::News
     mount JobSearch::JobSearch
+    add_swagger_documentation
   end
 end

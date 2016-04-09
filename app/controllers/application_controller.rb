@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 protected
 
   def detect_mobile
-    if (browser.tablet? || browser.mobile?) && params[:angular]
+    if (browser.device.tablet? || browser.device.mobile?) && params[:angular]
        request.variant = :mobile
     end 
   end

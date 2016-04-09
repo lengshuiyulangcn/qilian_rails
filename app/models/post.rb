@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   has_many :liked_users,  through: :marked_posts, source: :user
   mount_uploader :image, ImageUploader
   is_impressionable  counter_cache:  true, column_name: :view_count
-  self.per_page = 5
+  self.per_page = 8 
   def self.most_viewed(top=5)
     Post.order("view_count DESC").first(5)
   end
