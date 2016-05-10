@@ -28,7 +28,8 @@ body{
 
 /*【课程页面】*/
 .header-banner-courses{
-  background: url("http://qilian.jp/image/course-bg.jpg") no-repeat center;
+  background: url("http://qilian.jp/image/qilian-students_photogallery.jpg") no-repeat center;
+  background-attachment: fixed;
   background-color:#2980b9;
   background-size: cover;
   padding-top: 10%;
@@ -37,19 +38,31 @@ body{
   color:700px;
 }
 
-.header-banner-courses .course-header-title{
+.header-banner-courses_summerIntern{
+  background: url("http://qilian.jp/image/qilian_location.jpg") no-repeat center;
+  background-attachment: fixed;
+  background-color:#2980b9;
+  background-size: cover;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  text-align: center;
+  color:700px;
+}
+
+
+.course-header-title{
   font-size: 36px;
   color: white;
   font-weight: bolder;
 }
 
-.header-banner-courses .course-header-sub-title{
+.course-header-sub-title{
     color: white;
     font-size: 20px;
     font-weight: lighter;
 }
 
-.header-banner-courses .course-header-separate-line{
+.course-header-separate-line{
   border: 1;
   height: 1;
   width: 25%;  
@@ -121,6 +134,28 @@ body{
 .course-service-padding{
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.course-service-padding > .media > .media-body > .course-service-description{
+  line-height: 150%;
+  color: #95a5a6;
+}
+
+/* ====================================================================================================================
+ *  【课程页面】老师介绍
+ * ====================================================================================================================*/
+
+
+/* 【课程页面】老师介绍板块layout */
+.course-teacher-section-layout{
+  margin-bottom: 20px;
+}
+
+/* 【课程页面】老师介绍文本 */
+.media-body > .course-teacher-detail{
+   margin-top: 5px;
+   line-height: 150%;
+   color: #7f8c8d;
 }
 
 
@@ -270,7 +305,7 @@ body{
  }
 
  .news-1 span.title {
-   font-size: 18px;
+   font-size: 16px;
  }
  /*副标题*/
  .page-header-small-style{
