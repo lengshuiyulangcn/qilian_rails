@@ -15,12 +15,24 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="naver-qilian">
           <ul class="nav navbar-nav">
-            <li><a href="/news">资讯</a></li>
+            <li class="七联就职">
+                <a href="/careers/intern" class="dropdown-toggle" data-toggle="dropdown">七联就职 <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/careers/intern">18卒暑期实习课程</a>
+                    </li>
+                    <li>
+                        <a href="/careers/jpnCompany17">17卒日资课程</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="/news">七联・视界</a></li>
             <li><a href="/jobs/search">求人信息</a></li>
             <li><a href="http://blog.qilian.jp">博客</a></li>
-            <%# <li><a href="/courses/all">课程</a></li>
+            <%# <li><a href="/events/list">活动</a></li>
+            <li><a href="/courses/all">课程</a></li>
             <li><a href="/jobs/search">求人</a></li>
-            <li><a href="/events/list">活动</a></li> %>
+            %>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% unless current_user %>
