@@ -5,6 +5,10 @@ class NewsController < ApplicationController
   def index
     @posts = Post.page(params.permit(:page)[:page]).order('sticky desc, created_at DESC')
     @hot_posts = get_hot_passages
+    respond_to do |format|
+      format.html
+      format.atom
+    end
   end
   def show
     @post = Post.find(params.permit(:id)[:id])
