@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   
   def index
-    redirect_to news_index_path
+    redirect_to 'http://qilian.jp/careers/internship' 
   end
 end
